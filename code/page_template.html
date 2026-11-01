@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Up and Down</title>
+<meta name="description" content="An interactive map of all {{source.n|int}} orbital launch attempts since Sputnik in Jonathan McDowell's GCAT catalogue: the space race, the post Cold War dip, the record {{peaks.record_n|int}} launches of {{peaks.record_year|raw}}, the busiest spaceports, and where the {{objects.came_down|int}} catalogued objects that came back down fell.">
+<meta property="og:title" content="Up and down: every orbital launch since Sputnik, and where it all comes back">
+<meta property="og:description" content="{{source.n|int}} orbital launch attempts since 1957. {{peaks.record_year|raw}} set a record of {{peaks.record_n|int}}, {{peaks.record_vs_coldwar_pct|int}}% above the Cold War peak. Half of everything ever catalogued has already fallen back.">
+<meta property="og:image" content="https://maps.tristanhotham.com/rocket-launches/header.png">
+<meta property="og:url" content="https://maps.tristanhotham.com/rocket-launches/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+/* Launch pad: pale paper, exhaust red, sky blue, a night navy for the ocean graveyard. */
+:root{
+  --bg:#F6F4EF; --panel:#EAE7DF; --fg:#1D2128; --muted:#636A72; --rule:#DDD8CC; --card:#FFFEFA; --border:#CBC5B8;
+  --hot:#C8322B; --cool:#2F5FA7; --gold:#E0A11B; --ink:#1F2F4D; --land:#E6E2D8; --sea:#EEF1F2; --nemo:#1F2F4D;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#12151B; --panel:#1C2029; --fg:#ECEEF1; --muted:#A2A8B0; --rule:#30353F; --card:#171B22; --border:#444B57;
+  --hot:#FF6A5C; --cool:#7DA7E6; --gold:#F2B54E; --ink:#A9BBDD; --land:#232831; --sea:#161A20; --nemo:#9FB4E0; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12151B; --panel:#1C2029; --fg:#ECEEF1; --muted:#A2A8B0; --rule:#30353F; --card:#171B22; --border:#444B57;
+  --hot:#FF6A5C; --cool:#7DA7E6; --gold:#F2B54E; --ink:#A9BBDD; --land:#232831; --sea:#161A20; --nemo:#9FB4E0; color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 18px/1.62 var(--body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:hidden}
+.wrap{max-width:700px;margin:0 auto;padding-block:28px 64px}
+.wrap .bleed{width:min(1180px,calc(100vw - 32px));margin-left:calc((100% - min(1180px,100vw - 32px))/2);margin-right:0}
+a{color:inherit;text-decoration-color:var(--hot);text-underline-offset:3px}
+.kicker{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.kicker b{background:var(--ink);color:#fff;padding:5px 8px;font-weight:500}
+:root[data-theme="dark"] .kicker b{color:#12151B}
+header.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 24px;align-items:end;border-bottom:6px double var(--fg);padding-bottom:22px;margin-top:18px}
+h1{font:900 clamp(44px,11vw,94px)/.9 var(--display);letter-spacing:-.02em;margin:0;text-wrap:balance}
+h1 .a{color:var(--hot)} h1 .b{color:var(--cool)}
+.mark{width:clamp(78px,16vw,128px);height:auto;display:block;color:var(--fg)}
+.dek{grid-column:1/-1;font-size:21px;line-height:1.42;margin:8px 0 0;max-width:56ch}
+.byline{font:400 13px/1.4 var(--mono);color:var(--muted);margin-top:14px}
+h2{font:800 34px/1.04 var(--display);letter-spacing:-.01em;margin:54px 0 10px;text-wrap:balance}
+h2 .n{font:500 13px/1 var(--mono);color:var(--hot);display:block;letter-spacing:.1em;margin-bottom:10px}
+h3{font:600 20px/1.25 var(--display);margin:28px 0 6px}
+p{margin:0 0 16px}
+.lede::first-letter{font:900 72px/.8 var(--display);float:left;margin:6px 10px 0 0;color:var(--hot)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0 8px}
+.stats div{background:var(--card);padding:14px 12px}
+.stats b{display:block;font:900 clamp(22px,4.4vw,32px)/1 var(--display);letter-spacing:-.01em}
+.stats b.h{color:var(--hot)} .stats b.c{color:var(--cool)} .stats b.g{color:var(--gold)} .stats b.p{color:var(--ink)}
+.stats span{font:400 12px/1.35 var(--mono);color:var(--muted);display:block;margin-top:6px}
+@media (max-width:600px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.figure{margin:26px 0 30px}
+.fig-h{font:600 19px/1.25 var(--display);margin:0 0 4px}
+.fig-sub{font:400 13px/1.45 var(--mono);color:var(--muted);margin:0 0 12px}
+.src{font:400 12px/1.45 var(--mono);color:var(--muted);margin-top:10px}
+.chart{width:100%;position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+svg text{font-family:var(--mono);fill:var(--fg)}
+.lab{font-size:12px}.lab.m{fill:var(--muted)}.lab.b{font-weight:500}.lab.s{font-size:11px}
+.tip{position:absolute;pointer-events:none;background:var(--fg);color:var(--bg);font:400 12px/1.45 var(--mono);padding:8px 10px;border-radius:3px;max-width:300px;z-index:1000;transform:translate(-50%,calc(-100% - 12px));display:none}
+.tip b{font-weight:500}
+.controls{display:flex;gap:8px;align-items:center;margin:0 0 10px;flex-wrap:wrap}
+.scrollrow{display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;padding-bottom:2px;max-width:100%}
+.scrollrow .btn{flex:0 0 auto;white-space:nowrap}
+.ctl-l{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:2px;flex:0 0 auto;align-self:center}
+.btn{font:500 12px/1 var(--mono);background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:8px 10px;cursor:pointer;min-height:36px}
+.btn[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.btn i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px;border:1px solid rgba(0,0,0,.2)}
+.btn:focus-visible,input:focus-visible,summary:focus-visible,select:focus-visible{outline:2px solid var(--hot);outline-offset:2px}
+.searchbox{position:relative;flex:1 1 260px;min-width:0}
+input[type=search]{font:400 15px/1 var(--mono);background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:10px 11px;min-height:40px;width:100%}
+.suggest{position:absolute;left:0;right:0;top:100%;margin:2px 0 0;padding:0;list-style:none;background:var(--card);border:1px solid var(--border);z-index:1001;font:400 13px/1.3 var(--mono);display:none;max-height:340px;overflow:auto}
+.suggest li{padding:8px 10px;cursor:pointer;border-bottom:1px solid var(--rule)}
+.suggest li span{color:var(--muted)}
+.suggest li[aria-selected="true"],.suggest li:hover{background:var(--panel)}
+.timebox{display:grid;grid-template-columns:auto auto minmax(0,1fr) auto;gap:10px;align-items:center;margin:0 0 10px;font:500 13px/1 var(--mono)}
+.timebox .yv{font:900 30px/1 var(--display);min-width:3.2ch;text-align:center;color:var(--hot)}
+.timebox input[type=range]{width:100%;accent-color:var(--hot);height:28px}
+.play{width:42px;height:38px;border-radius:3px;border:1px solid var(--fg);background:var(--fg);color:var(--bg);font:600 15px/1 var(--mono);cursor:pointer}
+.mapgrid{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:14px;align-items:start}
+@media (max-width:900px){.mapgrid{grid-template-columns:1fr}}
+.side{background:var(--card);border:1px solid var(--border);padding:12px 12px 10px;font:400 13px/1.45 var(--mono);max-height:660px;overflow:auto}
+@media (max-width:900px){.side{max-height:none}}
+.side h4{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:14px 0 8px}
+.side h4:first-child{margin-top:2px}
+.side .big{font:800 26px/1.1 var(--display);margin:2px 0 4px}
+.side .sub{color:var(--muted);font-size:12px;margin:0 0 8px}
+.side ol,.side ul{margin:4px 0 8px;padding-left:20px}
+.side li{margin:3px 0}
+.side li small,.side td small{color:var(--muted)}
+.side table{width:100%;border-collapse:collapse;margin:4px 0 6px}
+.side td{padding:4px 4px 4px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.side td.num{text-align:right;white-space:nowrap}
+.side svg{display:block;width:100%;height:auto}
+.back{font:400 12px var(--mono);background:none;border:0;color:var(--muted);padding:0;cursor:pointer;text-decoration:underline;margin-bottom:6px}
+.go{cursor:pointer;text-decoration:underline;text-decoration-color:var(--border);text-underline-offset:3px}
+.lmap{height:620px;border:1px solid var(--border);background:var(--sea);border-radius:2px}
+@media (max-width:600px){.lmap{height:min(62vh,460px)}}
+.leaflet-container{font:400 12px/1.4 var(--mono);background:var(--sea)}
+.dotcanvas{position:absolute;left:0;top:0;pointer-events:none}
+.lyrBtn{background:var(--card,var(--bg));color:var(--fg);border:1px solid var(--border);border-radius:3px;font:600 12px/1 var(--mono);padding:8px 10px;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.lyrBtn[aria-expanded="true"]{background:var(--fg);color:var(--bg)}
+.lyrPanel{background:var(--card,var(--bg));color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:10px 12px 8px;margin-top:6px;width:250px;box-shadow:0 2px 10px rgba(0,0,0,.15);font:400 12px/1.3 var(--mono);max-height:min(70vh,520px);overflow:auto}
+.lyrPanel[hidden]{display:none}
+.lyrPanel .row{margin:0 0 9px}
+.lyrPanel label{display:flex;gap:6px;align-items:center;cursor:pointer;font-weight:600}
+.lyrPanel input[type=range]{width:100%;accent-color:var(--fg)}
+.lyrPanel select{font:400 12px var(--mono);background:var(--bg);color:var(--fg);border:1px solid var(--border);border-radius:2px;padding:2px 4px;width:100%;min-height:0}
+.lyrPanel .sub{display:flex;gap:6px;align-items:center;color:var(--muted);font-size:11px;margin-top:3px}
+.lyrPanel .sub span{flex:0 0 58px}
+.lyrPanel .hd{font:500 10.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:10px 0 7px;border-top:1px solid var(--rule);padding-top:9px}
+.lyrPanel .reset{font:400 11px var(--mono);color:var(--muted);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline}
+.cityL{font:500 11px/1 var(--mono);color:var(--fg);white-space:nowrap;text-shadow:0 0 3px var(--bg),0 0 3px var(--bg),0 0 2px var(--bg);pointer-events:none}
+.cityL i{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--fg);margin-right:4px;vertical-align:1px}
+.cityL.s{font-size:10px;font-weight:400}
+.cntL{font:700 11px/1 var(--mono);color:var(--fg);white-space:nowrap;text-transform:uppercase;letter-spacing:.06em;opacity:.75;text-shadow:0 0 3px var(--bg),0 0 3px var(--bg);pointer-events:none;text-align:center}
+.portL{font:600 11.5px/1.15 var(--mono);color:var(--fg);white-space:nowrap;text-shadow:0 0 3px var(--bg),0 0 3px var(--bg),0 0 3px var(--bg);pointer-events:none}
+.portL small{font-weight:400;color:var(--muted)}
+.nemoL{font:600 12px/1.2 var(--mono);color:var(--nemo);white-space:nowrap;text-shadow:0 0 3px var(--bg),0 0 3px var(--bg),0 0 3px var(--bg);pointer-events:none}
+.mapnote{background:color-mix(in srgb,var(--card) 92%,transparent);border:1px solid var(--border);border-radius:3px;padding:6px 9px;font:400 12px/1.35 var(--mono);max-width:min(300px,62vw);box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.mapnote b{font-weight:600}
+.mapnote:empty{display:none}
+.leaflet-bar a,.leaflet-bar a:hover{background:var(--card);color:var(--fg);border-bottom-color:var(--border)}
+.leaflet-control-attribution{background:color-mix(in srgb,var(--card) 85%,transparent)!important;color:var(--muted)}
+.leaflet-control-attribution a{color:var(--fg)}
+.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:var(--card);color:var(--fg)}
+.leaflet-popup-content{font:400 12.5px/1.45 var(--mono);margin:10px 12px}
+.leaflet-popup-content b{font:700 15px/1.2 var(--display)}
+.legend{display:flex;gap:6px 14px;flex-wrap:wrap;font:400 12px/1.3 var(--mono);color:var(--muted);margin-top:8px;align-items:center}
+.legend span{display:inline-flex;align-items:center}
+.legend i{display:inline-block;width:13px;height:13px;margin-right:6px;border-radius:50%;border:1px solid rgba(0,0,0,.15)}
+.legend i.sq{border-radius:2px}
+.pull{font:600 26px/1.25 var(--display);border-left:6px solid var(--hot);padding:4px 0 4px 18px;margin:30px 0}
+.note{background:var(--panel);border:1px solid var(--rule);padding:14px 16px;font-size:16px;margin:22px 0}
+.note h3{margin-top:0}
+table.tbl{width:100%;border-collapse:collapse;font:400 13px/1.4 var(--mono)}
+table.tbl th{font:500 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left;padding:6px 6px 6px 0;border-bottom:2px solid var(--fg)}
+table.tbl td{padding:6px 6px 6px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+table.tbl td.r,table.tbl th.r{text-align:right;white-space:nowrap}
+table.tbl tr[data-i]{cursor:pointer}
+table.tbl tr[data-i]:hover td{background:var(--panel)}
+.tablebox{max-height:460px;overflow:auto;border:1px solid var(--border);background:var(--card);padding:0 10px}
+details{margin:14px 0}
+summary{font:500 13px/1.4 var(--mono);cursor:pointer;color:var(--fg);padding:8px 0}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.cta a{font:500 13px/1 var(--mono);text-decoration:none;border:1px solid var(--fg);padding:11px 14px;border-radius:3px}
+.cta a.p{background:var(--hot);border-color:var(--hot);color:#fff}
+footer{border-top:6px double var(--fg);margin-top:56px;padding-top:16px;font:400 13px/1.55 var(--mono);color:var(--muted)}
+footer p{margin:0 0 10px}
+.theme{position:fixed;right:12px;bottom:12px;z-index:1002}
+@media print{.theme,.controls{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="kicker"><b>Data study</b><span>Spaceflight</span><span>World, 1957 to {{source.last_year|raw}}</span></div>
+<header class="hero">
+  <h1><span class="a">Up</span> and <span class="b">down</span></h1>
+  <svg class="mark" viewBox="0 0 120 120" aria-hidden="true"><g id="heroMark"></g></svg>
+  <p class="dek">Every orbital launch attempt since Sputnik, {{source.n|int}} of them, from Jonathan McDowell's catalogue of everything humans have put into space. Where rockets leave from, who flew them, how often they failed, and where the hardware comes back down: {{objects.came_down|int}} catalogued objects so far, with the biggest steered towards Point Nemo, the loneliest spot in the ocean.</p>
+</header>
+<div class="byline">Dr Tristan Hotham · Independent researcher · 2026 · Data: GCAT (J. McDowell, planet4589.org/space/gcat), CC BY 4.0; Wikipedia; Natural Earth</div>
+
+<div class="stats">
+  <div><b class="p">{{source.n|int}}</b><span>orbital launch attempts, October 1957 to {{source.last_year|raw}}</span></div>
+  <div><b class="h">{{peaks.record_n|int}}</b><span>in {{peaks.record_year|raw}}, a record: {{peaks.record_vs_coldwar_pct|int}}% above the Cold War peak of {{peaks.coldwar_n|int}} in {{peaks.coldwar_year|raw}}</span></div>
+  <div><b class="g">{{source.fail_pct|pc1}}</b><span>failed: {{source.fail|int}} rockets that never reached orbit</span></div>
+  <div><b class="c">{{objects.came_down_pct|int}}%</b><span>of the {{objects.n|int}} catalogued objects have already come back down</span></div>
+</div>
+
+<p class="lede">On 4 October 1957 a Soviet R-7 rocket put a polished metal ball called Sputnik into orbit, and the space age began. Since then rockets have tried to reach orbit {{source.n|int}} times. Jonathan McDowell, an astronomer at the Harvard and Smithsonian Center for Astrophysics, has spent decades cataloguing every one of them, along with every satellite, rocket stage and fragment they left behind. His General Catalog of Artificial Space Objects (GCAT) is free for anyone to use, and it is the source for everything on this page.</p>
+<p>The map below shows where those launches left from. Press play and watch the space race spread out from Kazakhstan, northern Russia and Florida, stall after the Soviet Union fell, and then explode in the 2020s as SpaceX's reusable Falcon 9 began flying every two or three days. Then scroll on to see what comes back: about half of everything ever catalogued has already fallen out of the sky, mostly unnoticed, and a few of the largest pieces were steered on purpose into a patch of the South Pacific known as the spacecraft cemetery.</p>
+
+<h2><span class="n">01 · The map</span>{{source.n_ports|int}} spaceports, {{source.n|int}} launches</h2>
+<div class="bleed" id="atlas">
+<div class="timebox"><button class="play" id="play" aria-label="Play through the years">&#9654;</button><span class="yv" id="yv">2026</span><input type="range" id="yr" min="1957" max="2026" step="1" value="2026" aria-label="Year"><span id="ylab" style="color:var(--muted);font-size:12px">all years to here</span></div>
+<div class="controls">
+  <div class="scrollrow" id="modeRow"><span class="ctl-l">Count</span><button class="btn" data-m="cum" aria-pressed="true">Since 1957</button><button class="btn" data-m="year" aria-pressed="false">That year only</button><button class="btn" data-m="dec" aria-pressed="false">Ten years to then</button></div>
+  <div class="scrollrow" id="failRow"><span class="ctl-l">Failures</span><button class="btn" data-f="1" aria-pressed="true"><i style="background:transparent;border:2px solid #111"></i>Show</button><button class="btn" data-f="0" aria-pressed="false">Hide</button></div>
+</div>
+<div class="controls"><div class="scrollrow" id="blocRow"><span class="ctl-l">Who</span></div></div>
+<div class="controls">
+  <div class="searchbox"><input type="search" id="q" placeholder="Search a spaceport, a country or a mission (Apollo 11, JWST...)" aria-label="Search a spaceport, a country or a mission" autocomplete="off"><ul class="suggest" id="sug" role="listbox"></ul></div>
+</div>
+<div class="controls"><div class="scrollrow" id="focusRow"><span class="ctl-l">Zoom to</span></div></div>
+<div class="mapgrid">
+  <div><div id="map" class="lmap" role="application" aria-label="Map of rocket launch sites sized by launches"></div>
+    <div class="legend" id="legend"></div></div>
+  <div class="side" id="side" aria-live="polite"></div>
+</div>
+<p class="src">Circles: each spaceport, with area proportional to its orbital launch attempts in the chosen years, split by who launched them. Dark rings: failures, on the same scale. Sites that sit next to each other are merged (Cape Canaveral with the Kennedy Space Center, Baikonur's old and new codes); air launches are placed at the airfield they took off from. Small dots (Re-entry places in Map layers): {{located.n|int}} objects whose place of re-entry or landing GCAT records. Navy circle: Point Nemo and an indicative {{located.nemo_r_km|int}} km circle around it, not an official boundary. Source: GCAT (J. McDowell, planet4589.org/space/gcat), CC BY 4.0. Outlines: Natural Earth. Base map tiles © Esri.</p>
+</div>
+
+<h2><span class="n">02 · Seventy years</span>From space race to Starlink</h2>
+<p>In the first full year of the space age, 1958, there were {{sputnik.n1958|int}} attempts and {{sputnik.fail1958|int}} of them failed. By the mid 1960s the United States and the Soviet Union were each launching more than once a week, and the Cold War peak came in {{peaks.coldwar_year|raw}}, with {{peaks.coldwar_n|int}} attempts worldwide. The American total peaked a year earlier at {{peaks.us_1960s_n|int}}; the Soviet one kept climbing, to {{peaks.su_n|int}} in {{peaks.su_year|raw}}, much of it from Plesetsk in the far north, which peaked at {{plesetsk.peak_n|int}} launches in {{plesetsk.peak_year|raw}}.</p>
+<div class="figure"><p class="fig-h">Orbital launch attempts per year, by who launched them</p><p class="fig-sub">Stacked by the country of the launch agency, as GCAT records it. {{source.last_year|raw}} is partial (to {{source.last_date|raw}}). Hover or tap a year.</p><div class="chart" id="yearChart"></div><div class="legend" id="yearLegend"></div></div>
+<p>When the Soviet Union broke up, the launch rate fell with it. The Soviet Union launched {{peaks.su_1991|int}} times in its final year, 1991; by the early 2000s the whole world managed little more than one a week, with a low of {{peaks.dip_n|int}} in {{peaks.dip_year|raw}}. China's rise filled some of the gap in the 2010s. Then came reusable rockets. SpaceX, which had flown {{peaks.spx_total|int}} orbital launches by {{source.last_year|raw}}, made {{peaks.spx_2025|int}} of the {{peaks.record_n|int}} attempts in {{peaks.record_year|raw}} ({{peaks.spx_2025_pct|int}}%), {{peaks.starlink_missions_2025|int}} of them carrying its own Starlink internet satellites. The world first beat the {{peaks.coldwar_year|raw}} record in {{peaks.first_over_coldwar|raw}}, and {{peaks.since2020_pct|int}}% of all launches in seventy years have happened since 2020.</p>
+<p class="pull">In {{peaks.record_year|raw}} the world launched {{peaks.record_vs_dip_x|f1}} times as many rockets as in {{peaks.dip_year|raw}}, and more than half were SpaceX's.</p>
+<div class="note"><h3>Before Sputnik</h3><p>Rockets reached space long before anything reached orbit. GCAT lists {{before.pre1957|int}} launches before 1957, all suborbital. The first to pass 100 km was a German A-4, better known as the V-2, fired from Peenemünde on the Baltic coast in {{before.first_space_date|raw}} (apogee {{before.first_space_apogee|int}} km). GCAT records {{before.v2|int}} A-4 and V-2 launches from {{before.v2_first|raw}} to {{before.v2_last|raw}}, {{before.v2_1944|int}} of them in 1944 alone, most as weapons against London, Antwerp and Paris; {{before.v2_us|int}} captured rockets were later flown from New Mexico. The engineers and the rockets went east and west after the war, and their descendants launched Sputnik and Explorer 1. This page counts only the orbital launches that followed.</p></div>
+
+<h2><span class="n">03 · Failures</span>Almost one in four at first, one in {{fail.y2020s_inv|int}} now</h2>
+<p>Of all {{source.n|int}} attempts, {{source.fail|int}} ({{source.fail_pct|pc1}}) failed to reach orbit. In the first ten years, to 1966, {{fail.first10_pct|int}}% failed. By the 1980s the rate was down to {{decades.3.fail_pct|f1}}%, and in the 2020s it is {{fail.y2020s_pct|f1}}%. {{fail.max_year|raw}} was the worst year, with {{fail.max_n|int}} failures. The newest launchers still fail more often: GCAT's smaller launching countries (Iran, Israel, the two Koreas, Brazil, Australia and others) have lost {{blocs.Others.fail_pct|int}}% of their {{blocs.Others.n|int}} attempts. Turn on "Show" in the failures row of the map to see where they happened.</p>
+<div class="figure"><p class="fig-h">Failures per year, and the failure rate by decade</p><p class="fig-sub">Bars: launches that failed to reach orbit, by year. Line: share of attempts that failed in each decade (right scale). Partial failures (some payloads in the wrong orbit) count as failures if GCAT codes them as one. Hover a bar.</p><div class="chart" id="failChart"></div></div>
+
+<h2><span class="n">04 · Spaceports</span>Plesetsk, Baikonur and the Cape</h2>
+<p>Three places dominate the history. Plesetsk, a military site in the forests of northern Russia, has the most orbital launch attempts of anywhere: {{ports.Plesetsk.n|int}}, {{plesetsk.coldwar|int}} of them before the end of 1991, peaking at {{plesetsk.peak_n|int}} in {{plesetsk.peak_year|raw}}. Baikonur in Kazakhstan, where Sputnik and Yuri Gagarin left from, has {{ports.Baikonur.n|int}}; Cape Canaveral, with the neighbouring Kennedy Space Center, {{ports.Cape Canaveral and Kennedy.n|int}}; and Vandenberg in California, the American site for polar orbits, {{ports.Vandenberg.n|int}}. Those four account for {{top4_share|int}}% of every launch in seventy years.</p>
+<div class="figure"><p class="fig-h">The busiest spaceports, ever and now</p><p class="fig-sub">Orbital launch attempts, 1957 to {{source.last_year|raw}} (left) and in {{peaks.record_year|raw}} alone (right). Click a bar to see the site on the map.</p><div class="chart" id="portChart"></div></div>
+<p>The present looks very different. In {{peaks.record_year|raw}} Florida alone hosted {{ports.Cape Canaveral and Kennedy.y2025|int}} launches, {{cape.y2025_pct|int}}% of the world's, and Vandenberg {{ports.Vandenberg.y2025|int}}. China now spreads its launches over four inland and coastal centres, Jiuquan, Xichang, Taiyuan and Wenchang, plus ships at sea. Rocket Lab's pad on the Mahia Peninsula in New Zealand, which first launched in {{ports.Mahia.first|raw}}, managed {{ports.Mahia.y2025|int}} launches in {{peaks.record_year|raw}}, more than Baikonur's {{ports.Baikonur.y2025|int}}. Plesetsk, once the busiest site in the world, saw {{ports.Plesetsk.y2025|int}}.</p>
+<div class="figure"><p class="fig-h">Every spaceport</p><p class="fig-sub">All {{source.n_ports|int}} sites with at least one orbital launch attempt. Click a row to see it on the map.</p><div class="tablebox"><table class="tbl" id="portTable"></table></div></div>
+
+<h2><span class="n">05 · Latitude and direction</span>Why Europe launches from South America</h2>
+<p>The Earth spins eastwards, and a rocket on the pad is already moving with it: {{lat.equator_v|int}} m/s at the equator, falling with the cosine of the latitude. At Kourou in French Guiana, five degrees north of the equator, the free boost is {{lat.kourou_v|int}} m/s; at Cape Canaveral {{lat.cape_v|int}} m/s; at Baikonur {{lat.baikonur_v|int}} m/s; at Plesetsk only {{lat.plesetsk_v|int}} m/s. Latitude matters even more for satellites bound for the geostationary ring over the equator, because a rocket's orbit is tilted to the equator by at least its launch site's latitude, and taking that tilt out later costs fuel. That is why Europe, and before it France, built its spaceport in South America: {{lat.kourou_gto_pct|int}}% of Kourou's launches went towards geostationary orbit, against {{lat.cape_gto_pct|int}}% from the Cape, {{lat.baikonur_gto_pct|int}}% from Baikonur and almost none from Plesetsk.</p>
+<div class="figure"><p class="fig-h">Latitude, the Earth's free push, and where rockets head</p><p class="fig-sub">Spaceports with at least eight launches, by distance from the equator. Bar length: the eastward speed the Earth gives a rocket on the pad. Right: direction of successful launches to low and medium orbits, from the inclination of the first payload's orbit (under 75° eastward, 75° to 105° polar or sun-synchronous, over 105° westward). Hover a row.</p><div class="chart" id="latChart"></div><div class="legend" id="latLegend"></div></div>
+<p>Direction depends on geography as much as physics. Rockets cannot be allowed to drop their spent stages on towns, so each site has safe corridors over sea or empty land. From Cape Canaveral, with the Atlantic to the east, {{dir.cape_east|int}}% of launches to low orbit head east. Vandenberg looks south over the Pacific, so {{dir.vandenberg_polar|int}}% of its low orbit launches go into polar or sun-synchronous orbits. Israel launches westward over the Mediterranean, against the Earth's spin, so that spent stages fall into the sea rather than over its neighbours: all of Palmachim's launches with a known orbit are retrograde. Across all {{dir.n|int}} successful launches to low and medium orbit with a known inclination, {{dir.east_pct|int}}% went east, {{dir.polar_pct|int}}% polar and {{dir.retro_pct|f1}}% westward, and just {{dir.below_lat_pct|f1}}% reached an orbit tilted more than two degrees less than their site's latitude: the latitude sets a floor. (GCAT has no launch azimuths, so direction here comes from the orbit's inclination.)</p>
+
+<h2><span class="n">06 · Coming down</span>Half of everything has already fallen</h2>
+<p>GCAT's main catalogue lists {{objects.n|int}} objects launched into Earth orbit or beyond: {{objects.types.P|int}} payloads (satellites and spacecraft), {{objects.types.R|int}} rocket stages, {{objects.types.C|int}} components such as nose fairings and adapters, and {{objects.types.D|int}} catalogued fragments of debris. {{objects.came_down|int}} of them ({{objects.came_down_pct|int}}%) have already come back: {{objects.reentered|int}} re-entered the atmosphere on their own as their orbits decayed, {{objects.landed|int}} landed or were recovered (crew capsules, film canisters, Space Shuttles), and only {{objects.deorbited|int}} were deliberately steered down. {{objects.in_orbit|int}} are still up there, {{objects.in_orbit_starlink|int}} of them Starlink satellites.</p>
+<div class="figure"><p class="fig-h">What came back to Earth, by year</p><p class="fig-sub">Catalogued objects that re-entered, were deorbited or landed, by year and type. {{source.last_year|raw}} is partial. Hover a bar.</p><div class="chart" id="downChart"></div><div class="legend" id="downLegend"></div></div>
+<p>The busiest year so far was {{objects.down_peak_year|raw}}, with {{objects.down_peak_n|int}} objects, swollen by debris: {{asat.y2022|int}} of them ({{asat.y2022_pct|int}}%) were fragments of Kosmos 1408, an old Soviet satellite that Russia blew apart with a missile in an anti-satellite test in November 2021. In {{peaks.record_year|raw}}, {{objects.down_2025|int}} came down, and {{objects.down_2025_starlink|int}} of those ({{objects.down_2025_starlink_pct|int}}%) were Starlink satellites, which SpaceX retires by lowering their orbits so that they burn up within months. In 2019 the total was {{objects.down_2019|int}}.</p>
+<div class="figure"><p class="fig-h">The fate of every catalogued object</p><p class="fig-sub">All {{objects.n|int}} objects in GCAT's main catalogue, by type and by what has happened to them. Hover a block.</p><div class="chart" id="fateChart"></div><div class="legend" id="fateLegend"></div></div>
+<p>Where do they fall? For most objects GCAT gives only a date. But for {{located.n|int}} of them ({{located.pct_of_down|int}}% of everything that came down, {{located.since2020_pct|int}}% of them since 2020) it records a rough place of re-entry or landing. Turn on "Re-entry places" in Map layers to see them. The uncontrolled re-entries among them, {{located.reentered|int}} objects, are scattered across every ocean and continent between the latitudes their orbits reached: {{located.unc_sea_pct|int}}% fell over the sea, close to the {{located.ocean_pct_earth|int}}% of the Earth that is ocean, and {{located.unc_land|int}} over land. Nothing about them is aimed. Only {{located.unc_near_nemo_pct|f1}}% came down within {{located.nemo_r_km|int}} km of Point Nemo, a circle that covers {{located.circle_share_pct|f1}}% of the Earth's surface.</p>
+
+<h2><span class="n">07 · Point Nemo</span>The spacecraft cemetery</h2>
+<p>Point Nemo, the oceanic pole of inaccessibility, lies at 48.88°S 123.39°W in the South Pacific, about {{wiki.nemo_km|raw}} km from the nearest land: Ducie Island in the Pitcairn group, Motu Nui off Easter Island, and Maher Island off Antarctica. Hrvoje Lukatela, a Croatian survey engineer, identified it in {{wiki.found_year|raw}} and named it after Jules Verne's Captain Nemo. Because nobody lives there and few ships pass, space agencies aim their biggest returning craft at the ocean around it: Wikipedia's article on the spacecraft cemetery says {{wiki.n_disposed|raw}} spacecraft were disposed of there between {{wiki.years|raw}}, nearly 200 pieces of it Russian, and the International Space Station is planned to follow in {{wiki.iss_year|raw}}.</p>
+<div class="figure"><p class="fig-h">How the space stations came down</p><p class="fig-sub">Every Salyut, Skylab, Mir and Tiangong station, with GCAT's status and its recorded place ("POR" is GCAT's shorthand for the Pacific Ocean region). Click a row to see it on the map.</p><div class="tablebox"><table class="tbl" id="stationTable"></table></div></div>
+<p>GCAT shows the cemetery's history station by station. Salyut 1, 3, 4, 5 and 6 were all deorbited into the Pacific in the 1970s and early 1980s. Two did not go to plan: Salyut 7 re-entered on its own in 1991 and fell over Argentina, and America's Skylab, {{stations.7.mass_t|int}} tonnes, came down over Western Australia in 1979. Salyut 2 failed within weeks of launch in 1973 and also fell on its own. Mir was steered down on 23 March 2001. China's first station, Tiangong 1, slipped out of control and re-entered on its own in 2018, over the central South Pacific; Tiangong 2 was deorbited into the South Pacific in 2019. The regular visitors are cargo ships. Wikipedia names Russia's Progress, Japan's H-II Transfer Vehicle and Europe's Automated Transfer Vehicle; GCAT catalogues {{cargo.Progress|int}} Progress ships since {{cargo.progress_first|raw}}, {{cargo.HTV|int}} Japanese cargo ships since {{cargo.htv_first|raw}} and all {{cargo.ATV|int}} ATVs ({{cargo.atv_first|raw}} to {{cargo.atv_last|raw}}).</p>
+<p>Deliberate deorbits are rare. Of the {{objects.came_down|int}} catalogued objects that have come back, {{objects.deorbited|int}} ({{objects.deorbited_pct_of_down|f1}}%) are recorded as deorbited on purpose. Even counting cargo ships, whose last plunge is logged in GCAT's separate event catalogues rather than here, almost everything that falls from orbit falls wherever its orbit happens to decay. Most of it burns up long before it reaches the sea.</p>
+
+<h2><span class="n">08 · How I did this</span>Methods and caveats</h2>
+<p><b>Data.</b> GCAT release {{source.release|raw}} (data update {{source.update_year|raw}}): the launch list ({{source.launch_rows|int}} launches of every kind), sites, organisations, launch vehicles and the main object catalogue ({{source.satcat_rows|int}} objects). An orbital launch attempt is a launch GCAT codes as orbital or deep space; I leave out {{source.pad_oe|int}} rockets that exploded on the pad before launch and {{source.abort_oa|int}} aborts before lift-off, and I follow GCAT's judgement elsewhere (it counts some Starship test flights, for instance). A failure is any launch GCAT codes as failed, including partial failures. Who launched each rocket comes from the state of the first agency GCAT lists, which is why Rocket Lab's New Zealand company counts for New Zealand and Starsem's {{europe.starsem_baikonur|int}} Soyuz launches from Baikonur count for Europe.</p>
+<p><b>Places.</b> Spaceports are GCAT's launch sites, merged where a site was renamed or two sit side by side; coordinates are GCAT's, to about a kilometre for most sites. Direction comes from the inclination of the first payload's orbit in the catalogue, for successful launches to low and medium orbits only. The re-entry places are GCAT's own, written as rough coordinates (often whole degrees, some marked uncertain) for {{located.n|int}} objects; I do not infer a place for any other object. The {{located.nemo_r_km|int}} km circle around Point Nemo is my own device for drawing and counting: neither GCAT nor Wikipedia gives the cemetery a boundary.</p>
+<p><b>What this is not.</b> GCAT's main catalogue holds objects with standard catalogue numbers; it leaves out the newest and smallest objects that the US Space Force has not yet numbered, and a docked spacecraft's later fate (a cargo ship undocking and being deorbited, say) sits in GCAT's event catalogues, which I did not use. Debris counts are only the fragments big enough to be tracked. The figures for {{source.last_year|raw}} run to {{source.last_date|raw}}.</p>
+<details><summary>Sources and licences</summary>
+<ul>
+<li>Jonathan C. McDowell, General Catalog of Artificial Space Objects (GCAT), release {{source.release|raw}}, https://planet4589.org/space/gcat. CC BY 4.0. "Data from GCAT (J. McDowell, planet4589.org/space/gcat)".</li>
+<li>Wikipedia, "Pole of inaccessibility" (Point Nemo), "Spacecraft cemetery", "Spaceport" and "List of rocket launch sites" (CC BY-SA 4.0), used for facts quoted in the text; no Wikipedia text is reproduced.</li>
+<li>Natural Earth country outlines, land and populated places (public domain).</li>
+<li>Base map tiles © Esri.</li>
+</ul></details>
+
+<div class="cta"><a class="p" href="https://doi.org/10.5281/zenodo.23857612">Read the paper</a><a href="https://github.com/Tristan-Hotham/rocket-launches">Data and code</a><a href="https://blog.tristanhotham.com/2026/10/31/rocket-launches/">Blog post</a></div>
+
+<footer>
+<p>Dr Tristan Hotham, Independent researcher. ORCID <a href="https://orcid.org/0000-0003-4931-9349">0000-0003-4931-9349</a>.</p>
+<p>Cite as: Hotham, T. (2026) Up and down: seventy years of orbital launches and where space hardware comes back to Earth. Zenodo. <a href="https://doi.org/10.5281/zenodo.23857612">https://doi.org/10.5281/zenodo.23857612</a></p>
+<p>Data: GCAT, Jonathan C. McDowell, planet4589.org/space/gcat (CC BY 4.0). Licence: derived data and text CC BY 4.0, code MIT.</p>
+<p>I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.</p>
+</footer>
+</div>
+<div class="tip" id="tip"></div>
+<button class="btn theme" id="theme" aria-label="Toggle dark mode">◐</button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const R = /*RESULTS*/;
+const SITE = /*SITE*/;
+const WORLD = /*WORLD*/;
+const CITIES = /*CITIES*/;
+const fmt = n => n == null || n === "" ? "n/a" : Math.round(n).toLocaleString("en-GB");
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const tip = document.getElementById("tip");
+function showTip(h, x, y) { tip.innerHTML = h; tip.style.display = "block"; const w = tip.offsetWidth; x = Math.max(w / 2 + 8, Math.min(innerWidth - w / 2 - 8, x)); tip.style.left = x + scrollX + "px"; tip.style.top = y + scrollY + "px"; }
+function hideTip() { tip.style.display = "none"; }
+document.addEventListener("click", hideTip);
+const NS = "http://www.w3.org/2000/svg";
+const el = (t, a, p) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; };
+const lbl = (svg, x, y, s, cls = "lab", anchor = "start") => { const t = el("text", { x, y, class: cls, "text-anchor": anchor }, svg); t.textContent = s; return t; };
+const redraws = [];
+function resp(box, render) { let last = 0; const go = force => { const w = Math.max(280, Math.round(box.clientWidth)); if (!force && Math.abs(w - last) < 4) return; last = w; box.innerHTML = ""; render(w, w < 560); }; new ResizeObserver(() => go()).observe(box); go(); redraws.push(() => go(true)); }
+const isDark = () => { const r = document.documentElement; return r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches; };
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const small = () => innerWidth < 900;
+const BLOCS = SITE.blocs, BC = BLOCS.map(b => b[1]), BNAME = BLOCS.map(b => b[0]);
+const PORTS = SITE.ports;   // [name, host, lat, lon, n, fail, first, last, v, families, first_date, first_mission, since2020, y2025, east, polar, retro, codes, peak_year, peak_n]
+const NEMO = SITE.nemo, YMIN = 1957, YMAX = R.source.last_year;
+const FAILC = () => isDark() ? "#FFFFFF" : "#141414";
+
+/* hero mark: a rocket going up, a trail coming down */
+(function () {
+  const g = document.getElementById("heroMark");
+  el("path", { d: "M14 108 Q60 104 104 108", stroke: "currentColor", "stroke-width": 3, fill: "none" }, g);
+  el("path", { d: "M40 104 L40 70", stroke: "#E0A11B", "stroke-width": 7, "stroke-linecap": "round", opacity: .7 }, g);
+  el("path", { d: "M40 22 C48 34 48 54 46 70 L34 70 C32 54 32 34 40 22 Z", fill: "#C8322B", stroke: "currentColor", "stroke-width": 2.4 }, g);
+  el("circle", { cx: 40, cy: 44, r: 4, fill: "#FFFEFA", stroke: "currentColor", "stroke-width": 1.6 }, g);
+  el("path", { d: "M74 14 Q92 46 96 98", stroke: "#2F5FA7", "stroke-width": 3, "stroke-dasharray": "5 5", fill: "none" }, g);
+  el("circle", { cx: 96, cy: 100, r: 5, fill: "#1F2F4D" }, g);
+})();
+
+/* ---------- map machinery ---------- */
+const ESRI = "https://server.arcgisonline.com/ArcGIS/rest/services/";
+const ESRI_ATT = 'Tiles &copy; Esri, HERE, Garmin, USGS, NGA, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, and the GIS user community';
+const LYDEF = { base: "plain", hills: true, hillK: 40, labels: false, labelK: 80, names: true, nameLvl: 1, cnames: false, borders: true, ports: true, size: 3, pnames: true, fails: true, reentry: false, nemo: true };
+const LY = { ...LYDEF };
+try { Object.assign(LY, JSON.parse(localStorage.getItem("rl_layers") || "{}")); } catch (e) {}
+const saveLY = () => { try { localStorage.setItem("rl_layers", JSON.stringify(LY)); } catch (e) {} };
+const HOME = () => small() ? [[20, 10], 1] : [[22, 5], 1.5];
+const map = L.map("map", { minZoom: 1, maxZoom: 13, maxBounds: [[-88, -240], [88, 240]], zoomSnap: .5, worldCopyJump: false, preferCanvas: true }).setView(...HOME());
+["hills:250", "fill:400", "labels:450", "zone:500", "re:560", "pts:600", "names:620"].forEach(s => { const [n, z] = s.split(":"); map.createPane(n); map.getPane(n).style.zIndex = z; });
+["hills", "labels", "names", "pts", "zone"].forEach(n => map.getPane(n).style.pointerEvents = "none");
+let base = null, hills = null, labels = null; const names = L.layerGroup(), cnames = L.layerGroup(), nemoL = L.layerGroup(), reL = L.layerGroup(), pnames = L.layerGroup();
+function setTiles() {
+  [base, labels, hills].forEach(l => { if (l) map.removeLayer(l); });
+  const t = isDark() ? "Dark" : "Light";
+  const url = LY.base === "relief" ? ESRI + "World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}" : LY.base === "satellite" ? ESRI + "World_Imagery/MapServer/tile/{z}/{y}/{x}" : `${ESRI}Canvas/World_${t}_Gray_Base/MapServer/tile/{z}/{y}/{x}`;
+  base = L.tileLayer(url, { maxZoom: 16, maxNativeZoom: LY.base === "relief" ? 13 : 16, attribution: ESRI_ATT }).addTo(map);
+  hills = L.tileLayer(ESRI + "Elevation/World_Hillshade/MapServer/tile/{z}/{y}/{x}", { maxZoom: 16, maxNativeZoom: 16, pane: "hills" });
+  labels = L.tileLayer(`${ESRI}Canvas/World_${t}_Gray_Reference/MapServer/tile/{z}/{y}/{x}`, { maxZoom: 16, pane: "labels" });
+  applyLayers();
+}
+function applyLayers() {
+  if (!base) return;
+  if (LY.hills) { hills.addTo(map); hills.setOpacity(Math.min(1, .15 + LY.hillK / 120)); } else map.removeLayer(hills);
+  if (LY.labels) { labels.addTo(map); labels.setOpacity(LY.labelK / 100); } else map.removeLayer(labels);
+  [[LY.names, names], [LY.cnames, cnames], [LY.nemo, nemoL], [LY.reentry, reL], [LY.pnames && LY.ports, pnames]].forEach(([on, l]) => on ? l.addTo(map) : map.removeLayer(l));
+  cLayer.setStyle(cStyle); placeNames(); bubbles.draw();
+}
+function overlap(bx, bxs) { return bxs.some(o => bx[0] < o[2] && bx[2] > o[0] && bx[1] < o[3] && bx[3] > o[1]); }
+function placeNames() {
+  names.clearLayers(); cnames.clearLayers(); pnames.clearLayers();
+  const z = map.getZoom(), bb = map.getBounds().pad(.05); const bxs = [];
+  if (LY.pnames && LY.ports && CNT) {   // spaceport names first, biggest first
+    const order = PORTS.map((p, i) => i).filter(i => CNT[i].n > 0).sort((a, b) => CNT[b].n - CNT[a].n);
+    let k = 0;
+    for (const i of order) {
+      const p = PORTS[i]; if (!bb.contains([p[2], p[3]])) continue; if (z < 3 && radius(CNT[i].n) < 7) continue;
+      if (z < 2.5 && k >= 7) break; if (z < 4 && k >= 16) break;
+      const pt = map.latLngToContainerPoint([p[2], p[3]]), r = radius(CNT[i].n), w = 7.2 * Math.max(p[0].length, 6), dx = r + 4;
+      const bx = [pt.x + dx, pt.y - 8, pt.x + dx + w, pt.y + 16]; if (overlap(bx, bxs)) continue; bxs.push(bx); k++;
+      L.marker([p[2], p[3]], { pane: "names", interactive: false, keyboard: false, icon: L.divIcon({ className: "portL", html: `${esc(p[0].replace(" and Kennedy", ""))}<br><small>${fmt(CNT[i].n)}</small>`, iconSize: null, iconAnchor: [-dx, 8] }) }).addTo(pnames);
+    }
+  }
+  if (CNT && LY.ports) PORTS.forEach((p, i) => { if (!CNT[i].n || !bb.contains([p[2], p[3]])) return; const pt = map.latLngToContainerPoint([p[2], p[3]]), r = radius(CNT[i].n); bxs.push([pt.x - r, pt.y - r, pt.x + r, pt.y + r]); });
+  if (LY.names) {
+    const minPop = [[2, 1e7], [3, 5e6], [4, 2e6], [5, 8e5], [6, 3e5], [99, 1e5]].find(([zz]) => z < zz + (LY.nameLvl === 2 ? 1.5 : LY.nameLvl === 0 ? -1 : 0))[1] * (LY.nameLvl === 0 ? 2 : 1);
+    let n = 0;
+    for (const c of CITIES) {
+      if (c.pop < minPop || !bb.contains([c.lat, c.lon])) continue;
+      const pt = map.latLngToContainerPoint([c.lat, c.lon]), big = c.pop >= 5e6;
+      const bx = [pt.x - 4, pt.y - 8, pt.x + 10 + c.name.length * (big ? 6.9 : 6.3), pt.y + 7];
+      if (overlap(bx, bxs)) continue;
+      bxs.push(bx); L.marker([c.lat, c.lon], { pane: "names", interactive: false, keyboard: false, icon: L.divIcon({ className: "cityL" + (big ? "" : " s"), html: `<i></i>${esc(c.name)}`, iconSize: null, iconAnchor: [3, 6] }) }).addTo(names);
+      if (++n >= 80) break;
+    }
+  }
+  if (LY.cnames && z >= 3 && z < 7) {
+    WORLD.features.forEach(f => { const g = SITE.cpos[f.properties.iso]; if (!g || !bb.contains([g[1], g[0]])) return; const nm = SITE.cname[f.properties.iso] || "";
+      if (z < 4 && (g[2] || 0) < 2e7) return; const pt = map.latLngToContainerPoint([g[1], g[0]]), w = nm.length * 7.2;
+      const bx = [pt.x - w / 2, pt.y - 7, pt.x + w / 2, pt.y + 7]; if (overlap(bx, bxs)) return; bxs.push(bx);
+      L.marker([g[1], g[0]], { pane: "names", interactive: false, keyboard: false, icon: L.divIcon({ className: "cntL", html: esc(nm), iconSize: [w, 14], iconAnchor: [w / 2, 7] }) }).addTo(cnames); });
+  }
+}
+(function layerControl() {
+  const Ctl = L.Control.extend({ options: { position: "topright" }, onAdd() {
+    const d = L.DomUtil.create("div"); L.DomEvent.disableClickPropagation(d); L.DomEvent.disableScrollPropagation(d);
+    d.innerHTML = `<button class="lyrBtn" aria-expanded="false">Map layers</button>
+<div class="lyrPanel" hidden>
+ <div class="row"><label style="font-weight:600">Base map</label><div class="sub"><select data-k="base" aria-label="Base map"><option value="plain">Plain grey</option><option value="relief">Shaded relief</option><option value="satellite">Satellite</option></select></div></div>
+ <div class="row"><label><input type="checkbox" data-k="hills"> Hills and mountains</label><div class="sub"><span>strength</span><input type="range" data-k="hillK" min="10" max="100" step="5" aria-label="Hill shading strength"></div></div>
+ <div class="row"><label><input type="checkbox" data-k="labels"> Map labels</label><div class="sub"><span>strength</span><input type="range" data-k="labelK" min="20" max="100" step="5" aria-label="Map label strength"></div></div>
+ <div class="row"><label><input type="checkbox" data-k="names"> City names</label><div class="sub"><span>how many</span><select data-k="nameLvl" aria-label="How many city names"><option value="0">Biggest only</option><option value="1">Some</option><option value="2">Lots</option></select></div></div>
+ <div class="row"><label><input type="checkbox" data-k="cnames"> Country names</label></div>
+ <div class="row"><label><input type="checkbox" data-k="borders"> Borders</label></div>
+ <div class="hd">Launches and returns</div>
+ <div class="row"><label><input type="checkbox" data-k="ports"> Spaceports (launches)</label><div class="sub"><span>size</span><input type="range" data-k="size" min="1.5" max="6" step=".5" aria-label="Circle size"></div></div>
+ <div class="row"><label><input type="checkbox" data-k="pnames"> Spaceport names</label></div>
+ <div class="row"><label><input type="checkbox" data-k="fails"> Failures (dark rings)</label></div>
+ <div class="row"><label><input type="checkbox" data-k="reentry"> Re-entry places GCAT records</label></div>
+ <div class="row"><label><input type="checkbox" data-k="nemo"> Point Nemo and the graveyard circle</label></div>
+ <button class="reset">Reset layers</button>
+</div>`;
+    return d; } });
+  map.addControl(new Ctl());
+  const box = map.getContainer(), btn = box.querySelector(".lyrBtn"), pan = box.querySelector(".lyrPanel");
+  btn.onclick = () => { const o = pan.hidden; pan.hidden = !o; btn.setAttribute("aria-expanded", o); };
+  const sync = () => pan.querySelectorAll("[data-k]").forEach(i => { const k = i.dataset.k; if (i.type === "checkbox") i.checked = LY[k]; else i.value = LY[k]; });
+  pan.querySelectorAll("[data-k]").forEach(i => i.addEventListener(i.type === "range" ? "input" : "change", () => {
+    const k = i.dataset.k; LY[k] = i.type === "checkbox" ? i.checked : (k === "base" ? i.value : +i.value);
+    if (k === "hillK") LY.hills = true; if (k === "labelK") LY.labels = true; if (k === "nameLvl") LY.names = true; if (k === "size") LY.ports = true;
+    if (k === "fails") setFailBtn(); if (k === "reentry" && LY.reentry) loadRe();
+    sync(); saveLY(); if (k === "base") setTiles(); else applyLayers(); legend(); side();
+  }));
+  pan.querySelector(".reset").onclick = () => { Object.assign(LY, LYDEF); saveLY(); sync(); setFailBtn(); setTiles(); legend(); side(); };
+  sync(); window.syncLayers = sync;
+})();
+const Note = L.Control.extend({ options: { position: "bottomleft" }, onAdd() { const d = L.DomUtil.create("div", "mapnote"); d.id = "mapnote"; L.DomEvent.disableClickPropagation(d); return d; } });
+map.addControl(new Note());
+L.control.scale({ imperial: false, position: "bottomright" }).addTo(map);
+
+/* Point Nemo and the indicative graveyard circle */
+(function () {
+  const c = isDark() ? "#9FB4E0" : "#1F2F4D";
+  L.circle(NEMO, { radius: SITE.nemo_r * 1000, pane: "zone", color: c, weight: 1.6, dashArray: "6 5", fillColor: c, fillOpacity: .07, interactive: false }).addTo(nemoL);
+  const m = L.circleMarker(NEMO, { radius: 7, color: "#fff", weight: 2, fillColor: "#1F2F4D", fillOpacity: 1, pane: "re" }).addTo(nemoL);
+  m.bindPopup(`<b>Point Nemo</b><br>48.88°S 123.39°W, the place in the ocean farthest from land: about ${R.wiki.nemo_km} km to the nearest island.<br>The spacecraft cemetery around it has taken ${R.wiki.n_disposed} spacecraft (Wikipedia). The dashed circle (${fmt(SITE.nemo_r)} km) is indicative only.`, { maxWidth: 260 });
+  L.marker(NEMO, { pane: "names", interactive: false, icon: L.divIcon({ className: "nemoL", html: "Point Nemo<br><span style='font-weight:400'>spacecraft cemetery</span>", iconSize: null, iconAnchor: [-12, 10] }) }).addTo(nemoL);
+  SITE.stations.forEach(s => { if (s.lat == null) return; const ctl = s.status === "D";
+    const mk = L.marker([s.lat, s.lon], { pane: "re", icon: L.divIcon({ className: "", html: `<div style="width:11px;height:11px;transform:rotate(45deg);background:${ctl ? c : "#fff"};border:2px solid ${c}"></div>`, iconSize: [11, 11], iconAnchor: [6, 6] }) }).addTo(nemoL);
+    mk.bindPopup(`<b>${esc(s.name)}</b><br>${s.mass_t} t, launched ${s.launched}<br>${ctl ? "Deorbited on purpose" : "Re-entered uncontrolled"}, ${esc(s.down)}<br>GCAT place: ${esc(s.dest)}`); });
+})();
+
+/* ---------- state ---------- */
+const S = { y: YMAX, mode: "cum", bl: new Set(BLOCS.map((b, i) => i)), sel: null, play: null };
+let CNT = null;   // per port {n, f, b:[...]} in the current window
+function windowOf() { return S.mode === "cum" ? [YMIN, S.y] : S.mode === "year" ? [S.y, S.y] : [S.y - 9, S.y]; }
+function count() {
+  const [a, b] = windowOf();
+  CNT = PORTS.map((p, i) => { const o = { n: 0, f: 0, b: new Array(BLOCS.length).fill(0) }; for (const r of SITE.yearly[i]) { if (r[0] < a || r[0] > b || !S.bl.has(r[1])) continue; o.n += r[2]; o.f += r[3]; o.b[r[1]] += r[2]; } return o; });
+}
+const radius = n => n <= 0 ? 0 : Math.max(2.5, LY.size * 1.15 * Math.sqrt(n) * (map.getZoom() < 2 ? .8 : map.getZoom() < 3 ? 1 : map.getZoom() < 5 ? 1.25 : 1.6) * (S.mode === "cum" ? .42 : S.mode === "dec" ? .9 : 2.2));
+
+/* ---------- countries (outline only) ---------- */
+function cStyle() { const bd = css("--border") || "#999"; return { color: bd, weight: LY.borders ? .6 : 0, fillColor: css("--land"), fillOpacity: .15 }; }
+const cLayer = L.geoJSON(WORLD, { pane: "fill", style: cStyle, interactive: false }).addTo(map);
+
+/* ---------- spaceport bubbles (pies) on a canvas ---------- */
+let XY = [];
+const Bubbles = L.Layer.extend({
+  onAdd(m) { this._c = L.DomUtil.create("canvas", "dotcanvas"); m.getPane("pts").appendChild(this._c); m.on("moveend zoomend resize viewreset", this._reset, this); m.on("zoomstart", () => this._c.style.opacity = 0); this._reset(); },
+  _reset() { const s = map.getSize(), d = devicePixelRatio || 1; L.DomUtil.setPosition(this._c, map.containerPointToLayerPoint([0, 0])); this._c.width = s.x * d; this._c.height = s.y * d; this._c.style.width = s.x + "px"; this._c.style.height = s.y + "px"; this._c.style.opacity = 1; this.draw(); },
+  draw() {
+    if (!this._c || !CNT) return; const ctx = this._c.getContext("2d"), d = devicePixelRatio || 1; ctx.setTransform(d, 0, 0, d, 0, 0); ctx.clearRect(0, 0, this._c.width, this._c.height);
+    XY = PORTS.map(p => map.latLngToContainerPoint([p[2], p[3]]));
+    if (!LY.ports) return;
+    const dark = isDark(), order = PORTS.map((p, i) => i).sort((a, b) => CNT[b].n - CNT[a].n);
+    for (const i of order) {
+      const c = CNT[i]; if (!c.n) continue; const r = radius(c.n), x = XY[i].x, y = XY[i].y; let a0 = -Math.PI / 2;
+      ctx.globalAlpha = .88;
+      c.b.forEach((v, k) => { if (!v) return; const a1 = a0 + 2 * Math.PI * v / c.n; ctx.beginPath(); ctx.moveTo(x, y); ctx.arc(x, y, r, a0, a1); ctx.closePath(); ctx.fillStyle = BC[k]; ctx.fill(); a0 = a1; });
+      ctx.globalAlpha = 1; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.strokeStyle = dark ? "rgba(0,0,0,.7)" : "rgba(255,255,255,.95)"; ctx.lineWidth = 1.2; ctx.stroke();
+      if (LY.fails && c.f) { const rf = Math.max(2, radius(c.f)); ctx.beginPath(); ctx.arc(x, y, rf, 0, 7); ctx.strokeStyle = FAILC(); ctx.lineWidth = 2; ctx.stroke(); }
+      if (S.sel === i) { ctx.beginPath(); ctx.arc(x, y, r + 5, 0, 7); ctx.strokeStyle = dark ? "#fff" : "#000"; ctx.lineWidth = 2.2; ctx.setLineDash([4, 3]); ctx.stroke(); ctx.setLineDash([]); }
+    }
+  }
+});
+const bubbles = new Bubbles().addTo(map);
+function hit(cp) { if (!CNT || !LY.ports) return -1; let best = -1, bd = 1e9; PORTS.forEach((p, i) => { if (!CNT[i].n) return; const dx = XY[i].x - cp.x, dy = XY[i].y - cp.y, r = radius(CNT[i].n), dd = Math.sqrt(dx * dx + dy * dy); if (dd <= Math.max(r, 9) && dd - r < bd) { bd = dd - r; best = i; } }); return best; }
+map.on("click", e => { const h = hit(e.containerPoint); if (h >= 0) pickPort(h, false); });
+map.on("mousemove", e => { const h = hit(e.containerPoint); map.getContainer().style.cursor = h >= 0 ? "pointer" : ""; if (h >= 0) { const r = map.getContainer().getBoundingClientRect(); showTip(portTip(h), r.left + e.containerPoint.x, r.top + e.containerPoint.y); } else hideTip(); });
+map.on("mouseout", hideTip);
+const winTxt = () => { const [a, b] = windowOf(); return a === b ? String(a) : `${a} to ${b}`; };
+function portTip(i) { const p = PORTS[i], c = CNT[i]; return `<b>${esc(p[0])}</b>, ${esc(p[1])}<br>${fmt(c.n)} launch${c.n === 1 ? "" : "es"} ${winTxt()}${c.f ? `, ${fmt(c.f)} failed` : ""}`; }
+
+/* re-entry places, loaded on demand */
+let RE = null;
+function loadRe() {
+  if (RE) return; fetch("data/reentries.json").then(r => r.json()).then(j => { RE = j.rows; drawRe(); });
+}
+function drawRe() {
+  reL.clearLayers(); if (!RE) return;
+  const col = ["#7E7A73", "#1F2F4D", "#2E9A8C"], tn = { P: "payload", R: "rocket stage", C: "component", D: "debris" };
+  RE.forEach(r => { if (r[2] > S.y) return;
+    const m = L.circleMarker([r[0], r[1]], { pane: "re", radius: r[4] === 1 ? 5 : 3, color: r[4] === 1 ? "#fff" : col[r[4]], weight: r[4] === 1 ? 1.4 : 1, fillColor: col[r[4]], fillOpacity: r[4] === 1 ? 1 : .55 }).addTo(reL);
+    m.bindPopup(`<b>${esc(r[5])}</b><br>${tn[r[3]] || "object"}, ${["re-entered", "deorbited on purpose", "landed or recovered"][r[4]]} ${esc(r[7])}<br>GCAT place ${r[0].toFixed(1)}, ${r[1].toFixed(1)}${r[6] ? " (marked uncertain)" : ""}`); });
+}
+if (LY.reentry) loadRe();
+
+/* ---------- launches list (for the side panel and search), loaded after the page ---------- */
+let LA = null;
+fetch("data/launches.json").then(r => r.json()).then(j => { LA = j; side(); });
+
+/* ---------- controls ---------- */
+const yr = document.getElementById("yr");
+function setYear(y) { S.y = Math.max(YMIN, Math.min(YMAX, y)); yr.value = S.y; document.getElementById("yv").textContent = S.y; document.getElementById("ylab").textContent = S.mode === "cum" ? "all years to here" : S.mode === "year" ? "this year only" : "ten years to here"; count(); bubbles.draw(); placeNames(); if (LY.reentry) drawRe(); side(); }
+yr.addEventListener("input", () => { stop(); setYear(+yr.value); });
+function stop() { if (S.play) { clearInterval(S.play); S.play = null; document.getElementById("play").innerHTML = "&#9654;"; } }
+document.getElementById("play").onclick = () => {
+  if (S.play) return stop();
+  if (S.y >= YMAX) setYear(YMIN);
+  document.getElementById("play").innerHTML = "&#10074;&#10074;";
+  S.play = setInterval(() => { if (S.y >= YMAX) return stop(); setYear(S.y + 1); }, 180);
+};
+const press = (row, b) => document.querySelectorAll(row + " .btn").forEach(x => x.setAttribute("aria-pressed", x === b));
+document.querySelectorAll("#modeRow .btn").forEach(b => b.onclick = () => { S.mode = b.dataset.m; press("#modeRow", b); setYear(S.y); legend(); });
+function setFailBtn() { document.querySelectorAll("#failRow .btn").forEach(x => x.setAttribute("aria-pressed", (x.dataset.f === "1") === LY.fails)); }
+document.querySelectorAll("#failRow .btn").forEach(b => b.onclick = () => { LY.fails = b.dataset.f === "1"; setFailBtn(); saveLY(); if (window.syncLayers) syncLayers(); bubbles.draw(); legend(); });
+(function blocRow() {
+  const row = document.getElementById("blocRow");
+  const all = document.createElement("button"); all.className = "btn"; all.textContent = "Everyone"; all.setAttribute("aria-pressed", "true"); row.appendChild(all);
+  const bs = BLOCS.map(([n, c], i) => { const b = document.createElement("button"); b.className = "btn"; b.innerHTML = `<i style="background:${c}"></i>${esc(n)}`; b.setAttribute("aria-pressed", "false"); b.dataset.g = i; row.appendChild(b); return b; });
+  const sync = () => { const allOn = S.bl.size === BLOCS.length; all.setAttribute("aria-pressed", allOn); bs.forEach(b => b.setAttribute("aria-pressed", !allOn && S.bl.has(+b.dataset.g))); count(); bubbles.draw(); placeNames(); side(); };
+  all.onclick = () => { S.bl = new Set(BLOCS.map((b, i) => i)); sync(); };
+  bs.forEach(b => b.onclick = () => { const g = +b.dataset.g; if (S.bl.size === BLOCS.length) S.bl = new Set([g]); else if (S.bl.has(g)) { S.bl.delete(g); if (!S.bl.size) S.bl = new Set(BLOCS.map((x, i) => i)); } else S.bl.add(g); sync(); });
+  window.setBlocs = (set) => { S.bl = set; sync(); };
+})();
+
+/* ---------- legend, side panel ---------- */
+function legend() {
+  const e = document.getElementById("legend");
+  let h = BLOCS.map(([n, c]) => `<span><i style="background:${c}"></i>${esc(n)}</span>`).join("");
+  if (LY.fails) h += `<span><i style="background:transparent;border:2px solid ${FAILC()}"></i>failures (same scale)</span>`;
+  h += `<span>circle area: launches ${S.mode === "cum" ? "since 1957" : S.mode === "year" ? "that year" : "in the ten years"}</span>`;
+  if (LY.reentry) h += `<span><i style="background:#7E7A73;opacity:.7"></i>re-entered</span><span><i style="background:var(--nemo);border:1.5px solid #fff"></i>deorbited on purpose</span><span><i style="background:#2E9A8C;opacity:.7"></i>landed</span>`;
+  if (LY.nemo) h += `<span><i style="background:var(--nemo)"></i>Point Nemo, dashed: ${fmt(SITE.nemo_r)} km circle</span><span><i class="sq" style="background:var(--nemo);transform:rotate(45deg);width:10px;height:10px"></i>space station deorbited</span><span><i class="sq" style="background:#fff;border:2px solid var(--nemo);transform:rotate(45deg);width:10px;height:10px"></i>station fell on its own</span>`;
+  e.innerHTML = h;
+}
+function note(h) { document.getElementById("mapnote").innerHTML = h || ""; }
+function spark(i) {   // launches per year at port i, bars coloured by bloc, failures as dark ticks
+  const w = 300, h = 74, Y = new Map(); let mx = 1;
+  for (const r of SITE.yearly[i]) { const o = Y.get(r[0]) || { b: new Array(BLOCS.length).fill(0), f: 0, n: 0 }; o.b[r[1]] += r[2]; o.f += r[3]; o.n += r[2]; Y.set(r[0], o); if (o.n > mx) mx = o.n; }
+  const bw = w / (YMAX - YMIN + 1); let s = `<svg viewBox="0 0 ${w} ${h + 14}" role="img" aria-label="Launches per year">`;
+  for (const [y, o] of Y) { let yy = h; o.b.forEach((v, k) => { if (!v) return; const hh = h * v / mx; yy -= hh; s += `<rect x="${(y - YMIN) * bw}" y="${yy}" width="${Math.max(1, bw - .4)}" height="${hh}" fill="${BC[k]}"/>`; }); }
+  s += `<line x1="${(S.y - YMIN + .5) * bw}" x2="${(S.y - YMIN + .5) * bw}" y1="0" y2="${h}" stroke="var(--muted)" stroke-dasharray="2 2"/>`;
+  [1960, 1980, 2000, 2020].forEach(y => s += `<text x="${(y - YMIN) * bw}" y="${h + 12}" class="lab s m">${y}</text>`);
+  return s + `<text x="2" y="10" class="lab s m">peak ${mx} a year</text></svg>`;
+}
+function side() {
+  const box = document.getElementById("side"); if (!CNT) return; let h = "";
+  if (S.sel != null) {
+    const i = S.sel, p = PORTS[i], c = CNT[i];
+    h = `<button class="back">Back</button><h4>Spaceport</h4><div class="big">${esc(p[0])}</div><p class="sub">${esc(p[1])} · ${p[2].toFixed(2)}°, ${p[3].toFixed(2)}° · GCAT site${p[17].length > 1 ? "s" : ""} ${esc(p[17].join(", "))}</p>
+<table><tr><td>Orbital launch attempts</td><td class="num">${fmt(p[4])}</td></tr><tr><td>Failed</td><td class="num">${fmt(p[5])} <small>(${(100 * p[5] / p[4]).toFixed(1)}%)</small></td></tr>
+<tr><td>In the window (${winTxt()})</td><td class="num">${fmt(c.n)}</td></tr><tr><td>First</td><td class="num">${esc(p[10])}</td></tr><tr><td>Busiest year</td><td class="num">${p[18]} <small>(${p[19]})</small></td></tr>
+<tr><td>Since 2020</td><td class="num">${fmt(p[12])}</td></tr><tr><td>In 2025</td><td class="num">${fmt(p[13])}</td></tr><tr><td>Earth's eastward push</td><td class="num">${p[8]} m/s</td></tr>
+${p[14] != null ? `<tr><td>To low orbit: east / polar / west</td><td class="num">${Math.round(p[14])} / ${Math.round(p[15])} / ${Math.round(p[16])}%</td></tr>` : ""}</table>
+<h4>Launches per year</h4>${spark(i)}
+<h4>Main rockets</h4><ul>${p[9].map(([f, n]) => `<li>${esc(f)} <small>${fmt(n)}</small></li>`).join("")}</ul>`;
+    if (LA) { const L0 = LA.rows.filter(r => r[2] === i); const fst = L0.slice(0, 3), lst = L0.slice(-5).reverse();
+      const li = r => `<li>${esc(r[6] || LA.lv[r[5]])} <small>${esc(r[1])}, ${esc(LA.lv[r[5]])}${r[4] ? "" : ", <b style='color:var(--hot)'>failed</b>"}</small></li>`;
+      h += `<h4>First launches</h4><ol>${fst.map(li).join("")}</ol><h4>Latest launches</h4><ul>${lst.map(li).join("")}</ul>`; }
+    note(`<b>${esc(p[0])}</b>: ${fmt(c.n)} launches, ${winTxt()}`);
+  } else {
+    const tot = CNT.reduce((a, c) => a + c.n, 0), tf = CNT.reduce((a, c) => a + c.f, 0), bt = new Array(BLOCS.length).fill(0); CNT.forEach(c => c.b.forEach((v, k) => bt[k] += v));
+    h = `<h4>On the map now</h4><div class="big">${fmt(tot)}</div><p class="sub">orbital launch attempts, ${winTxt()}${tf ? `, ${fmt(tf)} failed` : ""}</p><table>` +
+      BLOCS.map(([n, c], k) => bt[k] ? `<tr><td><i style="display:inline-block;width:9px;height:9px;border-radius:50%;background:${c};margin-right:6px"></i>${esc(n)}</td><td class="num">${fmt(bt[k])}</td></tr>` : "").join("") + `</table>`;
+    const top = PORTS.map((p, i) => i).filter(i => CNT[i].n).sort((a, b) => CNT[b].n - CNT[a].n).slice(0, 8);
+    h += `<h4>Busiest in the window</h4><ol>` + top.map(i => `<li><span class="go" data-p="${i}">${esc(PORTS[i][0])}</span> <small>${fmt(CNT[i].n)}</small></li>`).join("") + `</ol>`;
+    h += `<h4>Famous launches</h4><ul>` + [["Sputnik", "1957 ALP"], ["Vostok 1, Gagarin", "1961 MU"], ["Apollo 11", "1969-059"], ["First Space Shuttle", "1981-034"], ["Hubble", "1990-037"], ["JWST", "2021-130"]].map(([n, t]) => `<li><span class="go" data-t="${t}">${esc(n)}</span></li>`).join("") + `</ul>`;
+    h += `<p class="sub">Press play, or drag the year. Click a circle for a spaceport. Map layers adds re-entry places and Point Nemo.</p>`;
+    note("");
+  }
+  box.innerHTML = h;
+  const b = box.querySelector(".back"); if (b) b.onclick = () => { S.sel = null; map.closePopup(); bubbles.draw(); side(); };
+  box.querySelectorAll("[data-p]").forEach(e => e.onclick = () => pickPort(+e.dataset.p, true));
+  box.querySelectorAll("[data-t]").forEach(e => e.onclick = () => pickLaunch(e.dataset.t));
+}
+function toMap() { if (small()) document.getElementById("map").scrollIntoView({ behavior: "smooth", block: "start" }); }
+function pickPort(i, move) {
+  S.sel = i; const p = PORTS[i];
+  if (move) { map.setView([p[2], p[3]], Math.max(map.getZoom(), 5)); toMap(); }
+  bubbles.draw(); side();
+}
+function pickLaunch(tag) {
+  if (!LA) return; const r = LA.rows.find(x => x[0] === tag); if (!r) return;
+  stop(); const y = +r[1].slice(0, 4); if (S.mode !== "cum") { S.mode = "year"; press("#modeRow", document.querySelector('#modeRow [data-m="year"]')); }
+  if (!S.bl.has(r[3])) window.setBlocs(new Set(BLOCS.map((b, i) => i)));
+  setYear(y); const p = PORTS[r[2]];
+  document.getElementById("atlas").scrollIntoView({ behavior: "smooth" });
+  setTimeout(() => { pickPort(r[2], true); L.popup({ maxWidth: 270 }).setLatLng([p[2], p[3]]).setContent(`<b>${esc(r[6] || LA.lv[r[5]])}</b><br>${esc(r[1])} · ${esc(LA.lv[r[5]])}<br>${esc(p[0])} · ${esc(BNAME[r[3]])}<br>${r[4] ? "Reached orbit" : "Failed to reach orbit"}${r[7] ? " · orbit class " + esc(r[7]) : ""}<br><small>GCAT ${esc(r[0])}</small>`).openOn(map); }, 300);
+}
+(function focusRow() {
+  const row = document.getElementById("focusRow");
+  const F = [["World", null], ["Florida", [[27.6, -81.6], [29.4, -79.6]]], ["Baikonur", [[44, 59], [48, 67]]], ["Plesetsk", [[61, 37], [65, 44]]], ["China", [[17, 95], [45, 125]]], ["Kourou", [[3.5, -54.5], [7, -51]]], ["Japan and Korea", [[29, 125], [41, 142]]], ["India", [[8, 72], [24, 90]]], ["New Zealand", [[-47, 166], [-34, 180]]], ["Point Nemo", "nemo"]];
+  F.forEach(([n, b]) => { const x = document.createElement("button"); x.className = "btn"; x.textContent = n; x.onclick = () => {
+    if (!b) { S.sel = null; map.closePopup(); map.setView(...HOME()); side(); bubbles.draw(); }
+    else if (b === "nemo") { if (S.y < YMAX) setYear(YMAX); LY.nemo = true; LY.reentry = true; loadRe(); saveLY(); if (window.syncLayers) syncLayers(); applyLayers(); legend(); map.setView([-40, -140], small() ? 2 : 3); }
+    else map.fitBounds(b); toMap(); }; row.appendChild(x); });
+})();
+
+/* ---------- search: spaceports, host countries, missions ---------- */
+(function search() {
+  const inp = document.getElementById("q"), sug = document.getElementById("sug"); let opts = [], k = -1;
+  const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  function build(q) {
+    const nq = norm(q); if (nq.length < 2) return [];
+    const out = [];
+    PORTS.forEach((p, i) => { const n = norm(p[0]); if (n.includes(nq) || p[17].some(c => norm(c) === nq)) out.push({ t: "p", n: p[0], i, s: n.startsWith(nq) ? 9 : 5 }); });
+    const hosts = [...new Set(PORTS.map(p => p[1]))]; hosts.forEach(hn => { if (norm(hn).includes(nq)) out.push({ t: "c", n: hn, s: norm(hn).startsWith(nq) ? 7 : 3 }); });
+    if (LA) { let m = 0; for (const r of LA.rows) { const nm = norm(r[6] || ""); if (nm && nm.includes(nq)) { out.push({ t: "l", n: r[6], r, s: (nm === nq ? 8 : nm.startsWith(nq) ? 4 : 1) }); if (++m > 400) break; } } }
+    return out.sort((a, b) => b.s - a.s).slice(0, 12);
+  }
+  const lab = o => o.t === "p" ? `${esc(o.n)} <span>spaceport, ${esc(PORTS[o.i][1])}</span>` : o.t === "c" ? `${esc(o.n)} <span>spaceports in this country</span>` : `${esc(o.n)} <span>${esc(o.r[1])}, ${esc(PORTS[o.r[2]][0])}</span>`;
+  const show = () => { sug.innerHTML = opts.map((o, i) => `<li role="option" aria-selected="${i === k}" data-i="${i}">${lab(o)}</li>`).join(""); sug.style.display = opts.length ? "block" : "none"; };
+  const choose = o => { sug.style.display = "none"; inp.value = o.n; inp.blur();
+    if (o.t === "p") pickPort(o.i, true);
+    else if (o.t === "c") { const ps = PORTS.filter(p => p[1] === o.n); map.fitBounds(L.latLngBounds(ps.map(p => [p[2], p[3]])).pad(.4), { maxZoom: 6 }); toMap(); }
+    else pickLaunch(o.r[0]); };
+  inp.addEventListener("input", () => { opts = build(inp.value); k = -1; show(); });
+  inp.addEventListener("keydown", e => { if (e.key === "ArrowDown") { k = Math.min(opts.length - 1, k + 1); show(); e.preventDefault(); } else if (e.key === "ArrowUp") { k = Math.max(0, k - 1); show(); e.preventDefault(); } else if (e.key === "Enter" && opts.length) { choose(opts[Math.max(0, k)]); } else if (e.key === "Escape") { sug.style.display = "none"; } });
+  sug.addEventListener("click", e => { const li = e.target.closest("li"); if (li) choose(opts[+li.dataset.i]); });
+  document.addEventListener("click", e => { if (!e.target.closest(".searchbox")) sug.style.display = "none"; });
+})();
+map.on("zoomend moveend", placeNames);
+
+/* ---------- charts ---------- */
+function yearChart() {
+  const Yr = R.years;
+  resp(document.getElementById("yearChart"), (w, sm) => {
+    const h = sm ? 300 : 380, m = { l: 40, r: 10, t: 16, b: 28 }, svg = el("svg", { viewBox: `0 0 ${w} ${h}`, role: "img", "aria-label": "Stacked area chart of orbital launch attempts per year by launching country, 1957 to 2026" }, document.getElementById("yearChart"));
+    const mx = 340, X = y => m.l + (w - m.l - m.r) * (y - YMIN) / (YMAX - YMIN), Y = v => h - m.b - (h - m.t - m.b) * v / mx;
+    for (let v = 0; v <= mx; v += 50) { el("line", { x1: m.l, x2: w - m.r, y1: Y(v), y2: Y(v), stroke: css("--rule") }, svg); lbl(svg, m.l - 6, Y(v) + 4, v, "lab s m", "end"); }
+    for (let y = 1960; y <= 2020; y += sm ? 20 : 10) lbl(svg, X(y), h - 9, y, "lab s m", "middle");
+    const cum = Yr.map(() => 0);
+    BNAME.forEach((b, k) => {
+      const lo = cum.slice(); Yr.forEach((r, i) => cum[i] += r[b]);
+      const pts = Yr.map((r, i) => `${X(r.y)},${Y(cum[i])}`).join(" ") + " " + Yr.map((r, i) => `${X(r.y)},${Y(lo[i])}`).reverse().join(" ");
+      el("polygon", { points: pts, fill: BC[k], opacity: .92 }, svg);
+    });
+    const ann = [[R.peaks.coldwar_year, R.peaks.coldwar_n, `${R.peaks.coldwar_year}: ${R.peaks.coldwar_n}`], [R.peaks.dip_year, R.peaks.dip_n, `${R.peaks.dip_year}: ${R.peaks.dip_n}`], [R.peaks.record_year, R.peaks.record_n, `${R.peaks.record_year}: ${R.peaks.record_n}`]];
+    ann.forEach(([y, v, t], j) => { const x = X(y), yy = Y(v); el("circle", { cx: x, cy: yy, r: 3, fill: css("--fg") }, svg); lbl(svg, j === 2 ? x - 6 : x, j === 1 ? yy - 22 : yy - 8, t, "lab s b", j === 2 ? "end" : "middle"); });
+    const g = el("line", { x1: 0, x2: 0, y1: m.t, y2: h - m.b, stroke: css("--fg"), "stroke-width": 1, opacity: 0 }, svg);
+    const hitr = el("rect", { x: m.l, y: m.t, width: w - m.l - m.r, height: h - m.t - m.b, fill: "transparent" }, svg);
+    const mv = ev => { const r = svg.getBoundingClientRect(), x = (ev.clientX - r.left) * w / r.width, y = Math.round(YMIN + (x - m.l) / (w - m.l - m.r) * (YMAX - YMIN)); const d = Yr.find(q => q.y === y); if (!d) return;
+      g.setAttribute("x1", X(y)); g.setAttribute("x2", X(y)); g.setAttribute("opacity", .5);
+      showTip(`<b>${y}</b>: ${d.n} attempts, ${d.fail} failed<br>` + BNAME.map((b, k) => d[b] ? `<span style="color:${BC[k]}">■</span> ${esc(b)} ${d[b]}` : "").filter(Boolean).join("<br>"), ev.clientX, ev.clientY); };
+    hitr.addEventListener("mousemove", mv); hitr.addEventListener("click", ev => { ev.stopPropagation(); mv(ev); }); hitr.addEventListener("mouseleave", () => { hideTip(); g.setAttribute("opacity", 0); });
+  });
+  document.getElementById("yearLegend").innerHTML = BLOCS.map(([n, c]) => `<span><i class="sq" style="background:${c}"></i>${esc(n)}</span>`).join("");
+}
+function failChart() {
+  const Yr = R.years, D = R.decades;
+  resp(document.getElementById("failChart"), (w, sm) => {
+    const h = sm ? 240 : 290, m = { l: 34, r: 44, t: 18, b: 28 }, svg = el("svg", { viewBox: `0 0 ${w} ${h}`, role: "img", "aria-label": "Bar chart of launch failures per year with a line for the failure rate by decade" }, document.getElementById("failChart"));
+    const mx = 25, mp = 60, bw = (w - m.l - m.r) / (YMAX - YMIN + 1), X = y => m.l + (y - YMIN) * bw, Y = v => h - m.b - (h - m.t - m.b) * v / mx, YP = v => h - m.b - (h - m.t - m.b) * v / mp;
+    for (let v = 0; v <= mx; v += 5) { el("line", { x1: m.l, x2: w - m.r, y1: Y(v), y2: Y(v), stroke: css("--rule") }, svg); lbl(svg, m.l - 6, Y(v) + 4, v, "lab s m", "end"); }
+    for (let v = 0; v <= mp; v += 20) lbl(svg, w - m.r + 6, YP(v) + 4, v + "%", "lab s").setAttribute("style", `fill:${css("--cool")}`);
+    lbl(svg, m.l, m.t - 6, "failures", "lab s m"); lbl(svg, w - m.r, m.t - 6, "failure rate", "lab s", "end").setAttribute("style", `fill:${css("--cool")}`);
+    Yr.forEach(d => { const b = el("rect", { x: X(d.y) + .3, y: Y(d.fail), width: Math.max(1, bw - .8), height: h - m.b - Y(d.fail), fill: css("--hot") }, svg);
+      b.addEventListener("mousemove", ev => showTip(`<b>${d.y}</b>: ${d.fail} of ${d.n} failed`, ev.clientX, ev.clientY)); b.addEventListener("mouseleave", hideTip); });
+    for (let y = 1960; y <= 2020; y += sm ? 20 : 10) lbl(svg, X(y), h - 9, y, "lab s m", "middle");
+    const pts = D.map(d => [X(Math.max(YMIN, d.dec) + (d.dec === 1950 ? 1.5 : 5)), YP(d.fail_pct)]);
+    el("polyline", { points: pts.map(p => p.join(",")).join(" "), fill: "none", stroke: css("--cool"), "stroke-width": 2.4 }, svg);
+    D.forEach((d, i) => { el("circle", { cx: pts[i][0], cy: pts[i][1], r: 3.2, fill: css("--cool") }, svg); if (!sm || i % 2 === 0) lbl(svg, pts[i][0] + 5, pts[i][1] - 7, d.fail_pct.toFixed(0) + "%", "lab s").setAttribute("style", `fill:${css("--cool")}`); });
+  });
+}
+function portChart() {
+  const A = R.busiest_ever.slice(0, 10), B = R.busiest_2025.slice(0, 10);
+  resp(document.getElementById("portChart"), (w, sm) => {
+    const two = !sm, rh = 24, lw = sm ? 150 : 170, h = (two ? 10 : 21) * rh + 40, svg = el("svg", { viewBox: `0 0 ${w} ${h}`, role: "img", "aria-label": "Bar charts of the busiest spaceports ever and in 2025" }, document.getElementById("portChart"));
+    const panel = (rows, x0, x1, y0, title, col) => {
+      lbl(svg, x0 - lw, y0 + 12, title, "lab b"); const mx = Math.max(...rows.map(r => r.n));
+      rows.forEach((r, i) => { const y = y0 + 22 + i * rh, bwid = (x1 - x0 - 40) * r.n / mx, ix = PORTS.findIndex(p => p[0] === r.port);
+        lbl(svg, x0 - 8, y + 14, r.port.replace(" and Kennedy", " and KSC"), "lab", "end");
+        const b = el("rect", { x: x0, y: y + 3, width: Math.max(2, bwid), height: rh - 8, fill: col, rx: 2 }, svg); b.style.cursor = "pointer";
+        lbl(svg, x0 + bwid + 5, y + 14, fmt(r.n), "lab s b");
+        b.addEventListener("click", () => { document.getElementById("atlas").scrollIntoView({ behavior: "smooth" }); setTimeout(() => pickPort(ix, true), 300); });
+        b.addEventListener("mousemove", ev => showTip(`<b>${esc(r.port)}</b>, ${esc(r.host)}<br>${fmt(r.n)} launches`, ev.clientX, ev.clientY)); b.addEventListener("mouseleave", hideTip); });
+    };
+    if (two) { const mid = w / 2; panel(A, lw, mid - 10, 0, `1957 to ${YMAX}`, css("--ink")); panel(B, mid + lw, w, 0, `${R.peaks.record_year}`, css("--hot")); }
+    else { panel(A, lw, w, 0, `1957 to ${YMAX}`, css("--ink")); panel(B, lw, w, 11 * rh, `${R.peaks.record_year}`, css("--hot")); }
+  });
+}
+function portTable() {
+  const t = document.getElementById("portTable");
+  t.innerHTML = `<thead><tr><th>Spaceport</th><th>Country</th><th class="r">Launches</th><th class="r">Failed</th><th class="r">First</th><th class="r">2025</th></tr></thead><tbody>` +
+    PORTS.map((p, i) => `<tr data-i="${i}"><td>${esc(p[0])}</td><td>${esc(p[1])}</td><td class="r">${fmt(p[4])}</td><td class="r">${fmt(p[5])}</td><td class="r">${p[6]}</td><td class="r">${p[13] || ""}</td></tr>`).join("") + `</tbody>`;
+  t.querySelectorAll("tr[data-i]").forEach(r => r.onclick = () => { document.getElementById("atlas").scrollIntoView({ behavior: "smooth" }); setTimeout(() => pickPort(+r.dataset.i, true), 300); });
+}
+function latChart() {
+  const D = R.lat_main.filter(d => d.n >= 8).sort((a, b) => Math.abs(a.lat) - Math.abs(b.lat));
+  const DC = [["eastward", "#E0A11B"], ["polar or sun-synchronous", "#2F5FA7"], ["westward", "#C8322B"]];
+  resp(document.getElementById("latChart"), (w, sm) => {
+    const rh = 24, lw = sm ? 112 : 190, h = D.length * rh + 34, gap = 14, x0 = lw, xm = x0 + (w - lw) * (sm ? .5 : .55), x1 = w - 4;
+    const svg = el("svg", { viewBox: `0 0 ${w} ${h}`, role: "img", "aria-label": "Spaceports by latitude with the Earth's rotation speed and the direction of their launches" }, document.getElementById("latChart"));
+    lbl(svg, x0, 12, "Earth's push, m/s", "lab s m"); lbl(svg, xm + gap, 12, "direction to low orbit", "lab s m");
+    D.forEach((d, i) => { const y = 22 + i * rh, bw = (xm - x0 - 34) * d.v / 465;
+      lbl(svg, x0 - 8, y + 14, `${d.port.replace(" and Kennedy", "")}${sm ? "" : ` ${Math.abs(d.lat).toFixed(0)}°${d.lat < 0 ? "S" : "N"}`}`, "lab", "end");
+      const b = el("rect", { x: x0, y: y + 4, width: bw, height: rh - 9, fill: "#8C8478", rx: 2 }, svg); lbl(svg, x0 + bw + 4, y + 14, d.v, "lab s");
+      let x = xm + gap; const tot = (d.east || 0) + (d.polar || 0) + (d.retro || 0);
+      if (tot) [d.east, d.polar, d.retro].forEach((v, k) => { if (!v) return; const ww = (x1 - xm - gap) * v / tot; el("rect", { x, y: y + 4, width: ww, height: rh - 9, fill: DC[k][1] }, svg); x += ww; });
+      else lbl(svg, xm + gap, y + 14, "no orbit data", "lab s m");
+      const hitr = el("rect", { x: 0, y, width: w, height: rh, fill: "transparent" }, svg);
+      hitr.addEventListener("mousemove", ev => showTip(`<b>${esc(d.port)}</b>, ${Math.abs(d.lat).toFixed(1)}°${d.lat < 0 ? "S" : "N"}<br>Earth's push ${d.v} m/s · ${fmt(d.n)} launches, ${fmt(d.gto)} towards geostationary orbit<br>${tot ? `low orbit (${d.n_inc}): east ${Math.round(d.east)}%, polar ${Math.round(d.polar)}%, west ${Math.round(d.retro)}%` : ""}`, ev.clientX, ev.clientY)); hitr.addEventListener("mouseleave", hideTip); });
+  });
+  document.getElementById("latLegend").innerHTML = DC.map(([n, c]) => `<span><i class="sq" style="background:${c}"></i>${n}</span>`).join("");
+}
+function downChart() {
+  const D = R.down_years.filter(d => d.y >= 1957), T = [["P", "payloads"], ["R", "rocket stages"], ["C", "components"], ["D", "debris"]], TC = { P: "#2F5FA7", R: "#C8322B", C: "#E0A11B", D: "#8C8478" };
+  resp(document.getElementById("downChart"), (w, sm) => {
+    const h = sm ? 260 : 320, m = { l: 44, r: 10, t: 14, b: 28 }, svg = el("svg", { viewBox: `0 0 ${w} ${h}`, role: "img", "aria-label": "Stacked bars of catalogued objects coming back to Earth per year by type" }, document.getElementById("downChart"));
+    const mx = 2500, bw = (w - m.l - m.r) / D.length, Y = v => (h - m.t - m.b) * v / mx;
+    for (let v = 0; v <= mx; v += 500) { const y = h - m.b - Y(v); el("line", { x1: m.l, x2: w - m.r, y1: y, y2: y, stroke: css("--rule") }, svg); lbl(svg, m.l - 6, y + 4, fmt(v), "lab s m", "end"); }
+    D.forEach((d, i) => { let y = h - m.b; const x = m.l + i * bw;
+      T.forEach(([t]) => { const v = d[t]; if (!v) return; const hh = Y(v); y -= hh; el("rect", { x: x + .2, y, width: Math.max(1, bw - .6), height: hh, fill: TC[t] }, svg); });
+      const hr = el("rect", { x, y: m.t, width: bw, height: h - m.t - m.b, fill: "transparent" }, svg);
+      hr.addEventListener("mousemove", ev => showTip(`<b>${d.y}</b>: ${fmt(d.n)} came down<br>` + T.map(([t, n]) => `${n} ${fmt(d[t])}`).join("<br>") + (d.starlink ? `<br>of which Starlink ${fmt(d.starlink)}` : ""), ev.clientX, ev.clientY)); hr.addEventListener("mouseleave", hideTip);
+      if (d.y % (sm ? 20 : 10) === 0) lbl(svg, x + bw / 2, h - 9, d.y, "lab s m", "middle"); });
+  });
+  document.getElementById("downLegend").innerHTML = T.map(([t, n]) => `<span><i class="sq" style="background:${TC[t]}"></i>${n}</span>`).join("");
+}
+function fateChart() {
+  const F = [["Still in orbit", "#2F5FA7"], ["Re-entered", "#8C8478"], ["Landed or recovered", "#2E9A8C"], ["Deorbited on purpose", "#1F2F4D"], ["Docked, berthed or joined another object", "#D46A8C"], ["Left Earth orbit", "#E0A11B"], ["Other (exploded, collided, retired or catalogue entries)", "#C9C2B6"]];
+  const rows = [["All objects", R.objects.fates]];
+  resp(document.getElementById("fateChart"), (w, sm) => {
+    const x0 = sm ? 4 : 4, x1 = w - 4, hgt = 46, svg = el("svg", { viewBox: `0 0 ${w} ${hgt + 26}`, role: "img", "aria-label": "Share of catalogued objects by fate" }, document.getElementById("fateChart"));
+    const tot = R.objects.n; let x = x0;
+    F.forEach(([k, c]) => { const v = R.objects.fates[k] || 0; if (!v) return; const bw = (x1 - x0) * v / tot; const b = el("rect", { x, y: 4, width: Math.max(.6, bw - .6), height: hgt, fill: c }, svg);
+      if (bw > 60) lbl(svg, x + 6, 32, Math.round(100 * v / tot) + "%", "lab b").setAttribute("style", "fill:#fff");
+      b.addEventListener("mousemove", ev => showTip(`<b>${esc(k)}</b><br>${fmt(v)} objects (${(100 * v / tot).toFixed(1)}%)`, ev.clientX, ev.clientY)); b.addEventListener("mouseleave", hideTip); x += bw; });
+    lbl(svg, x0, hgt + 22, `${fmt(tot)} objects`, "lab s m");
+  });
+  document.getElementById("fateLegend").innerHTML = F.map(([n, c]) => `<span><i class="sq" style="background:${c}"></i>${esc(n)}</span>`).join("");
+}
+function stationTable() {
+  const t = document.getElementById("stationTable"), G = SITE.stations;
+  t.innerHTML = `<thead><tr><th>Station</th><th class="r">Launched</th><th class="r">Came down</th><th class="r">Tonnes</th><th>GCAT status</th><th>Place</th></tr></thead><tbody>` +
+    G.map((g, i) => `<tr data-i="${i}"><td>${esc(g.name)}</td><td class="r">${g.launched}</td><td class="r">${esc(g.down)}</td><td class="r">${g.mass_t.toFixed(1)}</td><td>${g.status === "D" ? "deorbited" : "re-entered, uncontrolled"}</td><td>${esc(g.dest)}</td></tr>`).join("") + `</tbody>`;
+  t.querySelectorAll("tr[data-i]").forEach(r => r.onclick = () => { const g = G[+r.dataset.i]; document.getElementById("atlas").scrollIntoView({ behavior: "smooth" });
+    LY.nemo = true; saveLY(); if (window.syncLayers) syncLayers(); applyLayers(); legend();
+    setTimeout(() => { const ll = g.lat != null ? [g.lat, g.lon] : g.dest === "Argentina" ? [-38, -66] : [-40, -150]; map.setView(ll, 3); L.popup().setLatLng(ll).setContent(`<b>${esc(g.name)}</b><br>${g.status === "D" ? "Deorbited on purpose" : "Re-entered uncontrolled"}, ${esc(g.down)}<br>GCAT place: ${esc(g.dest)}${g.lat == null ? " (no coordinates; marker placed roughly)" : ""}`).openOn(map); }, 300); });
+}
+function charts() { yearChart(); failChart(); portChart(); portTable(); latChart(); downChart(); fateChart(); stationTable(); }
+
+/* ---------- start ---------- */
+document.getElementById("theme").onclick = () => { const r = document.documentElement; r.dataset.theme = isDark() ? "light" : "dark"; setTiles(); legend(); redraws.forEach(f => f()); };
+count(); charts(); setTiles(); legend(); setFailBtn(); setYear(YMAX); placeNames(); side();
+</script>
+/*FULLSCREEN*/
+</body>
+</html>

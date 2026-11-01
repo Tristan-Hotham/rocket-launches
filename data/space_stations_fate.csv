@@ -1,0 +1,12 @@
+name,launched,down,down_y,status,fate,dest,mass_t,lat,lon
+Salyut 1,1971,1971 Oct 11,1971,D,Deorbited on purpose,POR,18.2,,
+Salyut 2,1973,1973 May 28,1973,R,Re-entered,165E 5S?,18.7,-5.0,165.0
+Salyut 3,1974,1975 Jan 24,1975,D,Deorbited on purpose,POR,18.9,,
+Salyut 4,1974,1977 Feb  2,1977,D,Deorbited on purpose,POR,18.5,,
+Salyut 5,1976,1977 Aug  8,1977,D,Deorbited on purpose,POR,18.9,,
+Salyut 6,1977,1982 Jul 29,1982,D,Deorbited on purpose,POR,19.8,,
+Salyut 7,1982,1991 Feb  7,1991,R,Re-entered,Argentina,19.8,,
+Skylab,1973,1979 Jul 11,1979,R,Re-entered,31S 124E,34.0,-31.0,124.0
+Mir,1986,2001 Mar 23,2001,D,Deorbited on purpose,26.22S 175.88W,20.1,-26.22,-175.88
+Tiangong 1,2011,2018 Apr  2,2018,R,Re-entered,164.3W 13.6S,8.5,-13.6,-164.3
+Tiangong 2,2016,2019 Jul 19,2019,D,Deorbited on purpose,140W 31S,8.6,-31.0,-140.0

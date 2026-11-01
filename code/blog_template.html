@@ -1,0 +1,129 @@
+<!-- wp:paragraph -->
+<p><em>Since Sputnik, rockets have tried to reach orbit {{source.n|int}} times. I mapped every one of them from Jonathan McDowell's catalogue of everything humans have put into space, and then followed the hardware back down, to the loneliest point in the ocean.</em></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://maps.tristanhotham.com/rocket-launches/">Explore the interactive version</a></div>
+<!-- /wp:button -->
+<!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://doi.org/10.5281/zenodo.23857612">Read the paper</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
+
+<!-- wp:paragraph -->
+<p>On 4 October 1957 a Soviet rocket put a beeping metal ball called Sputnik into orbit. Jonathan McDowell, an astronomer at the Harvard and Smithsonian Center for Astrophysics, has spent decades cataloguing every launch since, and every satellite, spent rocket stage and scrap of debris they left behind. His General Catalog of Artificial Space Objects, GCAT for short, is free for anyone to use. By my count it holds {{source.n|int}} orbital launch attempts, from {{source.n_ports|int}} spaceports, up to {{source.last_date|raw}}.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Put them all on one map and three places dwarf everything else: Plesetsk in the forests of northern Russia, Baikonur on the steppe of Kazakhstan, and Cape Canaveral in Florida.</p>
+<!-- /wp:paragraph -->
+
+{{IMG|b_map.png|World map with a circle for each spaceport, sized by the number of orbital launch attempts and coloured by who launched them. Two huge red circles mark Plesetsk in northern Russia (1,686) and Baikonur in Kazakhstan (1,558), two large blue circles Cape Canaveral (1,393) and Vandenberg (938) in the United States, a teal circle Kourou in French Guiana (336), gold circles four Chinese sites, and smaller circles in India, Japan and New Zealand|Every spaceport, 1957 to 2026. Circle area shows orbital launch attempts; colours show who launched them.}}
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Three eras</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The yearly count tells the story of the space age in one line. The space race took the world from {{sputnik.n1958|int}} attempts in 1958 to a peak of {{peaks.coldwar_n|int}} in {{peaks.coldwar_year|raw}}. For the next twenty years the Soviet Union kept launching more than a hundred times a year, peaking at {{peaks.su_n|int}} in {{peaks.su_year|raw}}, many of them from Plesetsk. Then the Soviet Union collapsed, and so did the launch rate: by {{peaks.dip_year|raw}} the whole world managed just {{peaks.dip_n|int}}.</p>
+<!-- /wp:paragraph -->
+
+{{IMG|b_years.png|Stacked area chart of orbital launch attempts per year from 1957 to 2026, coloured by launching country. A long red Soviet plateau of around 100 to 130 a year from the mid 1960s to 1990 sits on a thinner blue American layer, with a peak of 139 in 1967. Totals sink to 54 in 2004, then rise slowly with a growing gold Chinese layer before exploding after 2020 to a record 329 in 2025, mostly blue|Orbital launch attempts per year, by who launched them. 2026 is partial.}}
+
+<!-- wp:paragraph -->
+<p>The third era began around 2020. SpaceX's Falcon 9, whose first stage lands and flies again, started launching every few days, much of the time to build its own Starlink internet constellation. The world beat the {{peaks.coldwar_year|raw}} record in {{peaks.first_over_coldwar|raw}}, and in {{peaks.record_year|raw}} it managed {{peaks.record_n|int}} attempts. SpaceX made {{peaks.spx_2025|int}} of them, {{peaks.spx_2025_pct|int}}%. China, which launched its first satellite in 1970, made {{peaks.cn_2025|int}}. Russia, heir to the busiest space programme of the twentieth century, made {{peaks.ru_2025|int}}.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:pullquote -->
+<figure class="wp-block-pullquote"><blockquote><p>{{peaks.since2020_pct|int}}% of all the orbital launches in seventy years have happened since 2020.</p></blockquote></figure>
+<!-- /wp:pullquote -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">The busiest pads, then and now</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Over the whole period Plesetsk is the busiest spaceport on Earth, with {{ports.Plesetsk.n|int}} attempts, almost all of them during the Cold War. In {{peaks.record_year|raw}} it saw {{ports.Plesetsk.y2025|int}}. Florida, meanwhile, hosted {{ports.Cape Canaveral and Kennedy.y2025|int}} launches, {{cape.y2025_pct|int}}% of the world's total. One of the more surprising names on the current list is Mahia, on a farm called Onenui Station on New Zealand's North Island, where Rocket Lab built its pad: {{ports.Mahia.y2025|int}} launches in {{peaks.record_year|raw}}, more than Baikonur's {{ports.Baikonur.y2025|int}}.</p>
+<!-- /wp:paragraph -->
+
+{{IMG|b_ports.png|Two bar charts. Left, the busiest spaceports from 1957 to 2026: Plesetsk 1,686, Baikonur 1,558, Cape Canaveral and Kennedy 1,393, Vandenberg 938, then Kourou, Jiuquan, Xichang and others. Right, the busiest in 2025: Cape Canaveral and Kennedy 109, Vandenberg 66, Jiuquan 33, Wenchang 21, Xichang 19 and Mahia 17|The busiest spaceports over seventy years (left) and in 2025 (right).}}
+
+<!-- wp:paragraph -->
+<p>Where a spaceport sits matters. The Earth spins eastwards, so a rocket on the pad already has a free push: {{lat.kourou_v|int}} m/s at Kourou, close to the equator, but only {{lat.baikonur_v|int}} m/s at Baikonur and {{lat.plesetsk_v|int}} m/s at Plesetsk. Latitude matters even more for satellites heading to the geostationary ring over the equator, which is why Europe launches from French Guiana: {{lat.kourou_gto_pct|int}}% of Kourou's launches went towards geostationary orbit, against {{lat.baikonur_gto_pct|int}}% from Baikonur. Geography sets the direction too. Florida launches east over the Atlantic; Vandenberg south over the Pacific into polar orbits; and Israel launches westward over the Mediterranean, against the Earth's spin, so that spent stages fall into the sea.</p>
+<!-- /wp:paragraph -->
+
+{{IMG|b_lat.png|Chart of twenty spaceports ordered by latitude. Grey bars show the Earth's eastward speed at the pad, from 463 m/s at Kourou to 212 m/s at Plesetsk. Coloured bars show the direction of launches to low orbit: Cape Canaveral, Baikonur and Wallops almost all eastward in gold, Vandenberg, Taiyuan and Vostochny mostly polar in blue, Palmachim entirely westward in red|Latitude, the Earth's free push, and where rockets head.}}
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Failures</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Rockets used to fail a lot. In the first ten years {{fail.first10_pct|int}}% of attempts never reached orbit, and in 1958 {{sputnik.fail1958|int}} of {{sputnik.n1958|int}} failed. By the 1980s the rate was down to about {{decades.3.fail_pct|int}}%, and it has stayed near there since: {{fail.y2020s_pct|f1}}% in the 2020s. But because there are so many more launches, {{fail.y2025|int}} failed in {{peaks.record_year|raw}}, more than in any year since the early 1970s. In all, {{source.fail|int}} rockets, {{source.fail_pct|pc1}}, have failed to make it.</p>
+<!-- /wp:paragraph -->
+
+{{IMG|b_fail.png|Bar chart of launch failures per year, highest at about 15 to 20 a year in the late 1950s and 1960s, falling to mostly between 1 and 8 a year from the mid 1970s to the 2010s, then rising to around 10 a year in the 2020s. A blue line shows the failure rate by decade falling from 57% in the 1950s to 16% in the 1960s and about 4 to 6% since|Failures per year (bars) and the failure rate by decade (line).}}
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">What goes up</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>GCAT's main catalogue lists {{objects.n|int}} objects that reached orbit or beyond: satellites, rocket stages, nose fairings, adapters and tracked fragments of debris. {{objects.came_down|int}} of them, {{objects.came_down_pct|int}}%, have already come back down. Almost all simply re-entered as their orbits decayed and burned up; {{objects.landed|int}} landed or were recovered; just {{objects.deorbited|int}} were deliberately steered down. The busiest year was {{objects.down_peak_year|raw}}, when {{asat.y2022|int}} of the {{objects.down_peak_n|int}} objects that fell were fragments of Kosmos 1408, an old Soviet satellite that Russia blew apart with a missile in November 2021. In {{peaks.record_year|raw}}, {{objects.down_2025_starlink_pct|int}}% of everything that came down was a retired Starlink satellite.</p>
+<!-- /wp:paragraph -->
+
+{{IMG|b_down.png|Stacked bar chart of catalogued objects coming back to Earth each year by type. Mostly a few hundred a year from the 1960s to 2010s, with grey debris on top, then a jump to 2,470 in 2022, mostly debris, and around 2,000 a year since, increasingly blue payloads, with a dashed line showing Starlink satellites rising to several hundred a year|Catalogued objects that came back each year, by type.}}
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Point Nemo</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Point Nemo, at 48.88°S 123.39°W, is the place in the ocean farthest from land, about {{wiki.nemo_km|raw}} km from the nearest island. Because nobody lives there and few ships pass, space agencies aim their largest returning spacecraft at the sea around it. Wikipedia's article on this spacecraft cemetery counts {{wiki.n_disposed|raw}} craft disposed of there between {{wiki.years|raw}}, including Mir and Russian, Japanese and European cargo ships, and the International Space Station is due to follow in {{wiki.iss_year|raw}}. GCAT shows Salyut 1, 3, 4, 5 and 6 deorbited into the Pacific, Mir in March 2001 and China's Tiangong 2 in 2019; Skylab, Salyut 7 and Tiangong 1 fell on their own, over Australia, Argentina and the central Pacific.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>For {{located.n|int}} objects GCAT also records a rough place of re-entry. They tell a less tidy story. The uncontrolled ones fall everywhere their orbits reach: {{located.unc_sea_pct|int}}% over the sea, close to the ocean's share of the planet, and only {{located.unc_near_nemo_pct|f1}}% within {{located.nemo_r_km|int}} km of Point Nemo. The cemetery is real, but it is for the few big things we can steer. Most space junk falls wherever it falls.</p>
+<!-- /wp:paragraph -->
+
+{{IMG|b_reentry_map.png|World map with about 2,000 small grey dots for uncontrolled re-entries spread across every ocean and continent, a cluster of teal landing points on the Kazakh steppe, a few dark blue deliberate deorbits, a dashed circle around Point Nemo in the South Pacific, and diamonds for Mir, Tiangong 1 and 2, Salyut 2 and Skylab|Where GCAT records a place of re-entry or landing, with the space stations and a 2,500 km circle around Point Nemo.}}
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">How I did this</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Everything comes from GCAT release {{source.release|raw}}: the launch list, sites, organisations and the main object catalogue. I counted every launch GCAT codes as orbital or deep space, left out pad explosions and aborts before lift-off, and treated anything it codes as a failure, including partial failures, as a failure. Who launched comes from the country of the first agency GCAT lists, so Rocket Lab's flights count for New Zealand and Starsem's Soyuz flights from Baikonur for Europe. I merged launch sites that were renamed or sit side by side, such as Cape Canaveral and the Kennedy Space Center. GCAT has no launch azimuths, so direction comes from the orbit's inclination. The re-entry places are GCAT's own rough coordinates; I did not estimate any. The 2,500 km circle around Point Nemo is mine, for drawing and counting, not an official boundary. The paper sets out every step and caveat.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://maps.tristanhotham.com/rocket-launches/">Explore the interactive version</a></div>
+<!-- /wp:button -->
+<!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://doi.org/10.5281/zenodo.23857612">Read the paper</a></div>
+<!-- /wp:button -->
+<!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://github.com/Tristan-Hotham/rocket-launches">Data and code</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Notes and sources</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Jonathan C. McDowell, <a href="https://planet4589.org/space/gcat">General Catalog of Artificial Space Objects</a> (GCAT), release {{source.release|raw}}, CC BY 4.0. Data from GCAT (J. McDowell, planet4589.org/space/gcat).</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Wikipedia, <a href="https://en.wikipedia.org/wiki/Pole_of_inaccessibility">Pole of inaccessibility</a> (Point Nemo) and <a href="https://en.wikipedia.org/wiki/Spacecraft_cemetery">Spacecraft cemetery</a>, CC BY-SA 4.0, for the facts about Point Nemo.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.naturalearthdata.com/">Natural Earth</a> country outlines and land (public domain).</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->

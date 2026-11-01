@@ -1,0 +1,5494 @@
+{
+ "source": {
+  "launch_rows": 76016,
+  "satcat_rows": 69999,
+  "site_rows": 712,
+  "n": 7416,
+  "ok": 6909,
+  "fail": 507,
+  "fail_pct": 6.84,
+  "ok_pct": 93.16,
+  "deep": 229,
+  "partial": 116,
+  "pad_oe": 11,
+  "abort_oa": 6,
+  "suborbital": 68576,
+  "first_year": 1942,
+  "last_year": 2026,
+  "last_date": "2026 Oct 27",
+  "release": "1.8.8",
+  "update_year": "2026",
+  "n_ports": 46,
+  "n_codes": 65,
+  "n_ok_inc": 6807,
+  "checks": {
+   "launch_rows": 76016,
+   "site_rows": 712,
+   "org_rows": 4145,
+   "lv_rows": 1837,
+   "satcat_rows": 69999,
+   "updated": "Updated 2026 Oct 29 0117:07",
+   "codes": {
+    "SS": 39769,
+    "MS": 12987,
+    "SU": 8740,
+    "OS": 6648,
+    "AS": 2162,
+    "MU": 1450,
+    "MF": 1132,
+    "SF": 823,
+    "AU": 450,
+    "OF": 424,
+    "YS": 318,
+    "DS": 228,
+    "HS": 188,
+    "YF": 137,
+    "TS": 132,
+    "RS": 96,
+    "OF40": 67,
+    "AF": 63,
+    "TF": 31,
+    "HF": 22,
+    "OS75": 18,
+    "ME": 14,
+    "NS": 13,
+    "TU": 12,
+    "OE": 11,
+    "XS": 11,
+    "RF": 10,
+    "LS": 9,
+    "!": 7,
+    "OA": 6,
+    "OF25": 5,
+    "OS80": 5,
+    "OF50": 4,
+    "OS85": 3,
+    "LF": 3,
+    "OF20": 2,
+    "NF": 2,
+    "NE": 1,
+    "OS66": 1,
+    "OF70": 1,
+    "OS60": 1,
+    "OS90": 1,
+    "OF45": 1,
+    "OF60": 1,
+    "OF30": 1,
+    "SE": 1,
+    "OF44": 1,
+    "OS89": 1,
+    "OS65": 1,
+    "DS75": 1,
+    "OS95": 1
+   },
+   "kinds": {
+    "S": 49333,
+    "M": 15583,
+    "O": 7204,
+    "A": 2675,
+    "Y": 455,
+    "D": 229,
+    "H": 210,
+    "T": 175,
+    "R": 106,
+    "N": 16,
+    "L": 12,
+    "X": 11,
+    "!": 7
+   },
+   "pad_explosions_OE": 11,
+   "aborts_OA": 6,
+   "others_states": {
+    "IR": 21,
+    "IL": 13,
+    "KR": 10,
+    "KP": 9,
+    "CYM": 4,
+    "BR": 2,
+    "AU": 1
+   },
+   "status": {
+    "R": 33406,
+    "O": 32169,
+    "OX": 1163,
+    "L": 1074,
+    "DK": 473,
+    "DSO": 461,
+    "N": 337,
+    "AR": 296,
+    "D": 183,
+    "E": 78,
+    "TFR": 78,
+    "AO": 65,
+    "GRP": 63,
+    "ATT": 46,
+    "DSA": 45,
+    "C": 23,
+    "ERR": 22,
+    "R?": 13,
+    "L?": 2,
+    "REL": 1,
+    "EVA DP": 1
+   },
+   "down_with_dest": 2413,
+   "down_with_coords": 2136,
+   "ok_with_inc": 6807,
+   "ok": 6909
+  }
+ },
+ "before": {
+  "pre1957": 4334,
+  "pre1957_space": 609,
+  "v2": 628,
+  "v2_first": 1942,
+  "v2_last": 1952,
+  "v2_1944": 418,
+  "v2_1945": 99,
+  "v2_us": 75,
+  "first_space_date": "1944 Jun",
+  "first_space_lv": "A-4",
+  "first_space_apogee": 120,
+  "first_space_site": "HVP",
+  "v2_max_apogee": 213
+ },
+ "sputnik": {
+  "date": "4 October 1957",
+  "lv": "Sputnik 8K71PS",
+  "tag": "1957 ALP",
+  "n1957": 3,
+  "fail1957": 1,
+  "n1958": 28,
+  "fail1958": 20
+ },
+ "years": [
+  {
+   "y": 1957,
+   "n": 3,
+   "ok": 2,
+   "fail": 1,
+   "United States": 1,
+   "Soviet Union and Russia": 2,
+   "China": 0,
+   "Europe": 0,
+   "Japan": 0,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 2
+  },
+  {
+   "y": 1958,
+   "n": 28,
+   "ok": 8,
+   "fail": 20,
+   "United States": 23,
+   "Soviet Union and Russia": 5,
+   "China": 0,
+   "Europe": 0,
+   "Japan": 0,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 8
+  },
+  {
+   "y": 1959,
+   "n": 23,
+   "ok": 13,
+   "fail": 10,
+   "United States": 19,
+   "Soviet Union and Russia": 4,
+   "China": 0,
+   "Europe": 0,
+   "Japan": 0,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 15
+  },
+  {
+   "y": 1960,
+   "n": 38,
+   "ok": 19,
+   "fail": 19,
+   "United States": 29,
+   "Soviet Union and Russia": 9,
+   "China": 0,
+   "Europe": 0,
+   "Japan": 0,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 21
+  },
+  {
+   "y": 1961,
+   "n": 50,
+   "ok": 32,
+   "fail": 18,
+   "United States": 41,
+   "Soviet Union and Russia": 9,
+   "China": 0,
+   "Europe": 0,
+   "Japan": 0,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 43
+  },
+  {
+   "y": 1962,
+   "n": 81,
+   "ok": 67,
+   "fail": 14,
+   "United States": 59,
+   "Soviet Union and Russia": 22,
+   "China": 0,
+   "Europe": 0,
+   "Japan": 0,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 82
+  },
+  {
+   "y": 1963,
+   "n": 69,
+   "ok": 52,
+   "fail": 17,
+   "United States": 46,
+   "Soviet Union and Russia": 23,
+   "China": 0,
+   "Europe": 0,
+   "Japan": 0,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 75
+  },
+  {
+   "y": 1964,
+   "n": 100,
+   "ok": 85,
+   "fail": 15,
+   "United States": 64,
+   "Soviet Union and Russia": 36,
+   "China": 0,
+   "Europe": 0,
+   "Japan": 0,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 107
+  },
+  {
+   "y": 1965,
+   "n": 124,
+   "ok": 110,
+   "fail": 14,
+   "United States": 70,
+   "Soviet Union and Russia": 53,
+   "China": 0,
+   "Europe": 1,
+   "Japan": 0,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 161
+  },
+  {
+   "y": 1966,
+   "n": 132,
+   "ok": 115,
+   "fail": 17,
+   "United States": 78,
+   "Soviet Union and Russia": 51,
+   "China": 0,
+   "Europe": 1,
+   "Japan": 2,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 141
+  },
+  {
+   "y": 1967,
+   "n": 139,
+   "ok": 125,
+   "fail": 14,
+   "United States": 61,
+   "Soviet Union and Russia": 74,
+   "China": 0,
+   "Europe": 3,
+   "Japan": 1,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 156
+  },
+  {
+   "y": 1968,
+   "n": 128,
+   "ok": 118,
+   "fail": 10,
+   "United States": 48,
+   "Soviet Union and Russia": 79,
+   "China": 0,
+   "Europe": 1,
+   "Japan": 0,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 142
+  },
+  {
+   "y": 1969,
+   "n": 125,
+   "ok": 107,
+   "fail": 18,
+   "United States": 41,
+   "Soviet Union and Russia": 82,
+   "China": 0,
+   "Europe": 1,
+   "Japan": 1,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 136
+  },
+  {
+   "y": 1970,
+   "n": 124,
+   "ok": 113,
+   "fail": 11,
+   "United States": 29,
+   "Soviet Union and Russia": 87,
+   "China": 1,
+   "Europe": 5,
+   "Japan": 2,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 133
+  },
+  {
+   "y": 1971,
+   "n": 133,
+   "ok": 118,
+   "fail": 15,
+   "United States": 33,
+   "Soviet Union and Russia": 91,
+   "China": 1,
+   "Europe": 6,
+   "Japan": 2,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 158
+  },
+  {
+   "y": 1972,
+   "n": 113,
+   "ok": 105,
+   "fail": 8,
+   "United States": 32,
+   "Soviet Union and Russia": 79,
+   "China": 0,
+   "Europe": 1,
+   "Japan": 1,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 136
+  },
+  {
+   "y": 1973,
+   "n": 116,
+   "ok": 109,
+   "fail": 7,
+   "United States": 25,
+   "Soviet Union and Russia": 89,
+   "China": 1,
+   "Europe": 1,
+   "Japan": 0,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 138
+  },
+  {
+   "y": 1974,
+   "n": 113,
+   "ok": 105,
+   "fail": 8,
+   "United States": 23,
+   "Soviet Union and Russia": 85,
+   "China": 2,
+   "Europe": 2,
+   "Japan": 1,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 127
+  },
+  {
+   "y": 1975,
+   "n": 132,
+   "ok": 125,
+   "fail": 7,
+   "United States": 30,
+   "Soviet Union and Russia": 93,
+   "China": 3,
+   "Europe": 4,
+   "Japan": 2,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 163
+  },
+  {
+   "y": 1976,
+   "n": 131,
+   "ok": 126,
+   "fail": 5,
+   "United States": 26,
+   "Soviet Union and Russia": 100,
+   "China": 3,
+   "Europe": 0,
+   "Japan": 2,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 203
+  },
+  {
+   "y": 1977,
+   "n": 130,
+   "ok": 123,
+   "fail": 7,
+   "United States": 26,
+   "Soviet Union and Russia": 102,
+   "China": 0,
+   "Europe": 0,
+   "Japan": 2,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 183
+  },
+  {
+   "y": 1978,
+   "n": 128,
+   "ok": 123,
+   "fail": 5,
+   "United States": 33,
+   "Soviet Union and Russia": 91,
+   "China": 1,
+   "Europe": 0,
+   "Japan": 3,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 176
+  },
+  {
+   "y": 1979,
+   "n": 110,
+   "ok": 105,
+   "fail": 5,
+   "United States": 16,
+   "Soviet Union and Russia": 89,
+   "China": 1,
+   "Europe": 1,
+   "Japan": 2,
+   "India": 1,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 152
+  },
+  {
+   "y": 1980,
+   "n": 108,
+   "ok": 103,
+   "fail": 5,
+   "United States": 15,
+   "Soviet Union and Russia": 89,
+   "China": 0,
+   "Europe": 1,
+   "Japan": 2,
+   "India": 1,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 176
+  },
+  {
+   "y": 1981,
+   "n": 126,
+   "ok": 122,
+   "fail": 4,
+   "United States": 19,
+   "Soviet Union and Russia": 100,
+   "China": 1,
+   "Europe": 2,
+   "Japan": 3,
+   "India": 1,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 183
+  },
+  {
+   "y": 1982,
+   "n": 129,
+   "ok": 119,
+   "fail": 10,
+   "United States": 18,
+   "Soviet Union and Russia": 108,
+   "China": 1,
+   "Europe": 1,
+   "Japan": 1,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 212
+  },
+  {
+   "y": 1983,
+   "n": 129,
+   "ok": 127,
+   "fail": 2,
+   "United States": 22,
+   "Soviet Union and Russia": 100,
+   "China": 1,
+   "Europe": 2,
+   "Japan": 3,
+   "India": 1,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 233
+  },
+  {
+   "y": 1984,
+   "n": 129,
+   "ok": 126,
+   "fail": 3,
+   "United States": 22,
+   "Soviet Union and Russia": 97,
+   "China": 3,
+   "Europe": 4,
+   "Japan": 3,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 194
+  },
+  {
+   "y": 1985,
+   "n": 125,
+   "ok": 120,
+   "fail": 5,
+   "United States": 18,
+   "Soviet Union and Russia": 100,
+   "China": 1,
+   "Europe": 4,
+   "Japan": 2,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 189
+  },
+  {
+   "y": 1986,
+   "n": 110,
+   "ok": 102,
+   "fail": 8,
+   "United States": 9,
+   "Soviet Union and Russia": 94,
+   "China": 2,
+   "Europe": 3,
+   "Japan": 2,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 160
+  },
+  {
+   "y": 1987,
+   "n": 114,
+   "ok": 108,
+   "fail": 6,
+   "United States": 9,
+   "Soviet Union and Russia": 97,
+   "China": 2,
+   "Europe": 2,
+   "Japan": 3,
+   "India": 1,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 138
+  },
+  {
+   "y": 1988,
+   "n": 121,
+   "ok": 115,
+   "fail": 6,
+   "United States": 11,
+   "Soviet Union and Russia": 94,
+   "China": 4,
+   "Europe": 8,
+   "Japan": 2,
+   "India": 1,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 1,
+   "spx": 0,
+   "payloads": 206
+  },
+  {
+   "y": 1989,
+   "n": 102,
+   "ok": 101,
+   "fail": 1,
+   "United States": 18,
+   "Soviet Union and Russia": 75,
+   "China": 0,
+   "Europe": 7,
+   "Japan": 2,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 183
+  },
+  {
+   "y": 1990,
+   "n": 121,
+   "ok": 114,
+   "fail": 7,
+   "United States": 27,
+   "Soviet Union and Russia": 79,
+   "China": 5,
+   "Europe": 6,
+   "Japan": 3,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 1,
+   "spx": 0,
+   "payloads": 218
+  },
+  {
+   "y": 1991,
+   "n": 91,
+   "ok": 86,
+   "fail": 5,
+   "United States": 19,
+   "Soviet Union and Russia": 61,
+   "China": 1,
+   "Europe": 8,
+   "Japan": 2,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 141
+  },
+  {
+   "y": 1992,
+   "n": 97,
+   "ok": 94,
+   "fail": 3,
+   "United States": 29,
+   "Soviet Union and Russia": 55,
+   "China": 4,
+   "Europe": 7,
+   "Japan": 1,
+   "India": 1,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 130
+  },
+  {
+   "y": 1993,
+   "n": 83,
+   "ok": 77,
+   "fail": 6,
+   "United States": 25,
+   "Soviet Union and Russia": 48,
+   "China": 1,
+   "Europe": 7,
+   "Japan": 1,
+   "India": 1,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 110
+  },
+  {
+   "y": 1994,
+   "n": 93,
+   "ok": 89,
+   "fail": 4,
+   "United States": 27,
+   "Soviet Union and Russia": 49,
+   "China": 5,
+   "Europe": 8,
+   "Japan": 2,
+   "India": 2,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 124
+  },
+  {
+   "y": 1995,
+   "n": 80,
+   "ok": 73,
+   "fail": 7,
+   "United States": 30,
+   "Soviet Union and Russia": 33,
+   "China": 3,
+   "Europe": 11,
+   "Japan": 2,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 1,
+   "spx": 0,
+   "payloads": 120
+  },
+  {
+   "y": 1996,
+   "n": 77,
+   "ok": 71,
+   "fail": 6,
+   "United States": 33,
+   "Soviet Union and Russia": 27,
+   "China": 4,
+   "Europe": 11,
+   "Japan": 1,
+   "India": 1,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 98
+  },
+  {
+   "y": 1997,
+   "n": 89,
+   "ok": 85,
+   "fail": 4,
+   "United States": 38,
+   "Soviet Union and Russia": 29,
+   "China": 6,
+   "Europe": 12,
+   "Japan": 2,
+   "India": 1,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 1,
+   "spx": 0,
+   "payloads": 151
+  },
+  {
+   "y": 1998,
+   "n": 82,
+   "ok": 76,
+   "fail": 6,
+   "United States": 36,
+   "Soviet Union and Russia": 25,
+   "China": 6,
+   "Europe": 11,
+   "Japan": 2,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 2,
+   "spx": 0,
+   "payloads": 157
+  },
+  {
+   "y": 1999,
+   "n": 78,
+   "ok": 70,
+   "fail": 8,
+   "United States": 31,
+   "Soviet Union and Russia": 22,
+   "China": 4,
+   "Europe": 16,
+   "Japan": 1,
+   "India": 1,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 3,
+   "spx": 0,
+   "payloads": 127
+  },
+  {
+   "y": 2000,
+   "n": 85,
+   "ok": 81,
+   "fail": 4,
+   "United States": 29,
+   "Soviet Union and Russia": 32,
+   "China": 5,
+   "Europe": 16,
+   "Japan": 1,
+   "India": 0,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 2,
+   "spx": 0,
+   "payloads": 118
+  },
+  {
+   "y": 2001,
+   "n": 59,
+   "ok": 57,
+   "fail": 2,
+   "United States": 24,
+   "Soviet Union and Russia": 23,
+   "China": 1,
+   "Europe": 8,
+   "Japan": 1,
+   "India": 2,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 86
+  },
+  {
+   "y": 2002,
+   "n": 65,
+   "ok": 61,
+   "fail": 4,
+   "United States": 18,
+   "Soviet Union and Russia": 25,
+   "China": 5,
+   "Europe": 12,
+   "Japan": 3,
+   "India": 1,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 1,
+   "spx": 0,
+   "payloads": 90
+  },
+  {
+   "y": 2003,
+   "n": 63,
+   "ok": 61,
+   "fail": 2,
+   "United States": 26,
+   "Soviet Union and Russia": 19,
+   "China": 7,
+   "Europe": 6,
+   "Japan": 3,
+   "India": 2,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 88
+  },
+  {
+   "y": 2004,
+   "n": 54,
+   "ok": 51,
+   "fail": 3,
+   "United States": 19,
+   "Soviet Union and Russia": 22,
+   "China": 8,
+   "Europe": 3,
+   "Japan": 0,
+   "India": 1,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 1,
+   "spx": 0,
+   "payloads": 72
+  },
+  {
+   "y": 2005,
+   "n": 56,
+   "ok": 52,
+   "fail": 4,
+   "United States": 16,
+   "Soviet Union and Russia": 23,
+   "China": 6,
+   "Europe": 8,
+   "Japan": 2,
+   "India": 1,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 0,
+   "payloads": 71
+  },
+  {
+   "y": 2006,
+   "n": 66,
+   "ok": 62,
+   "fail": 4,
+   "United States": 23,
+   "Soviet Union and Russia": 23,
+   "China": 6,
+   "Europe": 7,
+   "Japan": 6,
+   "India": 1,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 0,
+   "spx": 1,
+   "payloads": 93
+  },
+  {
+   "y": 2007,
+   "n": 68,
+   "ok": 65,
+   "fail": 3,
+   "United States": 20,
+   "Soviet Union and Russia": 23,
+   "China": 10,
+   "Europe": 9,
+   "Japan": 2,
+   "India": 3,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 1,
+   "spx": 1,
+   "payloads": 110
+  },
+  {
+   "y": 2008,
+   "n": 69,
+   "ok": 66,
+   "fail": 3,
+   "United States": 20,
+   "Soviet Union and Russia": 26,
+   "China": 11,
+   "Europe": 7,
+   "Japan": 1,
+   "India": 3,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 1,
+   "spx": 2,
+   "payloads": 101
+  },
+  {
+   "y": 2009,
+   "n": 78,
+   "ok": 74,
+   "fail": 4,
+   "United States": 25,
+   "Soviet Union and Russia": 32,
+   "China": 6,
+   "Europe": 7,
+   "Japan": 3,
+   "India": 2,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 3,
+   "spx": 1,
+   "payloads": 123
+  },
+  {
+   "y": 2010,
+   "n": 74,
+   "ok": 70,
+   "fail": 4,
+   "United States": 15,
+   "Soviet Union and Russia": 30,
+   "China": 15,
+   "Europe": 7,
+   "Japan": 2,
+   "India": 3,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 2,
+   "spx": 2,
+   "payloads": 120
+  },
+  {
+   "y": 2011,
+   "n": 84,
+   "ok": 78,
+   "fail": 6,
+   "United States": 19,
+   "Soviet Union and Russia": 30,
+   "China": 19,
+   "Europe": 9,
+   "Japan": 3,
+   "India": 3,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 1,
+   "spx": 0,
+   "payloads": 127
+  },
+  {
+   "y": 2012,
+   "n": 78,
+   "ok": 73,
+   "fail": 5,
+   "United States": 16,
+   "Soviet Union and Russia": 23,
+   "China": 19,
+   "Europe": 11,
+   "Japan": 2,
+   "India": 2,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 5,
+   "spx": 2,
+   "payloads": 134
+  },
+  {
+   "y": 2013,
+   "n": 81,
+   "ok": 78,
+   "fail": 3,
+   "United States": 20,
+   "Soviet Union and Russia": 31,
+   "China": 15,
+   "Europe": 8,
+   "Japan": 3,
+   "India": 3,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 1,
+   "spx": 3,
+   "payloads": 208
+  },
+  {
+   "y": 2014,
+   "n": 92,
+   "ok": 89,
+   "fail": 3,
+   "United States": 24,
+   "Soviet Union and Russia": 32,
+   "China": 16,
+   "Europe": 11,
+   "Japan": 4,
+   "India": 4,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 1,
+   "spx": 6,
+   "payloads": 254
+  },
+  {
+   "y": 2015,
+   "n": 87,
+   "ok": 82,
+   "fail": 5,
+   "United States": 20,
+   "Soviet Union and Russia": 26,
+   "China": 19,
+   "Europe": 12,
+   "Japan": 4,
+   "India": 5,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 1,
+   "spx": 7,
+   "payloads": 232
+  },
+  {
+   "y": 2016,
+   "n": 85,
+   "ok": 83,
+   "fail": 2,
+   "United States": 22,
+   "Soviet Union and Russia": 17,
+   "China": 22,
+   "Europe": 11,
+   "Japan": 4,
+   "India": 7,
+   "New Zealand (Rocket Lab)": 0,
+   "Others": 2,
+   "spx": 8,
+   "payloads": 215
+  },
+  {
+   "y": 2017,
+   "n": 90,
+   "ok": 84,
+   "fail": 6,
+   "United States": 29,
+   "Soviet Union and Russia": 19,
+   "China": 18,
+   "Europe": 11,
+   "Japan": 7,
+   "India": 5,
+   "New Zealand (Rocket Lab)": 1,
+   "Others": 0,
+   "spx": 18,
+   "payloads": 443
+  },
+  {
+   "y": 2018,
+   "n": 114,
+   "ok": 112,
+   "fail": 2,
+   "United States": 31,
+   "Soviet Union and Russia": 17,
+   "China": 39,
+   "Europe": 11,
+   "Japan": 6,
+   "India": 7,
+   "New Zealand (Rocket Lab)": 3,
+   "Others": 0,
+   "spx": 21,
+   "payloads": 460
+  },
+  {
+   "y": 2019,
+   "n": 102,
+   "ok": 97,
+   "fail": 5,
+   "United States": 21,
+   "Soviet Union and Russia": 22,
+   "China": 34,
+   "Europe": 9,
+   "Japan": 2,
+   "India": 6,
+   "New Zealand (Rocket Lab)": 6,
+   "Others": 2,
+   "spx": 13,
+   "payloads": 478
+  },
+  {
+   "y": 2020,
+   "n": 114,
+   "ok": 104,
+   "fail": 10,
+   "United States": 37,
+   "Soviet Union and Russia": 12,
+   "China": 39,
+   "Europe": 10,
+   "Japan": 4,
+   "India": 2,
+   "New Zealand (Rocket Lab)": 7,
+   "Others": 3,
+   "spx": 25,
+   "payloads": 1248
+  },
+  {
+   "y": 2021,
+   "n": 146,
+   "ok": 135,
+   "fail": 11,
+   "United States": 45,
+   "Soviet Union and Russia": 16,
+   "China": 56,
+   "Europe": 15,
+   "Japan": 3,
+   "India": 2,
+   "New Zealand (Rocket Lab)": 6,
+   "Others": 3,
+   "spx": 31,
+   "payloads": 1813
+  },
+  {
+   "y": 2022,
+   "n": 186,
+   "ok": 179,
+   "fail": 7,
+   "United States": 78,
+   "Soviet Union and Russia": 21,
+   "China": 64,
+   "Europe": 6,
+   "Japan": 1,
+   "India": 5,
+   "New Zealand (Rocket Lab)": 9,
+   "Others": 2,
+   "spx": 61,
+   "payloads": 2448
+  },
+  {
+   "y": 2023,
+   "n": 221,
+   "ok": 211,
+   "fail": 10,
+   "United States": 107,
+   "Soviet Union and Russia": 19,
+   "China": 67,
+   "Europe": 3,
+   "Japan": 3,
+   "India": 7,
+   "New Zealand (Rocket Lab)": 7,
+   "Others": 8,
+   "spx": 96,
+   "payloads": 2900
+  },
+  {
+   "y": 2024,
+   "n": 262,
+   "ok": 256,
+   "fail": 6,
+   "United States": 144,
+   "Soviet Union and Russia": 17,
+   "China": 68,
+   "Europe": 3,
+   "Japan": 7,
+   "India": 5,
+   "New Zealand (Rocket Lab)": 13,
+   "Others": 5,
+   "spx": 137,
+   "payloads": 2827
+  },
+  {
+   "y": 2025,
+   "n": 329,
+   "ok": 318,
+   "fail": 11,
+   "United States": 181,
+   "Soviet Union and Russia": 17,
+   "China": 92,
+   "Europe": 8,
+   "Japan": 4,
+   "India": 5,
+   "New Zealand (Rocket Lab)": 17,
+   "Others": 5,
+   "spx": 170,
+   "payloads": 4511
+  },
+  {
+   "y": 2026,
+   "n": 254,
+   "ok": 247,
+   "fail": 7,
+   "United States": 134,
+   "Soviet Union and Russia": 13,
+   "China": 76,
+   "Europe": 7,
+   "Japan": 4,
+   "India": 3,
+   "New Zealand (Rocket Lab)": 16,
+   "Others": 1,
+   "spx": 123,
+   "payloads": 2574
+  }
+ ],
+ "peaks": {
+  "coldwar_year": 1967,
+  "coldwar_n": 139,
+  "su_year": 1982,
+  "su_n": 108,
+  "us_1960s_year": 1966,
+  "us_1960s_n": 78,
+  "dip_year": 2004,
+  "dip_n": 54,
+  "record_year": 2025,
+  "record_n": 329,
+  "y2026_n": 254,
+  "y2020_n": 114,
+  "y2015_n": 87,
+  "y2010_n": 74,
+  "y2000_n": 85,
+  "y1990_n": 121,
+  "y2019_n": 102,
+  "su_1991": 61,
+  "ru_2025": 17,
+  "record_vs_coldwar_pct": 136.7,
+  "record_vs_dip_x": 6.1,
+  "us_2025": 181,
+  "cn_2025": 92,
+  "spx_2025": 170,
+  "spx_2025_pct": 51.67,
+  "spx_total": 728,
+  "us_2025_pct": 55.02,
+  "cn_2025_pct": 27.96,
+  "since2020": 1512,
+  "since2020_pct": 20.39,
+  "starlink_missions_2025": 122,
+  "payloads_2025": 4511,
+  "payloads_1990": 218,
+  "f9_2025": 165,
+  "years_over_200": [
+   2023,
+   2024,
+   2025,
+   2026
+  ],
+  "first_over_coldwar": 2021
+ },
+ "blocs": {
+  "United States": {
+   "bloc": "United States",
+   "n": 2472,
+   "pct": 33.33,
+   "ok": 2298,
+   "fail": 174,
+   "fail_pct": 7.04,
+   "first": 1957,
+   "peak_year": 2025,
+   "peak_n": 181,
+   "since2020": 726,
+   "y2025": 181
+  },
+  "Soviet Union and Russia": {
+   "bloc": "Soviet Union and Russia",
+   "n": 3347,
+   "pct": 45.13,
+   "ok": 3138,
+   "fail": 209,
+   "fail_pct": 6.24,
+   "first": 1957,
+   "peak_year": 1982,
+   "peak_n": 108,
+   "since2020": 115,
+   "y2025": 17
+  },
+  "China": {
+   "bloc": "China",
+   "n": 810,
+   "pct": 10.92,
+   "ok": 769,
+   "fail": 41,
+   "fail_pct": 5.06,
+   "first": 1970,
+   "peak_year": 2025,
+   "peak_n": 92,
+   "since2020": 462,
+   "y2025": 92
+  },
+  "Europe": {
+   "bloc": "Europe",
+   "n": 393,
+   "pct": 5.3,
+   "ok": 371,
+   "fail": 22,
+   "fail_pct": 5.6,
+   "first": 1965,
+   "peak_year": 1999,
+   "peak_n": 16,
+   "since2020": 52,
+   "y2025": 8
+  },
+  "Japan": {
+   "bloc": "Japan",
+   "n": 146,
+   "pct": 1.97,
+   "ok": 127,
+   "fail": 19,
+   "fail_pct": 13.01,
+   "first": 1966,
+   "peak_year": 2017,
+   "peak_n": 7,
+   "since2020": 26,
+   "y2025": 4
+  },
+  "India": {
+   "bloc": "India",
+   "n": 103,
+   "pct": 1.39,
+   "ok": 91,
+   "fail": 12,
+   "fail_pct": 11.65,
+   "first": 1979,
+   "peak_year": 2016,
+   "peak_n": 7,
+   "since2020": 29,
+   "y2025": 5
+  },
+  "New Zealand (Rocket Lab)": {
+   "bloc": "New Zealand (Rocket Lab)",
+   "n": 85,
+   "pct": 1.15,
+   "ok": 81,
+   "fail": 4,
+   "fail_pct": 4.71,
+   "first": 2017,
+   "peak_year": 2025,
+   "peak_n": 17,
+   "since2020": 75,
+   "y2025": 17
+  },
+  "Others": {
+   "bloc": "Others",
+   "n": 60,
+   "pct": 0.81,
+   "ok": 34,
+   "fail": 26,
+   "fail_pct": 43.33,
+   "first": 1988,
+   "peak_year": 2023,
+   "peak_n": 8,
+   "since2020": 27,
+   "y2025": 5
+  }
+ },
+ "blocs_list": [
+  {
+   "bloc": "United States",
+   "n": 2472,
+   "pct": 33.33,
+   "ok": 2298,
+   "fail": 174,
+   "fail_pct": 7.04,
+   "first": 1957,
+   "peak_year": 2025,
+   "peak_n": 181,
+   "since2020": 726,
+   "y2025": 181
+  },
+  {
+   "bloc": "Soviet Union and Russia",
+   "n": 3347,
+   "pct": 45.13,
+   "ok": 3138,
+   "fail": 209,
+   "fail_pct": 6.24,
+   "first": 1957,
+   "peak_year": 1982,
+   "peak_n": 108,
+   "since2020": 115,
+   "y2025": 17
+  },
+  {
+   "bloc": "China",
+   "n": 810,
+   "pct": 10.92,
+   "ok": 769,
+   "fail": 41,
+   "fail_pct": 5.06,
+   "first": 1970,
+   "peak_year": 2025,
+   "peak_n": 92,
+   "since2020": 462,
+   "y2025": 92
+  },
+  {
+   "bloc": "Europe",
+   "n": 393,
+   "pct": 5.3,
+   "ok": 371,
+   "fail": 22,
+   "fail_pct": 5.6,
+   "first": 1965,
+   "peak_year": 1999,
+   "peak_n": 16,
+   "since2020": 52,
+   "y2025": 8
+  },
+  {
+   "bloc": "Japan",
+   "n": 146,
+   "pct": 1.97,
+   "ok": 127,
+   "fail": 19,
+   "fail_pct": 13.01,
+   "first": 1966,
+   "peak_year": 2017,
+   "peak_n": 7,
+   "since2020": 26,
+   "y2025": 4
+  },
+  {
+   "bloc": "India",
+   "n": 103,
+   "pct": 1.39,
+   "ok": 91,
+   "fail": 12,
+   "fail_pct": 11.65,
+   "first": 1979,
+   "peak_year": 2016,
+   "peak_n": 7,
+   "since2020": 29,
+   "y2025": 5
+  },
+  {
+   "bloc": "New Zealand (Rocket Lab)",
+   "n": 85,
+   "pct": 1.15,
+   "ok": 81,
+   "fail": 4,
+   "fail_pct": 4.71,
+   "first": 2017,
+   "peak_year": 2025,
+   "peak_n": 17,
+   "since2020": 75,
+   "y2025": 17
+  },
+  {
+   "bloc": "Others",
+   "n": 60,
+   "pct": 0.81,
+   "ok": 34,
+   "fail": 26,
+   "fail_pct": 43.33,
+   "first": 1988,
+   "peak_year": 2023,
+   "peak_n": 8,
+   "since2020": 27,
+   "y2025": 5
+  }
+ ],
+ "others": [
+  {
+   "state": "IR",
+   "n": 21,
+   "first": 2008
+  },
+  {
+   "state": "IL",
+   "n": 13,
+   "first": 1988
+  },
+  {
+   "state": "KR",
+   "n": 10,
+   "first": 2009
+  },
+  {
+   "state": "KP",
+   "n": 9,
+   "first": 1998
+  },
+  {
+   "state": "CYM",
+   "n": 4,
+   "first": 1999
+  },
+  {
+   "state": "BR",
+   "n": 2,
+   "first": 1997
+  },
+  {
+   "state": "AU",
+   "n": 1,
+   "first": 2025
+  }
+ ],
+ "first_by_state": [
+  {
+   "state": "US",
+   "y": 1957
+  },
+  {
+   "state": "SU",
+   "y": 1957
+  },
+  {
+   "state": "F",
+   "y": 1965
+  },
+  {
+   "state": "J",
+   "y": 1966
+  },
+  {
+   "state": "I",
+   "y": 1967
+  },
+  {
+   "state": "I-ELDO",
+   "y": 1968
+  },
+  {
+   "state": "CN",
+   "y": 1970
+  },
+  {
+   "state": "UK",
+   "y": 1970
+  },
+  {
+   "state": "IN",
+   "y": 1979
+  },
+  {
+   "state": "I-ESA",
+   "y": 1979
+  },
+  {
+   "state": "IL",
+   "y": 1988
+  },
+  {
+   "state": "RU",
+   "y": 1992
+  },
+  {
+   "state": "BR",
+   "y": 1997
+  },
+  {
+   "state": "KP",
+   "y": 1998
+  },
+  {
+   "state": "CYM",
+   "y": 1999
+  },
+  {
+   "state": "IR",
+   "y": 2008
+  },
+  {
+   "state": "KR",
+   "y": 2009
+  },
+  {
+   "state": "NZ",
+   "y": 2017
+  },
+  {
+   "state": "AU",
+   "y": 2025
+  },
+  {
+   "state": "D",
+   "y": 2025
+  }
+ ],
+ "su_ru": {
+  "su": 2449,
+  "ru": 898
+ },
+ "europe": {
+  "starsem_baikonur": 31,
+  "kourou_soyuz": 27
+ },
+ "decades": [
+  {
+   "dec": 1950,
+   "n": 54,
+   "fail": 31,
+   "fail_pct": 57.41
+  },
+  {
+   "dec": 1960,
+   "n": 986,
+   "fail": 156,
+   "fail_pct": 15.82
+  },
+  {
+   "dec": 1970,
+   "n": 1230,
+   "fail": 78,
+   "fail_pct": 6.34
+  },
+  {
+   "dec": 1980,
+   "n": 1193,
+   "fail": 50,
+   "fail_pct": 4.19
+  },
+  {
+   "dec": 1990,
+   "n": 891,
+   "fail": 56,
+   "fail_pct": 6.29
+  },
+  {
+   "dec": 2000,
+   "n": 663,
+   "fail": 33,
+   "fail_pct": 4.98
+  },
+  {
+   "dec": 2010,
+   "n": 887,
+   "fail": 41,
+   "fail_pct": 4.62
+  },
+  {
+   "dec": 2020,
+   "n": 1512,
+   "fail": 62,
+   "fail_pct": 4.1
+  }
+ ],
+ "fail": {
+  "first10_pct": 22.38,
+  "first10_n": 648,
+  "y2010s_pct": 4.62,
+  "y2020s_pct": 4.1,
+  "y2025": 11,
+  "y2025_pct": 3.34,
+  "y2020s_inv": 24,
+  "max_year": 1958,
+  "max_n": 20
+ },
+ "ports": {
+  "Baikonur": {
+   "port": "Baikonur",
+   "host": "Kazakhstan",
+   "lat": 46.0,
+   "lon": 63.0,
+   "n": 1558,
+   "ok": 1435,
+   "fail": 123,
+   "fail_pct": 7.89,
+   "first": 1957,
+   "last": 2026,
+   "first_date": "1957 Oct  4",
+   "first_mission": "PS-1",
+   "first_lv": "Sputnik 8K71PS",
+   "peak_year": 1987,
+   "peak_n": 48,
+   "since2020": 56,
+   "y2025": 6,
+   "y2026": 5,
+   "coldwar": 969,
+   "v_rot": 323,
+   "abs_lat": 46.0,
+   "families": [
+    [
+     "R-7",
+     916
+    ],
+    [
+     "Proton",
+     429
+    ],
+    [
+     "R-36",
+     143
+    ],
+    [
+     "Zenit",
+     48
+    ],
+    [
+     "R-14",
+     12
+    ]
+   ],
+   "blocs": [
+    [
+     "Soviet Union and Russia",
+     1527
+    ],
+    [
+     "Europe",
+     31
+    ]
+   ],
+   "n_inc": 1070,
+   "east": 95.51,
+   "polar": 4.49,
+   "retro": 0.0,
+   "min_inc": 49.4,
+   "gto": 285,
+   "codes": [
+    "NIIP-5",
+    "GIK-5"
+   ],
+   "air": 0
+  },
+  "Plesetsk": {
+   "port": "Plesetsk",
+   "host": "Russia",
+   "lat": 62.9,
+   "lon": 40.5,
+   "n": 1686,
+   "ok": 1618,
+   "fail": 68,
+   "fail_pct": 4.03,
+   "first": 1966,
+   "last": 2026,
+   "first_date": "1966 Mar 17",
+   "first_mission": "Zenit-2 No. 37",
+   "first_lv": "Vostok 8A92",
+   "peak_year": 1977,
+   "peak_n": 70,
+   "since2020": 54,
+   "y2025": 9,
+   "y2026": 8,
+   "coldwar": 1381,
+   "v_rot": 212,
+   "abs_lat": 62.9,
+   "families": [
+    [
+     "R-7",
+     995
+    ],
+    [
+     "R-14",
+     422
+    ],
+    [
+     "R-36",
+     122
+    ],
+    [
+     "R-12",
+     90
+    ],
+    [
+     "UR-100N",
+     31
+    ]
+   ],
+   "blocs": [
+    [
+     "Soviet Union and Russia",
+     1686
+    ]
+   ],
+   "n_inc": 1610,
+   "east": 62.67,
+   "polar": 37.33,
+   "retro": 0.0,
+   "min_inc": 62.7,
+   "gto": 4,
+   "codes": [
+    "NIIP-53",
+    "GIK-1",
+    "GNIIPV",
+    "GNIIP"
+   ],
+   "air": 0
+  },
+  "Cape Canaveral and Kennedy": {
+   "port": "Cape Canaveral and Kennedy",
+   "host": "United States",
+   "lat": 28.46,
+   "lon": -80.54,
+   "n": 1393,
+   "ok": 1315,
+   "fail": 78,
+   "fail_pct": 5.6,
+   "first": 1957,
+   "last": 2026,
+   "first_date": "1957 Dec  6",
+   "first_mission": "Vanguard Test Satellite",
+   "first_lv": "Vanguard",
+   "peak_year": 2025,
+   "peak_n": 109,
+   "since2020": 452,
+   "y2025": 109,
+   "y2026": 60,
+   "coldwar": 485,
+   "v_rot": 409,
+   "abs_lat": 28.5,
+   "families": [
+    [
+     "Falcon9",
+     475
+    ],
+    [
+     "Thor",
+     277
+    ],
+    [
+     "Atlas",
+     204
+    ],
+    [
+     "SRB",
+     137
+    ],
+    [
+     "Titan",
+     97
+    ]
+   ],
+   "blocs": [
+    [
+     "United States",
+     1393
+    ]
+   ],
+   "n_inc": 681,
+   "east": 97.36,
+   "polar": 2.64,
+   "retro": 0.0,
+   "min_inc": 0.0,
+   "gto": 383,
+   "codes": [
+    "CC",
+    "KSC",
+    "SPFL",
+    "SPFLA"
+   ],
+   "air": 0
+  },
+  "Vandenberg": {
+   "port": "Vandenberg",
+   "host": "United States",
+   "lat": 34.63,
+   "lon": -120.61,
+   "n": 938,
+   "ok": 868,
+   "fail": 70,
+   "fail_pct": 7.46,
+   "first": 1959,
+   "last": 2026,
+   "first_date": "1959 Feb 28",
+   "first_mission": "CORONA Test Vehicle 2",
+   "first_lv": "Thor Agena A",
+   "peak_year": 2026,
+   "peak_n": 69,
+   "since2020": 236,
+   "y2025": 66,
+   "y2026": 69,
+   "coldwar": 545,
+   "v_rot": 383,
+   "abs_lat": 34.6,
+   "families": [
+    [
+     "Thor",
+     309
+    ],
+    [
+     "Falcon9",
+     237
+    ],
+    [
+     "Atlas",
+     122
+    ],
+    [
+     "Titan",
+     122
+    ],
+    [
+     "Scout",
+     42
+    ]
+   ],
+   "blocs": [
+    [
+     "United States",
+     938
+    ]
+   ],
+   "n_inc": 819,
+   "east": 24.66,
+   "polar": 67.77,
+   "retro": 7.57,
+   "min_inc": 43.0,
+   "gto": 0,
+   "codes": [
+    "V",
+    "VS",
+    "VSFB",
+    "VSFBS",
+    "PA"
+   ],
+   "air": 0
+  },
+  "Kourou": {
+   "port": "Kourou",
+   "host": "French Guiana",
+   "lat": 5.2333,
+   "lon": -52.7517,
+   "n": 336,
+   "ok": 319,
+   "fail": 17,
+   "fail_pct": 5.06,
+   "first": 1970,
+   "last": 2026,
+   "first_date": "1970 Mar 10",
+   "first_mission": "DIAL Wissenschaftliche K",
+   "first_lv": "Diamant B",
+   "peak_year": 1997,
+   "peak_n": 12,
+   "since2020": 39,
+   "y2025": 7,
+   "y2026": 6,
+   "coldwar": 57,
+   "v_rot": 463,
+   "abs_lat": 5.2,
+   "families": [
+    [
+     "Ariane",
+     144
+    ],
+    [
+     "Ariane5",
+     126
+    ],
+    [
+     "R-7",
+     27
+    ],
+    [
+     "Vega",
+     22
+    ],
+    [
+     "Emeraude",
+     8
+    ]
+   ],
+   "blocs": [
+    [
+     "Europe",
+     336
+    ]
+   ],
+   "n_inc": 83,
+   "east": 43.37,
+   "polar": 56.63,
+   "retro": 0.0,
+   "min_inc": 0.0,
+   "gto": 234,
+   "codes": [
+    "CSG"
+   ],
+   "air": 0
+  },
+  "Jiuquan": {
+   "port": "Jiuquan",
+   "host": "China",
+   "lat": 41.31,
+   "lon": 100.31,
+   "n": 300,
+   "ok": 278,
+   "fail": 22,
+   "fail_pct": 7.33,
+   "first": 1970,
+   "last": 2026,
+   "first_date": "1970 Apr 24",
+   "first_mission": "Dong Fang Hong",
+   "first_lv": "Chang Zheng 1",
+   "peak_year": 2023,
+   "peak_n": 36,
+   "since2020": 178,
+   "y2025": 33,
+   "y2026": 28,
+   "coldwar": 23,
+   "v_rot": 349,
+   "abs_lat": 41.3,
+   "families": [
+    [
+     "DF5",
+     194
+    ],
+    [
+     "DF-21",
+     50
+    ],
+    [
+     "DF-31",
+     17
+    ],
+    [
+     "ZK-1",
+     16
+    ],
+    [
+     "ZQ-2",
+     10
+    ]
+   ],
+   "blocs": [
+    [
+     "China",
+     300
+    ]
+   ],
+   "n_inc": 267,
+   "east": 36.7,
+   "polar": 63.3,
+   "retro": 0.0,
+   "min_inc": 41.0,
+   "gto": 1,
+   "codes": [
+    "JQ"
+   ],
+   "air": 0
+  },
+  "Xichang": {
+   "port": "Xichang",
+   "host": "China",
+   "lat": 28.2472,
+   "lon": 102.0291,
+   "n": 242,
+   "ok": 232,
+   "fail": 10,
+   "fail_pct": 4.13,
+   "first": 1984,
+   "last": 2026,
+   "first_date": "1984 Jan 29",
+   "first_mission": "STW-1",
+   "first_lv": "Chang Zheng 3",
+   "peak_year": 2024,
+   "peak_n": 19,
+   "since2020": 104,
+   "y2025": 19,
+   "y2026": 6,
+   "coldwar": 9,
+   "v_rot": 410,
+   "abs_lat": 28.2,
+   "families": [
+    [
+     "DF5",
+     234
+    ],
+    [
+     "DF-21",
+     5
+    ],
+    [
+     "DF-31",
+     3
+    ]
+   ],
+   "blocs": [
+    [
+     "China",
+     242
+    ]
+   ],
+   "n_inc": 80,
+   "east": 95.0,
+   "polar": 5.0,
+   "retro": 0.0,
+   "min_inc": 0.1,
+   "gto": 142,
+   "codes": [
+    "XSC"
+   ],
+   "air": 0
+  },
+  "Taiyuan": {
+   "port": "Taiyuan",
+   "host": "China",
+   "lat": 37.5,
+   "lon": 112.6,
+   "n": 163,
+   "ok": 157,
+   "fail": 6,
+   "fail_pct": 3.68,
+   "first": 1988,
+   "last": 2026,
+   "first_date": "1988 Sep  6",
+   "first_mission": "feng yun yi jia",
+   "first_lv": "Chang Zheng 4",
+   "peak_year": 2022,
+   "peak_n": 14,
+   "since2020": 81,
+   "y2025": 12,
+   "y2026": 13,
+   "coldwar": 2,
+   "v_rot": 369,
+   "abs_lat": 37.5,
+   "families": [
+    [
+     "DF5",
+     157
+    ],
+    [
+     "DF-21",
+     6
+    ]
+   ],
+   "blocs": [
+    [
+     "China",
+     163
+    ]
+   ],
+   "n_inc": 150,
+   "east": 3.33,
+   "polar": 95.33,
+   "retro": 1.33,
+   "min_inc": 38.0,
+   "gto": 0,
+   "codes": [
+    "TYSC",
+    "TYSC?"
+   ],
+   "air": 0
+  },
+  "Sriharikota": {
+   "port": "Sriharikota",
+   "host": "India",
+   "lat": 13.621,
+   "lon": 80.303,
+   "n": 103,
+   "ok": 91,
+   "fail": 12,
+   "fail_pct": 11.65,
+   "first": 1979,
+   "last": 2026,
+   "first_date": "1979 Aug 10",
+   "first_mission": "Rohini RS-1",
+   "first_lv": "SLV-3",
+   "peak_year": 2016,
+   "peak_n": 7,
+   "since2020": 29,
+   "y2025": 5,
+   "y2026": 3,
+   "coldwar": 6,
+   "v_rot": 452,
+   "abs_lat": 13.6,
+   "families": [
+    [
+     "PSLV",
+     83
+    ],
+    [
+     "ASLV",
+     8
+    ],
+    [
+     "GSLV3",
+     8
+    ],
+    [
+     "SSLV",
+     3
+    ],
+    [
+     "Vikram",
+     1
+    ]
+   ],
+   "blocs": [
+    [
+     "India",
+     103
+    ]
+   ],
+   "n_inc": 56,
+   "east": 39.29,
+   "polar": 60.71,
+   "retro": 0.0,
+   "min_inc": 2.5,
+   "gto": 37,
+   "codes": [
+    "SHAR",
+    "SDSC"
+   ],
+   "air": 0
+  },
+  "Tanegashima": {
+   "port": "Tanegashima",
+   "host": "Japan",
+   "lat": 30.4,
+   "lon": 130.97,
+   "n": 100,
+   "ok": 94,
+   "fail": 6,
+   "fail_pct": 6.0,
+   "first": 1975,
+   "last": 2026,
+   "first_date": "1975 Sep  9",
+   "first_mission": "ETS 1",
+   "first_lv": "N-1",
+   "peak_year": 2017,
+   "peak_n": 6,
+   "since2020": 21,
+   "y2025": 4,
+   "y2026": 3,
+   "coldwar": 23,
+   "v_rot": 401,
+   "abs_lat": 30.4,
+   "families": [
+    [
+     "H2",
+     57
+    ],
+    [
+     "Thor",
+     24
+    ],
+    [
+     "H2B",
+     19
+    ]
+   ],
+   "blocs": [
+    [
+     "Japan",
+     100
+    ]
+   ],
+   "n_inc": 50,
+   "east": 38.0,
+   "polar": 62.0,
+   "retro": 0.0,
+   "min_inc": 31.0,
+   "gto": 42,
+   "codes": [
+    "TNSC"
+   ],
+   "air": 0
+  },
+  "Kapustin Yar": {
+   "port": "Kapustin Yar",
+   "host": "Russia",
+   "lat": 48.5,
+   "lon": 45.8,
+   "n": 101,
+   "ok": 85,
+   "fail": 16,
+   "fail_pct": 15.84,
+   "first": 1961,
+   "last": 2008,
+   "first_date": "1961 Oct 27",
+   "first_mission": "DS-1 No. 1",
+   "first_lv": "Kosmos 63S1",
+   "peak_year": 1965,
+   "peak_n": 10,
+   "since2020": 0,
+   "y2025": 0,
+   "y2026": 0,
+   "coldwar": 99,
+   "v_rot": 308,
+   "abs_lat": 48.5,
+   "families": [
+    [
+     "R-12",
+     74
+    ],
+    [
+     "R-14",
+     27
+    ]
+   ],
+   "blocs": [
+    [
+     "Soviet Union and Russia",
+     101
+    ]
+   ],
+   "n_inc": 85,
+   "east": 100.0,
+   "polar": 0.0,
+   "retro": 0.0,
+   "min_inc": 48.3,
+   "gto": 0,
+   "codes": [
+    "GTsP-4",
+    "GTsMP-4"
+   ],
+   "air": 0
+  },
+  "Mahia": {
+   "port": "Mahia",
+   "host": "New Zealand",
+   "lat": -39.2609,
+   "lon": 177.8655,
+   "n": 85,
+   "ok": 81,
+   "fail": 4,
+   "fail_pct": 4.71,
+   "first": 2017,
+   "last": 2026,
+   "first_date": "2017 May 25",
+   "first_mission": "-",
+   "first_lv": "Electron",
+   "peak_year": 2025,
+   "peak_n": 17,
+   "since2020": 75,
+   "y2025": 17,
+   "y2026": 16,
+   "coldwar": 0,
+   "v_rot": 360,
+   "abs_lat": 39.3,
+   "families": [
+    [
+     "Electron",
+     85
+    ]
+   ],
+   "blocs": [
+    [
+     "New Zealand (Rocket Lab)",
+     85
+    ]
+   ],
+   "n_inc": 73,
+   "east": 46.58,
+   "polar": 53.42,
+   "retro": 0.0,
+   "min_inc": 32.7,
+   "gto": 0,
+   "codes": [
+    "MAHIA"
+   ],
+   "air": 0
+  },
+  "Wenchang": {
+   "port": "Wenchang",
+   "host": "China",
+   "lat": 19.6142,
+   "lon": 110.9511,
+   "n": 76,
+   "ok": 73,
+   "fail": 3,
+   "fail_pct": 3.95,
+   "first": 2016,
+   "last": 2026,
+   "first_date": "2016 Jun 25",
+   "first_mission": "FC/Aoxiang",
+   "first_lv": "Chang Zheng 7/YZ-1A",
+   "peak_year": 2025,
+   "peak_n": 21,
+   "since2020": 71,
+   "y2025": 21,
+   "y2026": 21,
+   "coldwar": 0,
+   "v_rot": 438,
+   "abs_lat": 19.6,
+   "families": [
+    [
+     "DF5",
+     48
+    ],
+    [
+     "CZ5",
+     19
+    ],
+    [
+     "CZ12",
+     9
+    ]
+   ],
+   "blocs": [
+    [
+     "China",
+     76
+    ]
+   ],
+   "n_inc": 40,
+   "east": 75.0,
+   "polar": 25.0,
+   "retro": 0.0,
+   "min_inc": 20.0,
+   "gto": 25,
+   "codes": [
+    "WEN",
+    "HCSLS"
+   ],
+   "air": 0
+  },
+  "Wallops": {
+   "port": "Wallops",
+   "host": "United States",
+   "lat": 37.83,
+   "lon": -75.48,
+   "n": 59,
+   "ok": 54,
+   "fail": 5,
+   "fail_pct": 8.47,
+   "first": 1960,
+   "last": 2026,
+   "first_date": "1960 Dec  4",
+   "first_mission": "NASA S-56",
+   "first_lv": "Scout X-1",
+   "peak_year": 2013,
+   "peak_n": 4,
+   "since2020": 14,
+   "y2025": 1,
+   "y2026": 1,
+   "coldwar": 21,
+   "v_rot": 367,
+   "abs_lat": 37.8,
+   "families": [
+    [
+     "Zenit",
+     18
+    ],
+    [
+     "Scout",
+     17
+    ],
+    [
+     "Pegasus",
+     6
+    ],
+    [
+     "Minuteman",
+     6
+    ],
+    [
+     "Electron",
+     5
+    ]
+   ],
+   "blocs": [
+    [
+     "United States",
+     59
+    ]
+   ],
+   "n_inc": 52,
+   "east": 100.0,
+   "polar": 0.0,
+   "retro": 0.0,
+   "min_inc": 37.1,
+   "gto": 0,
+   "codes": [
+    "WI",
+    "MARS",
+    "WIMB"
+   ],
+   "air": 0
+  },
+  "Uchinoura": {
+   "port": "Uchinoura",
+   "host": "Japan",
+   "lat": 31.25,
+   "lon": 131.079,
+   "n": 43,
+   "ok": 33,
+   "fail": 10,
+   "fail_pct": 23.26,
+   "first": 1966,
+   "last": 2022,
+   "first_date": "1966 Sep 26",
+   "first_mission": "L-4S-1",
+   "first_lv": "Lambda 4S",
+   "peak_year": 1966,
+   "peak_n": 2,
+   "since2020": 2,
+   "y2025": 0,
+   "y2026": 0,
+   "coldwar": 26,
+   "v_rot": 398,
+   "abs_lat": 31.2,
+   "families": [
+    [
+     "Mu",
+     23
+    ],
+    [
+     "MV",
+     7
+    ],
+    [
+     "H2.SRB",
+     6
+    ],
+    [
+     "Lambda",
+     5
+    ],
+    [
+     "S-520",
+     2
+    ]
+   ],
+   "blocs": [
+    [
+     "Japan",
+     43
+    ]
+   ],
+   "n_inc": 26,
+   "east": 76.92,
+   "polar": 23.08,
+   "retro": 0.0,
+   "min_inc": 29.7,
+   "gto": 1,
+   "codes": [
+    "KASC",
+    "USC"
+   ],
+   "air": 0
+  },
+  "Sea Launch, Pacific": {
+   "port": "Sea Launch, Pacific",
+   "host": "International waters",
+   "lat": 0.0,
+   "lon": -154.0,
+   "n": 36,
+   "ok": 33,
+   "fail": 3,
+   "fail_pct": 8.33,
+   "first": 1999,
+   "last": 2014,
+   "first_date": "1999 Mar 28",
+   "first_mission": "DemoSat",
+   "first_lv": "Zenit-3SL",
+   "peak_year": 2006,
+   "peak_n": 5,
+   "since2020": 0,
+   "y2025": 0,
+   "y2026": 0,
+   "coldwar": 0,
+   "v_rot": 465,
+   "abs_lat": 0.0,
+   "families": [
+    [
+     "Zenit",
+     36
+    ]
+   ],
+   "blocs": [
+    [
+     "United States",
+     32
+    ],
+    [
+     "Others",
+     4
+    ]
+   ],
+   "n_inc": 0,
+   "east": null,
+   "polar": null,
+   "retro": null,
+   "min_inc": null,
+   "gto": 36,
+   "codes": [
+    "KLA"
+   ],
+   "air": 0
+  },
+  "Vostochny": {
+   "port": "Vostochny",
+   "host": "Russia",
+   "lat": 51.7,
+   "lon": 128.0,
+   "n": 21,
+   "ok": 20,
+   "fail": 1,
+   "fail_pct": 4.76,
+   "first": 2016,
+   "last": 2025,
+   "first_date": "2016 Apr 28",
+   "first_mission": "Lomonosov/Aist-2D",
+   "first_lv": "Soyuz-2-1A",
+   "peak_year": 2021,
+   "peak_n": 5,
+   "since2020": 16,
+   "y2025": 2,
+   "y2026": 0,
+   "coldwar": 0,
+   "v_rot": 288,
+   "abs_lat": 51.7,
+   "families": [
+    [
+     "R-7",
+     20
+    ],
+    [
+     "Angara",
+     1
+    ]
+   ],
+   "blocs": [
+    [
+     "Soviet Union and Russia",
+     15
+    ],
+    [
+     "Europe",
+     6
+    ]
+   ],
+   "n_inc": 18,
+   "east": 0.0,
+   "polar": 100.0,
+   "retro": 0.0,
+   "min_inc": 82.5,
+   "gto": 1,
+   "codes": [
+    "VOST"
+   ],
+   "air": 0
+  },
+  "Svobodny": {
+   "port": "Svobodny",
+   "host": "Russia",
+   "lat": 51.79,
+   "lon": 128.19,
+   "n": 5,
+   "ok": 5,
+   "fail": 0,
+   "fail_pct": 0.0,
+   "first": 1997,
+   "last": 2006,
+   "first_date": "1997 Mar  4",
+   "first_mission": "Mozhaets 2",
+   "first_lv": "Start-1.2",
+   "peak_year": 1997,
+   "peak_n": 2,
+   "since2020": 0,
+   "y2025": 0,
+   "y2026": 0,
+   "coldwar": 0,
+   "v_rot": 288,
+   "abs_lat": 51.8,
+   "families": [
+    [
+     "Topol",
+     5
+    ]
+   ],
+   "blocs": [
+    [
+     "Soviet Union and Russia",
+     5
+    ]
+   ],
+   "n_inc": 5,
+   "east": 0.0,
+   "polar": 100.0,
+   "retro": 0.0,
+   "min_inc": 97.3,
+   "gto": 0,
+   "codes": [
+    "GIK-2"
+   ],
+   "air": 0
+  },
+  "Yellow Sea launches": {
+   "port": "Yellow Sea launches",
+   "host": "International waters",
+   "lat": 34.9,
+   "lon": 121.19,
+   "n": 21,
+   "ok": 21,
+   "fail": 0,
+   "fail_pct": 0.0,
+   "first": 2019,
+   "last": 2026,
+   "first_date": "2019 Jun  5",
+   "first_mission": "Jilin/JSW",
+   "first_lv": "Chang Zheng 11",
+   "peak_year": 2025,
+   "peak_n": 7,
+   "since2020": 20,
+   "y2025": 7,
+   "y2026": 4,
+   "coldwar": 0,
+   "v_rot": 381,
+   "abs_lat": 34.9,
+   "families": [
+    [
+     "ZK-1",
+     9
+    ],
+    [
+     "DF-21",
+     7
+    ],
+    [
+     "DF-31",
+     5
+    ]
+   ],
+   "blocs": [
+    [
+     "China",
+     21
+    ]
+   ],
+   "n_inc": 19,
+   "east": 68.42,
+   "polar": 31.58,
+   "retro": 0.0,
+   "min_inc": 45.0,
+   "gto": 0,
+   "codes": [
+    "HHAI"
+   ],
+   "air": 0
+  },
+  "Yangjiang sea launches": {
+   "port": "Yangjiang sea launches",
+   "host": "International waters",
+   "lat": 21.28,
+   "lon": 112.0,
+   "n": 6,
+   "ok": 6,
+   "fail": 0,
+   "fail_pct": 0.0,
+   "first": 2023,
+   "last": 2026,
+   "first_date": "2023 Dec  5",
+   "first_mission": "WHJSW 03",
+   "first_lv": "Jielong-3",
+   "peak_year": 2023,
+   "peak_n": 2,
+   "since2020": 6,
+   "y2025": 0,
+   "y2026": 2,
+   "coldwar": 0,
+   "v_rot": 433,
+   "abs_lat": 21.3,
+   "families": [
+    [
+     "ZK-1",
+     5
+    ],
+    [
+     "DF-31",
+     1
+    ]
+   ],
+   "blocs": [
+    [
+     "China",
+     6
+    ]
+   ],
+   "n_inc": 6,
+   "east": 16.67,
+   "polar": 83.33,
+   "retro": 0.0,
+   "min_inc": 50.0,
+   "gto": 0,
+   "codes": [
+    "YJ"
+   ],
+   "air": 0
+  },
+  "East China Sea launches": {
+   "port": "East China Sea launches",
+   "host": "International waters",
+   "lat": 31.2,
+   "lon": 123.7,
+   "n": 2,
+   "ok": 2,
+   "fail": 0,
+   "fail_pct": 0.0,
+   "first": 2026,
+   "last": 2026,
+   "first_date": "2026 Jul 22",
+   "first_mission": "-",
+   "first_lv": "Yinli-1",
+   "peak_year": 2026,
+   "peak_n": 2,
+   "since2020": 2,
+   "y2025": 0,
+   "y2026": 2,
+   "coldwar": 0,
+   "v_rot": 398,
+   "abs_lat": 31.2,
+   "families": [
+    [
+     "ZK-1",
+     2
+    ]
+   ],
+   "blocs": [
+    [
+     "China",
+     2
+    ]
+   ],
+   "n_inc": 0,
+   "east": null,
+   "polar": null,
+   "retro": null,
+   "min_inc": null,
+   "gto": 0,
+   "codes": [
+    "ECS"
+   ],
+   "air": 0
+  },
+  "Semnan": {
+   "port": "Semnan",
+   "host": "Iran",
+   "lat": 35.2347,
+   "lon": 53.921,
+   "n": 15,
+   "ok": 6,
+   "fail": 9,
+   "fail_pct": 60.0,
+   "first": 2008,
+   "last": 2025,
+   "first_date": "2008 Aug 16",
+   "first_mission": "-",
+   "first_lv": "Safir",
+   "peak_year": 2012,
+   "peak_n": 3,
+   "since2020": 6,
+   "y2025": 1,
+   "y2026": 0,
+   "coldwar": 0,
+   "v_rot": 380,
+   "abs_lat": 35.2,
+   "families": [
+    [
+     "Nodong",
+     8
+    ],
+    [
+     "Unha",
+     6
+    ],
+    [
+     "Zoljanah",
+     1
+    ]
+   ],
+   "blocs": [
+    [
+     "Others",
+     15
+    ]
+   ],
+   "n_inc": 6,
+   "east": 100.0,
+   "polar": 0.0,
+   "retro": 0.0,
+   "min_inc": 55.5,
+   "gto": 0,
+   "codes": [
+    "SEM"
+   ],
+   "air": 0
+  },
+  "Shahroud": {
+   "port": "Shahroud",
+   "host": "Iran",
+   "lat": 36.23,
+   "lon": 55.33,
+   "n": 6,
+   "ok": 5,
+   "fail": 1,
+   "fail_pct": 16.67,
+   "first": 2020,
+   "last": 2024,
+   "first_date": "2020 Apr 22",
+   "first_mission": "-",
+   "first_lv": "Qased",
+   "peak_year": 2023,
+   "peak_n": 2,
+   "since2020": 6,
+   "y2025": 0,
+   "y2026": 0,
+   "coldwar": 0,
+   "v_rot": 375,
+   "abs_lat": 36.2,
+   "families": [
+    [
+     "Nodong",
+     3
+    ],
+    [
+     "Qaem",
+     3
+    ]
+   ],
+   "blocs": [
+    [
+     "Others",
+     6
+    ]
+   ],
+   "n_inc": 5,
+   "east": 100.0,
+   "polar": 0.0,
+   "retro": 0.0,
+   "min_inc": 58.3,
+   "gto": 0,
+   "codes": [
+    "SHAHR"
+   ],
+   "air": 0
+  },
+  "Palmachim": {
+   "port": "Palmachim",
+   "host": "Israel",
+   "lat": 31.9,
+   "lon": 34.7,
+   "n": 13,
+   "ok": 11,
+   "fail": 2,
+   "fail_pct": 15.38,
+   "first": 1988,
+   "last": 2025,
+   "first_date": "1988 Sep 19",
+   "first_mission": "'Ofeq-1",
+   "first_lv": "Shavit",
+   "peak_year": 1988,
+   "peak_n": 1,
+   "since2020": 3,
+   "y2025": 1,
+   "y2026": 0,
+   "coldwar": 2,
+   "v_rot": 395,
+   "abs_lat": 31.9,
+   "families": [
+    [
+     "Jericho",
+     13
+    ]
+   ],
+   "blocs": [
+    [
+     "Others",
+     13
+    ]
+   ],
+   "n_inc": 11,
+   "east": 0.0,
+   "polar": 0.0,
+   "retro": 100.0,
+   "min_inc": 139.2,
+   "gto": 0,
+   "codes": [
+    "PALB"
+   ],
+   "air": 0
+  },
+  "Starbase": {
+   "port": "Starbase",
+   "host": "United States",
+   "lat": 25.9964,
+   "lon": -97.1536,
+   "n": 11,
+   "ok": 9,
+   "fail": 2,
+   "fail_pct": 18.18,
+   "first": 2024,
+   "last": 2026,
+   "first_date": "2024 Jun  6",
+   "first_mission": "Ship 29",
+   "first_lv": "Starship V1.0",
+   "peak_year": 2025,
+   "peak_n": 5,
+   "since2020": 11,
+   "y2025": 5,
+   "y2026": 3,
+   "coldwar": 0,
+   "v_rot": 418,
+   "abs_lat": 26.0,
+   "families": [
+    [
+     "Starship",
+     11
+    ]
+   ],
+   "blocs": [
+    [
+     "United States",
+     11
+    ]
+   ],
+   "n_inc": 0,
+   "east": null,
+   "polar": null,
+   "retro": null,
+   "min_inc": null,
+   "gto": 0,
+   "codes": [
+    "STB"
+   ],
+   "air": 0
+  },
+  "Kwajalein": {
+   "port": "Kwajalein",
+   "host": "Marshall Islands",
+   "lat": 8.9917,
+   "lon": 167.72,
+   "n": 10,
+   "ok": 7,
+   "fail": 3,
+   "fail_pct": 30.0,
+   "first": 2000,
+   "last": 2026,
+   "first_date": "2000 Oct  9",
+   "first_mission": "HETE 2",
+   "first_lv": "Pegasus H",
+   "peak_year": 2008,
+   "peak_n": 4,
+   "since2020": 1,
+   "y2025": 0,
+   "y2026": 1,
+   "coldwar": 0,
+   "v_rot": 459,
+   "abs_lat": 9.0,
+   "families": [
+    [
+     "Pegasus",
+     5
+    ],
+    [
+     "Falcon1",
+     5
+    ]
+   ],
+   "blocs": [
+    [
+     "United States",
+     10
+    ]
+   ],
+   "n_inc": 7,
+   "east": 100.0,
+   "polar": 0.0,
+   "retro": 0.0,
+   "min_inc": 1.9,
+   "gto": 0,
+   "codes": [
+    "KMR"
+   ],
+   "air": 0
+  },
+  "Yasny": {
+   "port": "Yasny",
+   "host": "Russia",
+   "lat": 50.75,
+   "lon": 59.5,
+   "n": 10,
+   "ok": 10,
+   "fail": 0,
+   "fail_pct": 0.0,
+   "first": 2006,
+   "last": 2015,
+   "first_date": "2006 Jul 12",
+   "first_mission": "Bigelow Genesis-1",
+   "first_lv": "Dnepr",
+   "peak_year": 2013,
+   "peak_n": 2,
+   "since2020": 0,
+   "y2025": 0,
+   "y2026": 0,
+   "coldwar": 0,
+   "v_rot": 294,
+   "abs_lat": 50.8,
+   "families": [
+    [
+     "R-36",
+     10
+    ]
+   ],
+   "blocs": [
+    [
+     "Soviet Union and Russia",
+     10
+    ]
+   ],
+   "n_inc": 10,
+   "east": 20.0,
+   "polar": 80.0,
+   "retro": 0.0,
+   "min_inc": 64.5,
+   "gto": 0,
+   "codes": [
+    "YAS"
+   ],
+   "air": 0
+  },
+  "San Marco, Kenya": {
+   "port": "San Marco, Kenya",
+   "host": "Kenya",
+   "lat": -2.9408,
+   "lon": 40.2134,
+   "n": 9,
+   "ok": 9,
+   "fail": 0,
+   "fail_pct": 0.0,
+   "first": 1967,
+   "last": 1988,
+   "first_date": "1967 Apr 26",
+   "first_mission": "San Marco B",
+   "first_lv": "Scout B",
+   "peak_year": 1971,
+   "peak_n": 2,
+   "since2020": 0,
+   "y2025": 0,
+   "y2026": 0,
+   "coldwar": 9,
+   "v_rot": 464,
+   "abs_lat": 2.9,
+   "families": [
+    [
+     "Scout",
+     5
+    ],
+    [
+     "ScoutD",
+     4
+    ]
+   ],
+   "blocs": [
+    [
+     "Europe",
+     9
+    ]
+   ],
+   "n_inc": 8,
+   "east": 100.0,
+   "polar": 0.0,
+   "retro": 0.0,
+   "min_inc": 1.9,
+   "gto": 0,
+   "codes": [
+    "SMLC"
+   ],
+   "air": 0
+  },
+  "Naro": {
+   "port": "Naro",
+   "host": "South Korea",
+   "lat": 34.4318,
+   "lon": 127.5363,
+   "n": 8,
+   "ok": 5,
+   "fail": 3,
+   "fail_pct": 37.5,
+   "first": 2009,
+   "last": 2026,
+   "first_date": "2009 Aug 25",
+   "first_mission": "STSat-2",
+   "first_lv": "Naro-1",
+   "peak_year": 2009,
+   "peak_n": 1,
+   "since2020": 5,
+   "y2025": 1,
+   "y2026": 1,
+   "coldwar": 0,
+   "v_rot": 384,
+   "abs_lat": 34.4,
+   "families": [
+    [
+     "KSLV2",
+     5
+    ],
+    [
+     "Angara",
+     3
+    ]
+   ],
+   "blocs": [
+    [
+     "Others",
+     8
+    ]
+   ],
+   "n_inc": 4,
+   "east": 0.0,
+   "polar": 100.0,
+   "retro": 0.0,
+   "min_inc": 80.3,
+   "gto": 0,
+   "codes": [
+    "NARO"
+   ],
+   "air": 0
+  },
+  "Jeju sea launch": {
+   "port": "Jeju sea launch",
+   "host": "South Korea",
+   "lat": 33.2,
+   "lon": 126.4,
+   "n": 1,
+   "ok": 1,
+   "fail": 0,
+   "fail_pct": 0.0,
+   "first": 2023,
+   "last": 2023,
+   "first_date": "2023 Dec  4",
+   "first_mission": "-",
+   "first_lv": "ADD TV2",
+   "peak_year": 2023,
+   "peak_n": 1,
+   "since2020": 1,
+   "y2025": 0,
+   "y2026": 0,
+   "coldwar": 0,
+   "v_rot": 389,
+   "abs_lat": 33.2,
+   "families": [
+    [
+     "ADD-SLV",
+     1
+    ]
+   ],
+   "blocs": [
+    [
+     "Others",
+     1
+    ]
+   ],
+   "n_inc": 1,
+   "east": 100.0,
+   "polar": 0.0,
+   "retro": 0.0,
+   "min_inc": 47.0,
+   "gto": 0,
+   "codes": [
+    "JEJU"
+   ],
+   "air": 0
+  },
+  "Sohae": {
+   "port": "Sohae",
+   "host": "North Korea",
+   "lat": 39.66,
+   "lon": 124.706,
+   "n": 7,
+   "ok": 3,
+   "fail": 4,
+   "fail_pct": 57.14,
+   "first": 2012,
+   "last": 2024,
+   "first_date": "2012 Apr 12",
+   "first_mission": "-",
+   "first_lv": "Unha-3",
+   "peak_year": 2023,
+   "peak_n": 3,
+   "since2020": 4,
+   "y2025": 0,
+   "y2026": 0,
+   "coldwar": 0,
+   "v_rot": 358,
+   "abs_lat": 39.7,
+   "families": [
+    [
+     "Hwasong-15",
+     4
+    ],
+    [
+     "Unha",
+     3
+    ]
+   ],
+   "blocs": [
+    [
+     "Others",
+     7
+    ]
+   ],
+   "n_inc": 3,
+   "east": 0.0,
+   "polar": 100.0,
+   "retro": 0.0,
+   "min_inc": 97.4,
+   "gto": 0,
+   "codes": [
+    "SOHAE"
+   ],
+   "air": 0
+  },
+  "Tonghae": {
+   "port": "Tonghae",
+   "host": "North Korea",
+   "lat": 40.85,
+   "lon": 129.6666,
+   "n": 2,
+   "ok": 0,
+   "fail": 2,
+   "fail_pct": 100.0,
+   "first": 1998,
+   "last": 2009,
+   "first_date": "1998 Aug 31",
+   "first_mission": "-",
+   "first_lv": "Paektusan 1",
+   "peak_year": 1998,
+   "peak_n": 1,
+   "since2020": 0,
+   "y2025": 0,
+   "y2026": 0,
+   "coldwar": 0,
+   "v_rot": 352,
+   "abs_lat": 40.9,
+   "families": [
+    [
+     "Nodong",
+     1
+    ],
+    [
+     "Unha",
+     1
+    ]
+   ],
+   "blocs": [
+    [
+     "Others",
+     2
+    ]
+   ],
+   "n_inc": 0,
+   "east": null,
+   "polar": null,
+   "retro": null,
+   "min_inc": null,
+   "gto": 0,
+   "codes": [
+    "TONGH"
+   ],
+   "air": 0
+  },
+  "Woomera": {
+   "port": "Woomera",
+   "host": "Australia",
+   "lat": -30.925,
+   "lon": 136.5,
+   "n": 6,
+   "ok": 2,
+   "fail": 4,
+   "fail_pct": 66.67,
+   "first": 1967,
+   "last": 1971,
+   "first_date": "1967 Nov 29",
+   "first_mission": "WRESAT",
+   "first_lv": "SPARTA",
+   "peak_year": 1970,
+   "peak_n": 2,
+   "since2020": 0,
+   "y2025": 0,
+   "y2026": 0,
+   "coldwar": 6,
+   "v_rot": 399,
+   "abs_lat": 30.9,
+   "families": [
+    [
+     "BlueStreak",
+     3
+    ],
+    [
+     "BlackArrow",
+     2
+    ],
+    [
+     "Redstone",
+     1
+    ]
+   ],
+   "blocs": [
+    [
+     "Europe",
+     5
+    ],
+    [
+     "United States",
+     1
+    ]
+   ],
+   "n_inc": 2,
+   "east": 0.0,
+   "polar": 100.0,
+   "retro": 0.0,
+   "min_inc": 82.1,
+   "gto": 0,
+   "codes": [
+    "WOO"
+   ],
+   "air": 0
+  },
+  "Kodiak": {
+   "port": "Kodiak",
+   "host": "United States",
+   "lat": 57.4359,
+   "lon": -152.3378,
+   "n": 9,
+   "ok": 5,
+   "fail": 4,
+   "fail_pct": 44.44,
+   "first": 2001,
+   "last": 2023,
+   "first_date": "2001 Sep 30",
+   "first_mission": "Starshine 3",
+   "first_lv": "Athena-1",
+   "peak_year": 2020,
+   "peak_n": 2,
+   "since2020": 6,
+   "y2025": 0,
+   "y2026": 0,
+   "coldwar": 0,
+   "v_rot": 250,
+   "abs_lat": 57.4,
+   "families": [
+    [
+     "Astra",
+     5
+    ],
+    [
+     "MX",
+     3
+    ],
+    [
+     "RS1",
+     1
+    ]
+   ],
+   "blocs": [
+    [
+     "United States",
+     9
+    ]
+   ],
+   "n_inc": 4,
+   "east": 50.0,
+   "polar": 50.0,
+   "retro": 0.0,
+   "min_inc": 67.0,
+   "gto": 0,
+   "codes": [
+    "KLC",
+    "PSCA"
+   ],
+   "air": 0
+  },
+  "China Lake (air launch)": {
+   "port": "China Lake (air launch)",
+   "host": "United States",
+   "lat": 35.58,
+   "lon": -117.17,
+   "n": 6,
+   "ok": 0,
+   "fail": 6,
+   "fail_pct": 100.0,
+   "first": 1958,
+   "last": 1958,
+   "first_date": "1958 Jul 25",
+   "first_mission": "Diagnostic Payload 1",
+   "first_lv": "NOTS EV1",
+   "peak_year": 1958,
+   "peak_n": 6,
+   "since2020": 0,
+   "y2025": 0,
+   "y2026": 0,
+   "coldwar": 6,
+   "v_rot": 378,
+   "abs_lat": 35.6,
+   "families": [
+    [
+     "HOTROC",
+     6
+    ]
+   ],
+   "blocs": [
+    [
+     "United States",
+     6
+    ]
+   ],
+   "n_inc": 0,
+   "east": null,
+   "polar": null,
+   "retro": null,
+   "min_inc": null,
+   "gto": 0,
+   "codes": [
+    "NOTS"
+   ],
+   "air": 1
+  },
+  "Edwards (air launch)": {
+   "port": "Edwards (air launch)",
+   "host": "United States",
+   "lat": 34.9,
+   "lon": -117.8,
+   "n": 5,
+   "ok": 4,
+   "fail": 1,
+   "fail_pct": 20.0,
+   "first": 1990,
+   "last": 1994,
+   "first_date": "1990 Apr  5",
+   "first_mission": "Pegsat",
+   "first_lv": "Pegasus",
+   "peak_year": 1994,
+   "peak_n": 2,
+   "since2020": 0,
+   "y2025": 0,
+   "y2026": 0,
+   "coldwar": 2,
+   "v_rot": 381,
+   "abs_lat": 34.9,
+   "families": [
+    [
+     "Pegasus",
+     5
+    ]
+   ],
+   "blocs": [
+    [
+     "United States",
+     5
+    ]
+   ],
+   "n_inc": 4,
+   "east": 50.0,
+   "polar": 50.0,
+   "retro": 0.0,
+   "min_inc": 69.9,
+   "gto": 0,
+   "codes": [
+    "EAFB"
+   ],
+   "air": 1
+  },
+  "Mojave (air launch)": {
+   "port": "Mojave (air launch)",
+   "host": "United States",
+   "lat": 35.0487,
+   "lon": -118.1357,
+   "n": 5,
+   "ok": 4,
+   "fail": 1,
+   "fail_pct": 20.0,
+   "first": 2020,
+   "last": 2022,
+   "first_date": "2020 May 25",
+   "first_mission": "-",
+   "first_lv": "LauncherOne",
+   "peak_year": 2021,
+   "peak_n": 2,
+   "since2020": 5,
+   "y2025": 0,
+   "y2026": 0,
+   "coldwar": 0,
+   "v_rot": 381,
+   "abs_lat": 35.0,
+   "families": [
+    [
+     "LauncherOne",
+     5
+    ]
+   ],
+   "blocs": [
+    [
+     "United States",
+     5
+    ]
+   ],
+   "n_inc": 4,
+   "east": 100.0,
+   "polar": 0.0,
+   "retro": 0.0,
+   "min_inc": 45.0,
+   "gto": 0,
+   "codes": [
+    "MHV"
+   ],
+   "air": 1
+  },
+  "Hammaguir": {
+   "port": "Hammaguir",
+   "host": "Algeria",
+   "lat": 30.887,
+   "lon": -3.083,
+   "n": 4,
+   "ok": 4,
+   "fail": 0,
+   "fail_pct": 0.0,
+   "first": 1965,
+   "last": 1967,
+   "first_date": "1965 Nov 26",
+   "first_mission": "A-1",
+   "first_lv": "Diamant A",
+   "peak_year": 1967,
+   "peak_n": 2,
+   "since2020": 0,
+   "y2025": 0,
+   "y2026": 0,
+   "coldwar": 4,
+   "v_rot": 399,
+   "abs_lat": 30.9,
+   "families": [
+    [
+     "Emeraude",
+     4
+    ]
+   ],
+   "blocs": [
+    [
+     "Europe",
+     4
+    ]
+   ],
+   "n_inc": 4,
+   "east": 100.0,
+   "polar": 0.0,
+   "retro": 0.0,
+   "min_inc": 34.1,
+   "gto": 0,
+   "codes": [
+    "HMG"
+   ],
+   "air": 0
+  },
+  "Alcantara": {
+   "port": "Alcantara",
+   "host": "Brazil",
+   "lat": -2.317,
+   "lon": -44.3671,
+   "n": 3,
+   "ok": 0,
+   "fail": 3,
+   "fail_pct": 100.0,
+   "first": 1997,
+   "last": 2025,
+   "first_date": "1997 Nov  2",
+   "first_mission": "SCD-2A",
+   "first_lv": "VLS-1",
+   "peak_year": 1997,
+   "peak_n": 1,
+   "since2020": 1,
+   "y2025": 1,
+   "y2026": 0,
+   "coldwar": 0,
+   "v_rot": 465,
+   "abs_lat": 2.3,
+   "families": [
+    [
+     "S-40",
+     2
+    ],
+    [
+     "HANBIT",
+     1
+    ]
+   ],
+   "blocs": [
+    [
+     "Others",
+     3
+    ]
+   ],
+   "n_inc": 0,
+   "east": null,
+   "polar": null,
+   "retro": null,
+   "min_inc": null,
+   "gto": 0,
+   "codes": [
+    "ALCA"
+   ],
+   "air": 0
+  },
+  "Barents Sea (submarine)": {
+   "port": "Barents Sea (submarine)",
+   "host": "International waters",
+   "lat": 70.0,
+   "lon": 34.0,
+   "n": 3,
+   "ok": 2,
+   "fail": 1,
+   "fail_pct": 33.33,
+   "first": 1998,
+   "last": 2006,
+   "first_date": "1998 Jul  7",
+   "first_mission": "Tubsat-N",
+   "first_lv": "Shtil'-1",
+   "peak_year": 1998,
+   "peak_n": 1,
+   "since2020": 0,
+   "y2025": 0,
+   "y2026": 0,
+   "coldwar": 0,
+   "v_rot": 159,
+   "abs_lat": 70.0,
+   "families": [
+    [
+     "R-29",
+     3
+    ]
+   ],
+   "blocs": [
+    [
+     "Soviet Union and Russia",
+     3
+    ]
+   ],
+   "n_inc": 2,
+   "east": 0.0,
+   "polar": 100.0,
+   "retro": 0.0,
+   "min_inc": 78.9,
+   "gto": 0,
+   "codes": [
+    "BLA"
+   ],
+   "air": 0
+  },
+  "Spaceport Kii": {
+   "port": "Spaceport Kii",
+   "host": "Japan",
+   "lat": 33.5443,
+   "lon": 135.8895,
+   "n": 3,
+   "ok": 0,
+   "fail": 3,
+   "fail_pct": 100.0,
+   "first": 2024,
+   "last": 2026,
+   "first_date": "2024 Mar 13",
+   "first_mission": "Tanki Uchaigegata Kogata",
+   "first_lv": "Kairos",
+   "peak_year": 2024,
+   "peak_n": 2,
+   "since2020": 3,
+   "y2025": 0,
+   "y2026": 1,
+   "coldwar": 0,
+   "v_rot": 388,
+   "abs_lat": 33.5,
+   "families": [
+    [
+     "Kairos",
+     3
+    ]
+   ],
+   "blocs": [
+    [
+     "Japan",
+     3
+    ]
+   ],
+   "n_inc": 0,
+   "east": null,
+   "polar": null,
+   "retro": null,
+   "min_inc": null,
+   "gto": 0,
+   "codes": [
+    "KII"
+   ],
+   "air": 0
+  },
+  "Andoya": {
+   "port": "Andoya",
+   "host": "Norway",
+   "lat": 69.2943,
+   "lon": 16.0207,
+   "n": 2,
+   "ok": 1,
+   "fail": 1,
+   "fail_pct": 50.0,
+   "first": 2025,
+   "last": 2026,
+   "first_date": "2025 Mar 30",
+   "first_mission": "-",
+   "first_lv": "Spectrum",
+   "peak_year": 2025,
+   "peak_n": 1,
+   "since2020": 2,
+   "y2025": 1,
+   "y2026": 1,
+   "coldwar": 0,
+   "v_rot": 164,
+   "abs_lat": 69.3,
+   "families": [
+    [
+     "Spectrum",
+     2
+    ]
+   ],
+   "blocs": [
+    [
+     "Europe",
+     2
+    ]
+   ],
+   "n_inc": 0,
+   "east": null,
+   "polar": null,
+   "retro": null,
+   "min_inc": null,
+   "gto": 0,
+   "codes": [
+    "AND"
+   ],
+   "air": 0
+  },
+  "Newquay (air launch)": {
+   "port": "Newquay (air launch)",
+   "host": "United Kingdom",
+   "lat": 50.4408,
+   "lon": -5.0076,
+   "n": 1,
+   "ok": 0,
+   "fail": 1,
+   "fail_pct": 100.0,
+   "first": 2023,
+   "last": 2023,
+   "first_date": "2023 Jan  9",
+   "first_mission": "Start Me Up",
+   "first_lv": "LauncherOne",
+   "peak_year": 2023,
+   "peak_n": 1,
+   "since2020": 1,
+   "y2025": 0,
+   "y2026": 0,
+   "coldwar": 0,
+   "v_rot": 296,
+   "abs_lat": 50.4,
+   "families": [
+    [
+     "LauncherOne",
+     1
+    ]
+   ],
+   "blocs": [
+    [
+     "United States",
+     1
+    ]
+   ],
+   "n_inc": 0,
+   "east": null,
+   "polar": null,
+   "retro": null,
+   "min_inc": null,
+   "gto": 0,
+   "codes": [
+    "NEWQ"
+   ],
+   "air": 1
+  },
+  "Gran Canaria (air launch)": {
+   "port": "Gran Canaria (air launch)",
+   "host": "Spain",
+   "lat": 27.92,
+   "lon": -15.32,
+   "n": 1,
+   "ok": 1,
+   "fail": 0,
+   "fail_pct": 0.0,
+   "first": 1997,
+   "last": 1997,
+   "first_date": "1997 Apr 21",
+   "first_mission": "Minisat-01",
+   "first_lv": "Pegasus XL",
+   "peak_year": 1997,
+   "peak_n": 1,
+   "since2020": 0,
+   "y2025": 0,
+   "y2026": 0,
+   "coldwar": 0,
+   "v_rot": 411,
+   "abs_lat": 27.9,
+   "families": [
+    [
+     "Pegasus",
+     1
+    ]
+   ],
+   "blocs": [
+    [
+     "United States",
+     1
+    ]
+   ],
+   "n_inc": 1,
+   "east": 0.0,
+   "polar": 0.0,
+   "retro": 100.0,
+   "min_inc": 151.0,
+   "gto": 0,
+   "codes": [
+    "GANC"
+   ],
+   "air": 1
+  },
+  "Kauai": {
+   "port": "Kauai",
+   "host": "United States",
+   "lat": 22.058,
+   "lon": -159.777,
+   "n": 1,
+   "ok": 0,
+   "fail": 1,
+   "fail_pct": 100.0,
+   "first": 2015,
+   "last": 2015,
+   "first_date": "2015 Nov  4",
+   "first_mission": "Hiakasat",
+   "first_lv": "Super Strypi",
+   "peak_year": 2015,
+   "peak_n": 1,
+   "since2020": 0,
+   "y2025": 0,
+   "y2026": 0,
+   "coldwar": 0,
+   "v_rot": 431,
+   "abs_lat": 22.1,
+   "families": [
+    [
+     "LEO-46",
+     1
+    ]
+   ],
+   "blocs": [
+    [
+     "United States",
+     1
+    ]
+   ],
+   "n_inc": 0,
+   "east": null,
+   "polar": null,
+   "retro": null,
+   "min_inc": null,
+   "gto": 0,
+   "codes": [
+    "KAU"
+   ],
+   "air": 0
+  },
+  "Bowen": {
+   "port": "Bowen",
+   "host": "Australia",
+   "lat": -19.9582,
+   "lon": 148.1136,
+   "n": 1,
+   "ok": 0,
+   "fail": 1,
+   "fail_pct": 100.0,
+   "first": 2025,
+   "last": 2025,
+   "first_date": "2025 Jul 29",
+   "first_mission": "-",
+   "first_lv": "Eris Block 1",
+   "peak_year": 2025,
+   "peak_n": 1,
+   "since2020": 1,
+   "y2025": 1,
+   "y2026": 0,
+   "coldwar": 0,
+   "v_rot": 437,
+   "abs_lat": 20.0,
+   "families": [
+    [
+     "Eris",
+     1
+    ]
+   ],
+   "blocs": [
+    [
+     "Others",
+     1
+    ]
+   ],
+   "n_inc": 0,
+   "east": null,
+   "polar": null,
+   "retro": null,
+   "min_inc": null,
+   "gto": 0,
+   "codes": [
+    "BOWEN"
+   ],
+   "air": 0
+  }
+ },
+ "busiest_ever": [
+  {
+   "port": "Plesetsk",
+   "n": 1686,
+   "host": "Russia"
+  },
+  {
+   "port": "Baikonur",
+   "n": 1558,
+   "host": "Kazakhstan"
+  },
+  {
+   "port": "Cape Canaveral and Kennedy",
+   "n": 1393,
+   "host": "United States"
+  },
+  {
+   "port": "Vandenberg",
+   "n": 938,
+   "host": "United States"
+  },
+  {
+   "port": "Kourou",
+   "n": 336,
+   "host": "French Guiana"
+  },
+  {
+   "port": "Jiuquan",
+   "n": 300,
+   "host": "China"
+  },
+  {
+   "port": "Xichang",
+   "n": 242,
+   "host": "China"
+  },
+  {
+   "port": "Taiyuan",
+   "n": 163,
+   "host": "China"
+  },
+  {
+   "port": "Sriharikota",
+   "n": 103,
+   "host": "India"
+  },
+  {
+   "port": "Kapustin Yar",
+   "n": 101,
+   "host": "Russia"
+  },
+  {
+   "port": "Tanegashima",
+   "n": 100,
+   "host": "Japan"
+  },
+  {
+   "port": "Mahia",
+   "n": 85,
+   "host": "New Zealand"
+  }
+ ],
+ "busiest_2020s": [
+  {
+   "port": "Cape Canaveral and Kennedy",
+   "n": 452,
+   "host": "United States"
+  },
+  {
+   "port": "Vandenberg",
+   "n": 236,
+   "host": "United States"
+  },
+  {
+   "port": "Jiuquan",
+   "n": 178,
+   "host": "China"
+  },
+  {
+   "port": "Xichang",
+   "n": 104,
+   "host": "China"
+  },
+  {
+   "port": "Taiyuan",
+   "n": 81,
+   "host": "China"
+  },
+  {
+   "port": "Mahia",
+   "n": 75,
+   "host": "New Zealand"
+  },
+  {
+   "port": "Wenchang",
+   "n": 71,
+   "host": "China"
+  },
+  {
+   "port": "Baikonur",
+   "n": 56,
+   "host": "Kazakhstan"
+  },
+  {
+   "port": "Plesetsk",
+   "n": 54,
+   "host": "Russia"
+  },
+  {
+   "port": "Kourou",
+   "n": 39,
+   "host": "French Guiana"
+  },
+  {
+   "port": "Sriharikota",
+   "n": 29,
+   "host": "India"
+  },
+  {
+   "port": "Tanegashima",
+   "n": 21,
+   "host": "Japan"
+  }
+ ],
+ "busiest_2025": [
+  {
+   "port": "Cape Canaveral and Kennedy",
+   "n": 109,
+   "host": "United States"
+  },
+  {
+   "port": "Vandenberg",
+   "n": 66,
+   "host": "United States"
+  },
+  {
+   "port": "Jiuquan",
+   "n": 33,
+   "host": "China"
+  },
+  {
+   "port": "Wenchang",
+   "n": 21,
+   "host": "China"
+  },
+  {
+   "port": "Xichang",
+   "n": 19,
+   "host": "China"
+  },
+  {
+   "port": "Mahia",
+   "n": 17,
+   "host": "New Zealand"
+  },
+  {
+   "port": "Taiyuan",
+   "n": 12,
+   "host": "China"
+  },
+  {
+   "port": "Plesetsk",
+   "n": 9,
+   "host": "Russia"
+  },
+  {
+   "port": "Kourou",
+   "n": 7,
+   "host": "French Guiana"
+  },
+  {
+   "port": "Yellow Sea launches",
+   "n": 7,
+   "host": "International waters"
+  }
+ ],
+ "cape": {
+  "cc": 1106,
+  "ksc": 282,
+  "spx_2025": 101,
+  "y2025_pct": 33.13
+ },
+ "plesetsk": {
+  "coldwar": 1381,
+  "peak_year": 1977,
+  "peak_n": 70,
+  "since2020": 54
+ },
+ "top4_share": 75.18,
+ "n_ports_2025": 22,
+ "lat": {
+  "kourou_v": 463,
+  "cape_v": 409,
+  "baikonur_v": 323,
+  "plesetsk_v": 212,
+  "equator_v": 465,
+  "kourou_minus_baikonur": 140,
+  "kourou_minus_cape": 54,
+  "kourou_gto_pct": 69.64,
+  "baikonur_gto_pct": 18.29,
+  "plesetsk_gto_pct": 0.24,
+  "cape_gto_pct": 27.49
+ },
+ "dir": {
+  "n": 5266,
+  "east_pct": 65.1,
+  "polar_pct": 33.46,
+  "retro_pct": 1.44,
+  "below_lat": 40,
+  "below_lat_pct": 0.76,
+  "palmachim_retro": 100.0,
+  "vandenberg_polar": 67.77,
+  "cape_east": 97.36,
+  "plesetsk_polar": 37.33
+ },
+ "lat_main": [
+  {
+   "port": "Kourou",
+   "lat": 5.2333,
+   "v": 463,
+   "n": 336,
+   "east": 43.37,
+   "polar": 56.63,
+   "retro": 0.0,
+   "n_inc": 83,
+   "gto": 234
+  },
+  {
+   "port": "Sriharikota",
+   "lat": 13.621,
+   "v": 452,
+   "n": 103,
+   "east": 39.29,
+   "polar": 60.71,
+   "retro": 0.0,
+   "n_inc": 56,
+   "gto": 37
+  },
+  {
+   "port": "Wenchang",
+   "lat": 19.6142,
+   "v": 438,
+   "n": 76,
+   "east": 75.0,
+   "polar": 25.0,
+   "retro": 0.0,
+   "n_inc": 40,
+   "gto": 25
+  },
+  {
+   "port": "Xichang",
+   "lat": 28.2472,
+   "v": 410,
+   "n": 242,
+   "east": 95.0,
+   "polar": 5.0,
+   "retro": 0.0,
+   "n_inc": 80,
+   "gto": 142
+  },
+  {
+   "port": "Cape Canaveral and Kennedy",
+   "lat": 28.46,
+   "v": 409,
+   "n": 1393,
+   "east": 97.36,
+   "polar": 2.64,
+   "retro": 0.0,
+   "n_inc": 681,
+   "gto": 383
+  },
+  {
+   "port": "Tanegashima",
+   "lat": 30.4,
+   "v": 401,
+   "n": 100,
+   "east": 38.0,
+   "polar": 62.0,
+   "retro": 0.0,
+   "n_inc": 50,
+   "gto": 42
+  },
+  {
+   "port": "Jiuquan",
+   "lat": 41.31,
+   "v": 349,
+   "n": 300,
+   "east": 36.7,
+   "polar": 63.3,
+   "retro": 0.0,
+   "n_inc": 267,
+   "gto": 1
+  },
+  {
+   "port": "Vandenberg",
+   "lat": 34.63,
+   "v": 383,
+   "n": 938,
+   "east": 24.66,
+   "polar": 67.77,
+   "retro": 7.57,
+   "n_inc": 819,
+   "gto": 0
+  },
+  {
+   "port": "Taiyuan",
+   "lat": 37.5,
+   "v": 369,
+   "n": 163,
+   "east": 3.33,
+   "polar": 95.33,
+   "retro": 1.33,
+   "n_inc": 150,
+   "gto": 0
+  },
+  {
+   "port": "Mahia",
+   "lat": -39.2609,
+   "v": 360,
+   "n": 85,
+   "east": 46.58,
+   "polar": 53.42,
+   "retro": 0.0,
+   "n_inc": 73,
+   "gto": 0
+  },
+  {
+   "port": "Baikonur",
+   "lat": 46.0,
+   "v": 323,
+   "n": 1558,
+   "east": 95.51,
+   "polar": 4.49,
+   "retro": 0.0,
+   "n_inc": 1070,
+   "gto": 285
+  },
+  {
+   "port": "Vostochny",
+   "lat": 51.7,
+   "v": 288,
+   "n": 21,
+   "east": 0.0,
+   "polar": 100.0,
+   "retro": 0.0,
+   "n_inc": 18,
+   "gto": 1
+  },
+  {
+   "port": "Plesetsk",
+   "lat": 62.9,
+   "v": 212,
+   "n": 1686,
+   "east": 62.67,
+   "polar": 37.33,
+   "retro": 0.0,
+   "n_inc": 1610,
+   "gto": 4
+  },
+  {
+   "port": "Palmachim",
+   "lat": 31.9,
+   "v": 395,
+   "n": 13,
+   "east": 0.0,
+   "polar": 0.0,
+   "retro": 100.0,
+   "n_inc": 11,
+   "gto": 0
+  },
+  {
+   "port": "Wallops",
+   "lat": 37.83,
+   "v": 367,
+   "n": 59,
+   "east": 100.0,
+   "polar": 0.0,
+   "retro": 0.0,
+   "n_inc": 52,
+   "gto": 0
+  },
+  {
+   "port": "Starbase",
+   "lat": 25.9964,
+   "v": 418,
+   "n": 11,
+   "east": null,
+   "polar": null,
+   "retro": null,
+   "n_inc": 0,
+   "gto": 0
+  },
+  {
+   "port": "Semnan",
+   "lat": 35.2347,
+   "v": 380,
+   "n": 15,
+   "east": 100.0,
+   "polar": 0.0,
+   "retro": 0.0,
+   "n_inc": 6,
+   "gto": 0
+  },
+  {
+   "port": "Naro",
+   "lat": 34.4318,
+   "v": 384,
+   "n": 8,
+   "east": 0.0,
+   "polar": 100.0,
+   "retro": 0.0,
+   "n_inc": 4,
+   "gto": 0
+  },
+  {
+   "port": "Uchinoura",
+   "lat": 31.25,
+   "v": 398,
+   "n": 43,
+   "east": 76.92,
+   "polar": 23.08,
+   "retro": 0.0,
+   "n_inc": 26,
+   "gto": 1
+  },
+  {
+   "port": "Kapustin Yar",
+   "lat": 48.5,
+   "v": 308,
+   "n": 101,
+   "east": 100.0,
+   "polar": 0.0,
+   "retro": 0.0,
+   "n_inc": 85,
+   "gto": 0
+  }
+ ],
+ "objects": {
+  "n": 69999,
+  "fates": {
+   "Re-entered": 33715,
+   "Still in orbit": 33397,
+   "Landed or recovered": 1076,
+   "Docked, berthed or joined another object": 660,
+   "Left Earth orbit": 506,
+   "Other (exploded, collided, retired or catalogue entries)": 462,
+   "Deorbited on purpose": 183
+  },
+  "types": {
+   "P": 27852,
+   "R": 6291,
+   "C": 7922,
+   "D": 27908,
+   "Z": 26
+  },
+  "in_orbit": 33397,
+  "reentered": 33715,
+  "deorbited": 183,
+  "landed": 1076,
+  "came_down": 34974,
+  "came_down_pct": 49.96,
+  "in_orbit_pct": 47.71,
+  "deorbited_pct_of_down": 0.52,
+  "in_orbit_types": {
+   "P": 18799,
+   "R": 2013,
+   "C": 1341,
+   "D": 11244
+  },
+  "in_orbit_starlink": 10644,
+  "in_orbit_debris_pct": 33.67,
+  "down_peak_year": 2022,
+  "down_peak_n": 2470,
+  "down_2025": 1912,
+  "down_2025_starlink": 679,
+  "down_2025_starlink_pct": 35.51,
+  "down_2026": 1100,
+  "down_2019": 314,
+  "down_since2020": 10657,
+  "down_since2020_pct": 30.47,
+  "down_starlink_total": 2156,
+  "starlink_total": 12800,
+  "down_no_date": 0,
+  "down_payload": 7699,
+  "down_stage": 4094,
+  "down_debris": 16659,
+  "down_comp": 6517,
+  "mass_known_down_t": 25696
+ },
+ "down_years": [
+  {
+   "y": 1957,
+   "n": 1,
+   "P": 0,
+   "R": 1,
+   "C": 0,
+   "D": 0,
+   "starlink": 0
+  },
+  {
+   "y": 1958,
+   "n": 6,
+   "P": 5,
+   "R": 1,
+   "C": 0,
+   "D": 0,
+   "starlink": 0
+  },
+  {
+   "y": 1959,
+   "n": 7,
+   "P": 7,
+   "R": 0,
+   "C": 0,
+   "D": 0,
+   "starlink": 0
+  },
+  {
+   "y": 1960,
+   "n": 19,
+   "P": 10,
+   "R": 3,
+   "C": 6,
+   "D": 0,
+   "starlink": 0
+  },
+  {
+   "y": 1961,
+   "n": 58,
+   "P": 24,
+   "R": 11,
+   "C": 15,
+   "D": 8,
+   "starlink": 0
+  },
+  {
+   "y": 1962,
+   "n": 140,
+   "P": 52,
+   "R": 21,
+   "C": 27,
+   "D": 40,
+   "starlink": 0
+  },
+  {
+   "y": 1963,
+   "n": 90,
+   "P": 44,
+   "R": 21,
+   "C": 7,
+   "D": 18,
+   "starlink": 0
+  },
+  {
+   "y": 1964,
+   "n": 222,
+   "P": 54,
+   "R": 30,
+   "C": 11,
+   "D": 127,
+   "starlink": 0
+  },
+  {
+   "y": 1965,
+   "n": 401,
+   "P": 66,
+   "R": 50,
+   "C": 30,
+   "D": 255,
+   "starlink": 0
+  },
+  {
+   "y": 1966,
+   "n": 499,
+   "P": 81,
+   "R": 62,
+   "C": 63,
+   "D": 293,
+   "starlink": 0
+  },
+  {
+   "y": 1967,
+   "n": 324,
+   "P": 84,
+   "R": 72,
+   "C": 65,
+   "D": 103,
+   "starlink": 0
+  },
+  {
+   "y": 1968,
+   "n": 297,
+   "P": 95,
+   "R": 63,
+   "C": 42,
+   "D": 97,
+   "starlink": 0
+  },
+  {
+   "y": 1969,
+   "n": 323,
+   "P": 85,
+   "R": 69,
+   "C": 44,
+   "D": 125,
+   "starlink": 0
+  },
+  {
+   "y": 1970,
+   "n": 287,
+   "P": 82,
+   "R": 68,
+   "C": 48,
+   "D": 89,
+   "starlink": 0
+  },
+  {
+   "y": 1971,
+   "n": 319,
+   "P": 70,
+   "R": 57,
+   "C": 123,
+   "D": 69,
+   "starlink": 0
+  },
+  {
+   "y": 1972,
+   "n": 357,
+   "P": 62,
+   "R": 65,
+   "C": 113,
+   "D": 117,
+   "starlink": 0
+  },
+  {
+   "y": 1973,
+   "n": 541,
+   "P": 64,
+   "R": 75,
+   "C": 142,
+   "D": 260,
+   "starlink": 0
+  },
+  {
+   "y": 1974,
+   "n": 357,
+   "P": 63,
+   "R": 76,
+   "C": 156,
+   "D": 62,
+   "starlink": 0
+  },
+  {
+   "y": 1975,
+   "n": 481,
+   "P": 70,
+   "R": 77,
+   "C": 219,
+   "D": 115,
+   "starlink": 0
+  },
+  {
+   "y": 1976,
+   "n": 662,
+   "P": 65,
+   "R": 82,
+   "C": 177,
+   "D": 338,
+   "starlink": 0
+  },
+  {
+   "y": 1977,
+   "n": 528,
+   "P": 99,
+   "R": 86,
+   "C": 160,
+   "D": 183,
+   "starlink": 0
+  },
+  {
+   "y": 1978,
+   "n": 517,
+   "P": 119,
+   "R": 90,
+   "C": 156,
+   "D": 152,
+   "starlink": 0
+  },
+  {
+   "y": 1979,
+   "n": 621,
+   "P": 119,
+   "R": 98,
+   "C": 157,
+   "D": 247,
+   "starlink": 0
+  },
+  {
+   "y": 1980,
+   "n": 574,
+   "P": 106,
+   "R": 108,
+   "C": 177,
+   "D": 183,
+   "starlink": 0
+  },
+  {
+   "y": 1981,
+   "n": 623,
+   "P": 97,
+   "R": 100,
+   "C": 195,
+   "D": 231,
+   "starlink": 0
+  },
+  {
+   "y": 1982,
+   "n": 565,
+   "P": 91,
+   "R": 93,
+   "C": 189,
+   "D": 192,
+   "starlink": 0
+  },
+  {
+   "y": 1983,
+   "n": 496,
+   "P": 133,
+   "R": 92,
+   "C": 179,
+   "D": 92,
+   "starlink": 0
+  },
+  {
+   "y": 1984,
+   "n": 567,
+   "P": 101,
+   "R": 90,
+   "C": 291,
+   "D": 85,
+   "starlink": 0
+  },
+  {
+   "y": 1985,
+   "n": 446,
+   "P": 71,
+   "R": 77,
+   "C": 243,
+   "D": 55,
+   "starlink": 0
+  },
+  {
+   "y": 1986,
+   "n": 547,
+   "P": 59,
+   "R": 74,
+   "C": 254,
+   "D": 160,
+   "starlink": 0
+  },
+  {
+   "y": 1987,
+   "n": 620,
+   "P": 73,
+   "R": 78,
+   "C": 214,
+   "D": 255,
+   "starlink": 0
+  },
+  {
+   "y": 1988,
+   "n": 935,
+   "P": 104,
+   "R": 96,
+   "C": 289,
+   "D": 446,
+   "starlink": 0
+  },
+  {
+   "y": 1989,
+   "n": 1060,
+   "P": 121,
+   "R": 103,
+   "C": 209,
+   "D": 627,
+   "starlink": 0
+  },
+  {
+   "y": 1990,
+   "n": 557,
+   "P": 110,
+   "R": 94,
+   "C": 142,
+   "D": 211,
+   "starlink": 0
+  },
+  {
+   "y": 1991,
+   "n": 553,
+   "P": 91,
+   "R": 69,
+   "C": 169,
+   "D": 224,
+   "starlink": 0
+  },
+  {
+   "y": 1992,
+   "n": 348,
+   "P": 77,
+   "R": 65,
+   "C": 111,
+   "D": 95,
+   "starlink": 0
+  },
+  {
+   "y": 1993,
+   "n": 218,
+   "P": 37,
+   "R": 47,
+   "C": 86,
+   "D": 48,
+   "starlink": 0
+  },
+  {
+   "y": 1994,
+   "n": 175,
+   "P": 23,
+   "R": 51,
+   "C": 70,
+   "D": 31,
+   "starlink": 0
+  },
+  {
+   "y": 1995,
+   "n": 168,
+   "P": 27,
+   "R": 41,
+   "C": 59,
+   "D": 41,
+   "starlink": 0
+  },
+  {
+   "y": 1996,
+   "n": 235,
+   "P": 18,
+   "R": 41,
+   "C": 63,
+   "D": 113,
+   "starlink": 0
+  },
+  {
+   "y": 1997,
+   "n": 404,
+   "P": 16,
+   "R": 46,
+   "C": 91,
+   "D": 249,
+   "starlink": 0
+  },
+  {
+   "y": 1998,
+   "n": 384,
+   "P": 21,
+   "R": 63,
+   "C": 100,
+   "D": 199,
+   "starlink": 0
+  },
+  {
+   "y": 1999,
+   "n": 431,
+   "P": 21,
+   "R": 75,
+   "C": 77,
+   "D": 258,
+   "starlink": 0
+  },
+  {
+   "y": 2000,
+   "n": 399,
+   "P": 39,
+   "R": 79,
+   "C": 63,
+   "D": 218,
+   "starlink": 0
+  },
+  {
+   "y": 2001,
+   "n": 387,
+   "P": 26,
+   "R": 62,
+   "C": 70,
+   "D": 229,
+   "starlink": 0
+  },
+  {
+   "y": 2002,
+   "n": 505,
+   "P": 34,
+   "R": 62,
+   "C": 57,
+   "D": 352,
+   "starlink": 0
+  },
+  {
+   "y": 2003,
+   "n": 295,
+   "P": 18,
+   "R": 41,
+   "C": 30,
+   "D": 206,
+   "starlink": 0
+  },
+  {
+   "y": 2004,
+   "n": 191,
+   "P": 10,
+   "R": 47,
+   "C": 39,
+   "D": 95,
+   "starlink": 0
+  },
+  {
+   "y": 2005,
+   "n": 210,
+   "P": 16,
+   "R": 37,
+   "C": 42,
+   "D": 115,
+   "starlink": 0
+  },
+  {
+   "y": 2006,
+   "n": 267,
+   "P": 10,
+   "R": 32,
+   "C": 36,
+   "D": 189,
+   "starlink": 0
+  },
+  {
+   "y": 2007,
+   "n": 193,
+   "P": 14,
+   "R": 35,
+   "C": 34,
+   "D": 110,
+   "starlink": 0
+  },
+  {
+   "y": 2008,
+   "n": 735,
+   "P": 9,
+   "R": 33,
+   "C": 30,
+   "D": 663,
+   "starlink": 0
+  },
+  {
+   "y": 2009,
+   "n": 293,
+   "P": 9,
+   "R": 36,
+   "C": 24,
+   "D": 224,
+   "starlink": 0
+  },
+  {
+   "y": 2010,
+   "n": 375,
+   "P": 24,
+   "R": 28,
+   "C": 31,
+   "D": 292,
+   "starlink": 0
+  },
+  {
+   "y": 2011,
+   "n": 489,
+   "P": 25,
+   "R": 43,
+   "C": 42,
+   "D": 379,
+   "starlink": 0
+  },
+  {
+   "y": 2012,
+   "n": 460,
+   "P": 18,
+   "R": 43,
+   "C": 46,
+   "D": 353,
+   "starlink": 0
+  },
+  {
+   "y": 2013,
+   "n": 441,
+   "P": 24,
+   "R": 40,
+   "C": 37,
+   "D": 340,
+   "starlink": 0
+  },
+  {
+   "y": 2014,
+   "n": 668,
+   "P": 78,
+   "R": 47,
+   "C": 47,
+   "D": 496,
+   "starlink": 0
+  },
+  {
+   "y": 2015,
+   "n": 470,
+   "P": 65,
+   "R": 38,
+   "C": 39,
+   "D": 328,
+   "starlink": 0
+  },
+  {
+   "y": 2016,
+   "n": 255,
+   "P": 55,
+   "R": 39,
+   "C": 41,
+   "D": 120,
+   "starlink": 0
+  },
+  {
+   "y": 2017,
+   "n": 182,
+   "P": 34,
+   "R": 37,
+   "C": 28,
+   "D": 83,
+   "starlink": 0
+  },
+  {
+   "y": 2018,
+   "n": 225,
+   "P": 91,
+   "R": 28,
+   "C": 34,
+   "D": 72,
+   "starlink": 0
+  },
+  {
+   "y": 2019,
+   "n": 314,
+   "P": 67,
+   "R": 56,
+   "C": 24,
+   "D": 167,
+   "starlink": 0
+  },
+  {
+   "y": 2020,
+   "n": 412,
+   "P": 100,
+   "R": 45,
+   "C": 83,
+   "D": 183,
+   "starlink": 117
+  },
+  {
+   "y": 2021,
+   "n": 516,
+   "P": 151,
+   "R": 57,
+   "C": 83,
+   "D": 225,
+   "starlink": 147
+  },
+  {
+   "y": 2022,
+   "n": 2470,
+   "P": 348,
+   "R": 67,
+   "C": 230,
+   "D": 1825,
+   "starlink": 244
+  },
+  {
+   "y": 2023,
+   "n": 2047,
+   "P": 653,
+   "R": 87,
+   "C": 199,
+   "D": 1108,
+   "starlink": 187
+  },
+  {
+   "y": 2024,
+   "n": 2200,
+   "P": 1087,
+   "R": 118,
+   "C": 89,
+   "D": 906,
+   "starlink": 334
+  },
+  {
+   "y": 2025,
+   "n": 1912,
+   "P": 1128,
+   "R": 106,
+   "C": 41,
+   "D": 636,
+   "starlink": 679
+  },
+  {
+   "y": 2026,
+   "n": 1100,
+   "P": 749,
+   "R": 70,
+   "C": 29,
+   "D": 252,
+   "starlink": 448
+  }
+ ],
+ "asat": {
+  "test_year": 2021,
+  "first_down_2021": 47,
+  "n": 1799,
+  "y2022": 1379,
+  "y2022_pct": 55.83
+ },
+ "heaviest_down": [
+  {
+   "name": "Columbia (STS-109)",
+   "t": 104.4,
+   "y": 2002,
+   "fate": "Landed or recovered",
+   "dest": "KSC RW33"
+  },
+  {
+   "name": "Columbia (STS-87)",
+   "t": 103.7,
+   "y": 1997,
+   "fate": "Landed or recovered",
+   "dest": "KSC RW33"
+  },
+  {
+   "name": "Columbia (STS-32)",
+   "t": 102.5,
+   "y": 1990,
+   "fate": "Landed or recovered",
+   "dest": "EAFB RW22"
+  },
+  {
+   "name": "Atlantis (STS-125)",
+   "t": 102.3,
+   "y": 2009,
+   "fate": "Landed or recovered",
+   "dest": "EAFB RW22"
+  },
+  {
+   "name": "Columbia (STS-75)",
+   "t": 102.0,
+   "y": 1996,
+   "fate": "Landed or recovered",
+   "dest": "KSC RW33"
+  },
+  {
+   "name": "Endeavour (STS-72)",
+   "t": 101.8,
+   "y": 1996,
+   "fate": "Landed or recovered",
+   "dest": "KSC RW15"
+  },
+  {
+   "name": "Columbia (STS-52)",
+   "t": 100.0,
+   "y": 1992,
+   "fate": "Landed or recovered",
+   "dest": "KSC RW33"
+  },
+  {
+   "name": "Discovery (STS-103)",
+   "t": 99.8,
+   "y": 1999,
+   "fate": "Landed or recovered",
+   "dest": "KSC RW33"
+  },
+  {
+   "name": "Columbia (STS-65)",
+   "t": 99.8,
+   "y": 1994,
+   "fate": "Landed or recovered",
+   "dest": "KSC RW33"
+  },
+  {
+   "name": "Endeavour (STS-61)",
+   "t": 99.8,
+   "y": 1993,
+   "fate": "Landed or recovered",
+   "dest": "KSC RW33"
+  },
+  {
+   "name": "Columbia (STS-80)",
+   "t": 99.7,
+   "y": 1996,
+   "fate": "Landed or recovered",
+   "dest": "KSC RW33"
+  },
+  {
+   "name": "Endeavour (STS-57)",
+   "t": 99.5,
+   "y": 1993,
+   "fate": "Landed or recovered",
+   "dest": "KSC RW33"
+  }
+ ],
+ "located": {
+  "n": 2136,
+  "pct_of_down": 6.11,
+  "since2020": 1800,
+  "since2020_pct": 84.27,
+  "approx": 142,
+  "reentered": 2033,
+  "deorbited": 34,
+  "landed": 69,
+  "unc_sea_pct": 75.55,
+  "unc_land": 497,
+  "unc_near_nemo": 104,
+  "unc_near_nemo_pct": 5.12,
+  "circle_share_pct": 3.8,
+  "nemo_r_km": 2500,
+  "ctl_near_nemo": 8,
+  "ctl_south_pacific": 13,
+  "unc_starlink": 1155,
+  "unc_abs_lat_median": 30.0,
+  "unc_tropics_pct": 37.48,
+  "earth_tropics_pct": 39.8,
+  "ocean_pct_earth": 71,
+  "nemo_ratio": 1.35,
+  "text_only": 277,
+  "por": 21
+ },
+ "stations": [
+  {
+   "name": "Salyut 1",
+   "launched": 1971,
+   "down": "1971 Oct 11",
+   "down_y": 1971,
+   "status": "D",
+   "fate": "Deorbited on purpose",
+   "dest": "POR",
+   "mass_t": 18.2,
+   "lat": null,
+   "lon": null
+  },
+  {
+   "name": "Salyut 2",
+   "launched": 1973,
+   "down": "1973 May 28",
+   "down_y": 1973,
+   "status": "R",
+   "fate": "Re-entered",
+   "dest": "165E 5S?",
+   "mass_t": 18.7,
+   "lat": -5.0,
+   "lon": 165.0
+  },
+  {
+   "name": "Salyut 3",
+   "launched": 1974,
+   "down": "1975 Jan 24",
+   "down_y": 1975,
+   "status": "D",
+   "fate": "Deorbited on purpose",
+   "dest": "POR",
+   "mass_t": 18.9,
+   "lat": null,
+   "lon": null
+  },
+  {
+   "name": "Salyut 4",
+   "launched": 1974,
+   "down": "1977 Feb  2",
+   "down_y": 1977,
+   "status": "D",
+   "fate": "Deorbited on purpose",
+   "dest": "POR",
+   "mass_t": 18.5,
+   "lat": null,
+   "lon": null
+  },
+  {
+   "name": "Salyut 5",
+   "launched": 1976,
+   "down": "1977 Aug  8",
+   "down_y": 1977,
+   "status": "D",
+   "fate": "Deorbited on purpose",
+   "dest": "POR",
+   "mass_t": 18.9,
+   "lat": null,
+   "lon": null
+  },
+  {
+   "name": "Salyut 6",
+   "launched": 1977,
+   "down": "1982 Jul 29",
+   "down_y": 1982,
+   "status": "D",
+   "fate": "Deorbited on purpose",
+   "dest": "POR",
+   "mass_t": 19.8,
+   "lat": null,
+   "lon": null
+  },
+  {
+   "name": "Salyut 7",
+   "launched": 1982,
+   "down": "1991 Feb  7",
+   "down_y": 1991,
+   "status": "R",
+   "fate": "Re-entered",
+   "dest": "Argentina",
+   "mass_t": 19.8,
+   "lat": null,
+   "lon": null
+  },
+  {
+   "name": "Skylab",
+   "launched": 1973,
+   "down": "1979 Jul 11",
+   "down_y": 1979,
+   "status": "R",
+   "fate": "Re-entered",
+   "dest": "31S 124E",
+   "mass_t": 34.0,
+   "lat": -31.0,
+   "lon": 124.0
+  },
+  {
+   "name": "Mir",
+   "launched": 1986,
+   "down": "2001 Mar 23",
+   "down_y": 2001,
+   "status": "D",
+   "fate": "Deorbited on purpose",
+   "dest": "26.22S 175.88W",
+   "mass_t": 20.1,
+   "lat": -26.22,
+   "lon": -175.88
+  },
+  {
+   "name": "Tiangong 1",
+   "launched": 2011,
+   "down": "2018 Apr  2",
+   "down_y": 2018,
+   "status": "R",
+   "fate": "Re-entered",
+   "dest": "164.3W 13.6S",
+   "mass_t": 8.5,
+   "lat": -13.6,
+   "lon": -164.3
+  },
+  {
+   "name": "Tiangong 2",
+   "launched": 2016,
+   "down": "2019 Jul 19",
+   "down_y": 2019,
+   "status": "D",
+   "fate": "Deorbited on purpose",
+   "dest": "140W 31S",
+   "mass_t": 8.6,
+   "lat": -31.0,
+   "lon": -140.0
+  }
+ ],
+ "cargo": {
+  "Progress": 183,
+  "ATV": 5,
+  "HTV": 10,
+  "progress_first": 1978,
+  "atv_first": 2008,
+  "atv_last": 2014,
+  "htv_first": 2009,
+  "progress_fates": {
+   "DK": 182,
+   "R": 1
+  }
+ },
+ "wiki": {
+  "nemo_lat": 48.8767,
+  "nemo_lon": 123.3933,
+  "nemo_km": "2,688",
+  "found_by": "Hrvoje Lukatela",
+  "found_year": 1992,
+  "iss_year": 2031,
+  "n_disposed": "more than 260",
+  "years": "1971 to 2016",
+  "russian": "nearly 200",
+  "islands_km": "2,600",
+  "revid_nemo": 1381723518,
+  "revid_cem": 1380647807,
+  "revid_port": 1381738622,
+  "revid_list": 1373883742
+ },
+ "meta": {
+  "page": "https://maps.tristanhotham.com/rocket-launches/",
+  "repo": "https://github.com/Tristan-Hotham/rocket-launches",
+  "doi": "10.5281/zenodo.23857612",
+  "blog": "https://blog.tristanhotham.com/2026/10/31/rocket-launches/",
+  "slug": "rocket-launches",
+  "gcat": "https://planet4589.org/space/gcat",
+  "nemo": [
+   -48.8767,
+   -123.3933
+  ]
+ }
+}
